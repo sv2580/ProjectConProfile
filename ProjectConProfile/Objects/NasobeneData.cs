@@ -6,20 +6,22 @@ using System.Threading.Tasks;
 
 namespace ProjectConProfile.Objects
 {
-    internal class NasobeneData 
+    public class NasobeneData 
     {
         public double _faktor { get; set; }
         public List<double> _nasobeneData { get; set; }
-        public NacitaneData _povodneData { get; set; }
 
-        public NasobeneData(double faktor, NacitaneData nacitaneData)
+        public NasobeneData(double faktor)
         {
             this._faktor = faktor;
-            this._povodneData = nacitaneData;
             this._nasobeneData = new List<double>();
-            for (int i = 0; i < _povodneData._data.Count; i++)
+        }
+
+        public void nasobData(NacitaneData nacitaneData)
+        {
+            for (int i = 0; i < nacitaneData._data.Count; i++)
             {
-                _nasobeneData.Add(_povodneData._data[i] * faktor);
+                _nasobeneData.Add(nacitaneData._data[i] * _faktor);
             }
         }
 

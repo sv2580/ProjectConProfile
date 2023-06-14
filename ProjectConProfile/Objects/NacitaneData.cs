@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectConProfile.Objects
 {
-    internal class NacitaneData
+    public class NacitaneData
     {
         public int _spektrum { get; set; }
         public List<double> _data { get; set; }

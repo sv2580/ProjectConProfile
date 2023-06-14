@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectConProfile.Objects
 {
-    internal class Projekt
+    public class Projekt
     {
         public List<KoncentracnyProfil> _profily { get; set; }
 

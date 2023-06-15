@@ -9,9 +9,12 @@ namespace ProjectConProfile.Objects
     public class Projekt
     {
         public List<KoncentracnyProfil> _profily { get; set; }
+        public string _nazovProjektu { get; set; }
 
-        public Projekt () {
+        public Projekt (string nazov = null)
+        {
             _profily = new List<KoncentracnyProfil>();
+            _nazovProjektu = nazov;
         }
     }
 }

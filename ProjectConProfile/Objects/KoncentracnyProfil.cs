@@ -12,12 +12,15 @@ namespace ProjectConProfile.Objects
         public List<NasobeneData> _nasobeneData { get; set; }
         public List<double> _excitacia { get; set; }
         public List<double> _profil { get; set; }
+        public string _nazovPriecinku { get; set; }
+
         //TO-DO statistiky
-        public KoncentracnyProfil(List<NacitaneData> nacitaneData, List<double> excitacia)
+        public KoncentracnyProfil(List<NacitaneData> nacitaneData, List<double> excitacia, string nazovPriecinku)
         {
             _nacitaneData = nacitaneData;
             _excitacia = excitacia;
-            _profil = new List<double>();       
+            _profil = new List<double>();
+            _nazovPriecinku = nazovPriecinku;
         }
 
         public void vytvoritProfil()

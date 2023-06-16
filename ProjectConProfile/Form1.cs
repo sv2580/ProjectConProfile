@@ -1,4 +1,6 @@
-﻿using ProjectConProfile.Objects;
+﻿using Newtonsoft.Json;
+using ProjectConProfile.Forms;
+using ProjectConProfile.Objects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,14 +19,18 @@ namespace ProjectConProfile
     public partial class Form1 : Form
     {
         public Projekt _projekt { get; set; }
+        private Profil _profilForm;
+
         public Form1()
         {
-            _projekt = new Projekt();
-            InitializeComponent();
+            InitializeComponent();          
         }
 
+     
         private void buttonNacitatData_Click(object sender, EventArgs e)
         {
+            _projekt = new Projekt();
+
             FolderBrowserDialog dialog = new FolderBrowserDialog();
 
             if (dialog.ShowDialog() == DialogResult.OK)
@@ -104,5 +110,65 @@ namespace ProjectConProfile
         {
 
         }
+
+        //private void buttonUlozitProjekt_Click(object sender, EventArgs e)
+        //{
+        //    var serializedProject = JsonConvert.SerializeObject(_projekt);
+
+        //    using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+        //    {
+        //        saveFileDialog.Filter = "CPRJ files (*.cprj)|*.cprj";
+        //        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+        //        {
+        //            File.WriteAllText(saveFileDialog.FileName, serializedProject);
+        //            MessageBox.Show("Projekt uložený");
+        //        }
+        //    }
+        //}
+
+        private void buttonNacitatProjekt_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "CPRJ files (*.cprj)|*.cprj";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string projectData = File.ReadAllText(openFileDialog.FileName);
+                    _projekt = JsonConvert.DeserializeObject<Projekt>(projectData);
+                    MessageBox.Show($"Projekt načítaný");
+                }
+            }
+
+            otvorProfilForm();
+        }
+
+        private void otvorProfilForm()
+        {
+            if (_profilForm == null)
+            {
+                _profilForm = new Profil(_projekt,0);
+                _profilForm.TopLevel = false;
+                panel.Controls.Add(_profilForm);
+                _profilForm.ControlBox = false;
+                _profilForm.MinimumSize = _profilForm.MaximumSize = _profilForm.Size;
+                _profilForm.TopLevel = false;
+                _profilForm.FormBorderStyle = FormBorderStyle.None;
+                _profilForm.Dock = DockStyle.Fill;
+                this.panel.Controls.Add(_profilForm);
+                this.panel.Tag = _profilForm;
+                _profilForm.BringToFront();
+                _profilForm.Show();
+
+                _profilForm.LocationChanged += (sender, e) => {
+                    _profilForm.Location = new Point(0, 0);
+                };
+            }
+        }
+
+        private void panel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
+
 }

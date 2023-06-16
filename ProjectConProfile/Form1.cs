@@ -20,9 +20,12 @@ namespace ProjectConProfile
     {
         public Projekt _projekt { get; set; }
         private Profil _profilForm;
+        public KoncentracnyProfil _zvolenyProfil { get; set; } //dat do druheho formu aj s treeview aj vsetkym
 
         public Form1()
         {
+            _zvolenyProfil = null;
+
             InitializeComponent();          
         }
 
@@ -30,12 +33,25 @@ namespace ProjectConProfile
         private void buttonNacitatData_Click(object sender, EventArgs e)
         {
             _projekt = new Projekt();
+            _zvolenyProfil = nacitajData(_projekt);
+            if(_zvolenyProfil != null)
+               otvorProfilForm();
+        }
 
+        public  KoncentracnyProfil nacitajData(Projekt projekt)
+        {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 string vybranyPriecinok = dialog.SelectedPath;
+
+                if (projekt._profily.Exists(p => p._nazovPriecinku == vybranyPriecinok))
+                {
+                    MessageBox.Show($"Priečinok je už v tomto projekte otvorený: {Path.GetFileName(vybranyPriecinok)}");
+                    return null;
+                }
+
                 string[] vsetkySubory = Directory.GetFiles(vybranyPriecinok, "*.sp");
 
                 bool nacitataneExcitacie = false;
@@ -81,50 +97,33 @@ namespace ProjectConProfile
 
                                 if (startReading == false && line == "#DATA") //zacnem nacitavat data po tomto slove
                                     startReading = true;
-                                if(excitacie.Count >= 600)
+                                if (excitacie.Count >= 600)
                                 {
                                     ;
                                 }
 
                             }
                             nacitataneExcitacie = true;
-                            zoznamNacitanychDat.Add(new NacitaneData(spektrum, nacitaneData));
+                            zoznamNacitanychDat.Add(new NacitaneData(spektrum, nacitaneData, Path.GetFileName(subor)));
 
                         }
-
 
                     }
                     catch (Exception ex)
                     {
-                        // Handle any exceptions that may occur during the file reading process
-                        Console.WriteLine("An error occurred: " + ex.Message);
+                        MessageBox.Show("Pri načítaní súboru došlo k chybe");
                     }
                 }
 
-                _projekt._profily.Add(new KoncentracnyProfil(zoznamNacitanychDat, excitacie));
-
+                zoznamNacitanychDat = zoznamNacitanychDat.OrderBy(data => data._spektrum).ToList();
+                KoncentracnyProfil profil = new KoncentracnyProfil(zoznamNacitanychDat, excitacie, vybranyPriecinok);
+                projekt._profily.Add(profil);
+                return profil;
             }
+            return null;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        //private void buttonUlozitProjekt_Click(object sender, EventArgs e)
-        //{
-        //    var serializedProject = JsonConvert.SerializeObject(_projekt);
-
-        //    using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-        //    {
-        //        saveFileDialog.Filter = "CPRJ files (*.cprj)|*.cprj";
-        //        if (saveFileDialog.ShowDialog() == DialogResult.OK)
-        //        {
-        //            File.WriteAllText(saveFileDialog.FileName, serializedProject);
-        //            MessageBox.Show("Projekt uložený");
-        //        }
-        //    }
-        //}
 
         private void buttonNacitatProjekt_Click(object sender, EventArgs e)
         {
@@ -135,6 +134,7 @@ namespace ProjectConProfile
                 {
                     string projectData = File.ReadAllText(openFileDialog.FileName);
                     _projekt = JsonConvert.DeserializeObject<Projekt>(projectData);
+                    _projekt._nazovProjektu = Path.GetFileName(openFileDialog.FileName);
                     MessageBox.Show($"Projekt načítaný");
                 }
             }
@@ -151,14 +151,14 @@ namespace ProjectConProfile
                 panel.Controls.Add(_profilForm);
                 _profilForm.ControlBox = false;
                 _profilForm.MinimumSize = _profilForm.MaximumSize = _profilForm.Size;
-                _profilForm.TopLevel = false;
                 _profilForm.FormBorderStyle = FormBorderStyle.None;
                 _profilForm.Dock = DockStyle.Fill;
                 this.panel.Controls.Add(_profilForm);
                 this.panel.Tag = _profilForm;
                 _profilForm.BringToFront();
                 _profilForm.Show();
-
+                buttonSpat.BringToFront();
+                buttonSpat.Visible = true;
                 _profilForm.LocationChanged += (sender, e) => {
                     _profilForm.Location = new Point(0, 0);
                 };
@@ -168,6 +168,27 @@ namespace ProjectConProfile
         private void panel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonUlozitProjekt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSpat_Click(object sender, EventArgs e)
+        {
+            if (_profilForm != null)
+            {
+                _profilForm.SendToBack();
+                panel.Controls.Remove(_profilForm);
+                _profilForm = null;
+                buttonSpat.Visible = false;
+            }
         }
     }
 

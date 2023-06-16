@@ -1,4 +1,6 @@
-﻿namespace ProjectConProfile
+﻿using System;
+
+namespace ProjectConProfile
 {
     partial class Form1
     {
@@ -29,15 +31,15 @@
         private void InitializeComponent()
         {
             this.buttonNacitatData = new System.Windows.Forms.Button();
-            this.buttonUlozitProjekt = new System.Windows.Forms.Button();
             this.buttonNacitatProjekt = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
+            this.buttonSpat = new System.Windows.Forms.Button();
             this.panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonNacitatData
             // 
-            this.buttonNacitatData.Location = new System.Drawing.Point(269, 232);
+            this.buttonNacitatData.Location = new System.Drawing.Point(434, 292);
             this.buttonNacitatData.Name = "buttonNacitatData";
             this.buttonNacitatData.Size = new System.Drawing.Size(298, 126);
             this.buttonNacitatData.TabIndex = 0;
@@ -45,19 +47,9 @@
             this.buttonNacitatData.UseVisualStyleBackColor = true;
             this.buttonNacitatData.Click += new System.EventHandler(this.buttonNacitatData_Click);
             // 
-            // buttonUlozitProjekt
-            // 
-            //this.buttonUlozitProjekt.Location = new System.Drawing.Point(12, 71);
-            //this.buttonUlozitProjekt.Name = "buttonUlozitProjekt";
-            //this.buttonUlozitProjekt.Size = new System.Drawing.Size(137, 43);
-            //this.buttonUlozitProjekt.TabIndex = 1;
-            //this.buttonUlozitProjekt.Text = "Uložiť projekt";
-            //this.buttonUlozitProjekt.UseVisualStyleBackColor = true;
-            //this.buttonUlozitProjekt.Click += new System.EventHandler(this.buttonUlozitProjekt_Click);
-            // 
             // buttonNacitatProjekt
             // 
-            this.buttonNacitatProjekt.Location = new System.Drawing.Point(643, 232);
+            this.buttonNacitatProjekt.Location = new System.Drawing.Point(772, 292);
             this.buttonNacitatProjekt.Name = "buttonNacitatProjekt";
             this.buttonNacitatProjekt.Size = new System.Drawing.Size(305, 126);
             this.buttonNacitatProjekt.TabIndex = 2;
@@ -65,23 +57,34 @@
             this.buttonNacitatProjekt.UseVisualStyleBackColor = true;
             this.buttonNacitatProjekt.Click += new System.EventHandler(this.buttonNacitatProjekt_Click);
             // 
-            // panel1
+            // panel
             // 
+            this.panel.Controls.Add(this.buttonSpat);
             this.panel.Controls.Add(this.buttonNacitatProjekt);
             this.panel.Controls.Add(this.buttonNacitatData);
             this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 0);
-            this.panel.Name = "panel1";
-            this.panel.Size = new System.Drawing.Size(1249, 582);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(1648, 796);
             this.panel.TabIndex = 3;
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
+            // 
+            // buttonSpat
+            // 
+            this.buttonSpat.Location = new System.Drawing.Point(36, 41);
+            this.buttonSpat.Name = "buttonSpat";
+            this.buttonSpat.Size = new System.Drawing.Size(44, 23);
+            this.buttonSpat.TabIndex = 3;
+            this.buttonSpat.Text = "<-";
+            this.buttonSpat.UseVisualStyleBackColor = true;
+            this.buttonSpat.Visible = false;
+            this.buttonSpat.Click += new System.EventHandler(this.buttonSpat_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1249, 582);
-            this.Controls.Add(this.buttonUlozitProjekt);
+            this.ClientSize = new System.Drawing.Size(1648, 796);
             this.Controls.Add(this.panel);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -91,12 +94,14 @@
 
         }
 
+
+
         #endregion
 
         private System.Windows.Forms.Button buttonNacitatData;
-        private System.Windows.Forms.Button buttonUlozitProjekt;
         private System.Windows.Forms.Button buttonNacitatProjekt;
         private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.Button buttonSpat;
     }
 }
 

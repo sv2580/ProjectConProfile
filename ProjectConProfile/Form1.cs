@@ -16,16 +16,15 @@ using System.Windows.Forms;
 
 namespace ProjectConProfile
 {
-    public partial class Form1 : Form
+    public partial class Aplikacia : Form
     {
         public Projekt _projekt { get; set; }
         private Profil _profilForm;
         public KoncentracnyProfil _zvolenyProfil { get; set; } //dat do druheho formu aj s treeview aj vsetkym
 
-        public Form1()
+        public Aplikacia()
         {
             _zvolenyProfil = null;
-
             InitializeComponent();          
         }
 
@@ -97,10 +96,6 @@ namespace ProjectConProfile
 
                                 if (startReading == false && line == "#DATA") //zacnem nacitavat data po tomto slove
                                     startReading = true;
-                                if (excitacie.Count >= 600)
-                                {
-                                    ;
-                                }
 
                             }
                             nacitataneExcitacie = true;
@@ -111,7 +106,7 @@ namespace ProjectConProfile
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Pri načítaní súboru došlo k chybe");
+                        MessageBox.Show($"Pri načítaní súboru došlo k chybe: {ex}");
                     }
                 }
 
@@ -135,7 +130,6 @@ namespace ProjectConProfile
                     string projectData = File.ReadAllText(openFileDialog.FileName);
                     _projekt = JsonConvert.DeserializeObject<Projekt>(projectData);
                     _projekt._nazovProjektu = Path.GetFileName(openFileDialog.FileName);
-                    MessageBox.Show($"Projekt načítaný");
                 }
             }
 

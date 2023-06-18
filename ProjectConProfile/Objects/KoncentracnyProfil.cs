@@ -20,6 +20,7 @@ namespace ProjectConProfile.Objects
             _nacitaneData = nacitaneData;
             _excitacia = excitacia;
             _profil = new List<double>();
+            _nasobeneData = new List<NasobeneData>();
             _nazovPriecinku = nazovPriecinku;
         }
 

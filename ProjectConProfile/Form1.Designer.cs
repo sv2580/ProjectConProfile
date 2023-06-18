@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace ProjectConProfile
 {
-    partial class Form1
+    partial class Aplikacia
     {
         /// <summary>
         /// Required designer variable.
@@ -59,19 +60,21 @@ namespace ProjectConProfile
             // 
             // panel
             // 
+            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel.Controls.Add(this.buttonSpat);
             this.panel.Controls.Add(this.buttonNacitatProjekt);
             this.panel.Controls.Add(this.buttonNacitatData);
-            this.panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(1648, 796);
+            this.panel.Size = new System.Drawing.Size(1557, 984);
             this.panel.TabIndex = 3;
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
             // 
             // buttonSpat
             // 
-            this.buttonSpat.Location = new System.Drawing.Point(36, 41);
+            this.buttonSpat.Location = new System.Drawing.Point(12, 12);
             this.buttonSpat.Name = "buttonSpat";
             this.buttonSpat.Size = new System.Drawing.Size(44, 23);
             this.buttonSpat.TabIndex = 3;
@@ -80,14 +83,16 @@ namespace ProjectConProfile
             this.buttonSpat.Visible = false;
             this.buttonSpat.Click += new System.EventHandler(this.buttonSpat_Click);
             // 
-            // Form1
+            // Aplikacia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1648, 796);
+            this.ClientSize = new System.Drawing.Size(1539, 937);
             this.Controls.Add(this.panel);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.MinimumSize = new System.Drawing.Size(1557, 984);
+            this.Name = "Aplikacia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Aplikácia";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel.ResumeLayout(false);
             this.ResumeLayout(false);

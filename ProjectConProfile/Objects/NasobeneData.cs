@@ -10,6 +10,7 @@ namespace ProjectConProfile.Objects
     {
         public double _faktor { get; set; }
         public List<double> _nasobeneData { get; set; }
+        public string _nazovSuboru { get; set; }
 
         public NasobeneData(double faktor)
         {
@@ -19,6 +20,7 @@ namespace ProjectConProfile.Objects
 
         public void nasobData(NacitaneData nacitaneData)
         {
+            this._nazovSuboru = nacitaneData._nazovSuboru;
             for (int i = 0; i < nacitaneData._data.Count; i++)
             {
                 _nasobeneData.Add(nacitaneData._data[i] * _faktor);

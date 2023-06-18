@@ -78,7 +78,7 @@ namespace ProjectConProfile.Forms
                     series.Points.AddXY(data._excitacia[i], data._profil[i]);
                 }
                 series.IsVisibleInLegend = true;
-                series.LegendText = data._nazovPriecinku;
+                series.LegendText = Path.GetFileName(data._nazovPriecinku);
                 chart1.Series.Add(series);
                 chart1.Series[chart1.Series.Count - 1].ChartType = SeriesChartType.Line;
             }

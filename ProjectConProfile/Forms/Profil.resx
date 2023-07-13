@@ -117,4 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pridatPriecinokButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAQVJREFUOE/Vk80NgkAUhLmoJfB75IR6ohbL0kAgWoYF+NME2gh6xOi8ZGABn+7F
+        i5N8idk3M2R3Xed/FUXRMgiCHFzAncjvzHXdBW12xXE8831/i+ADPD/QwFMmSTJlTBfLzkqBCrynr6Uw
+        7LQg2BNtVjA+FM9M3WYYhitBm4EGZzpnjREGcgFawFYoW9+wxgiD69jYYisEFWuMsFj3DPu2hESkWxNP
+        z1+zxkgWe4afFP58y9nI1GErxKWsWWMkzwnDZmwWLIWN53kJa4bCl0olIHz7Y+eMv0ueEUqPSkgF3kOa
+        phPGdUkpzAVQt09kllvL+pLnJC8AwQrcSCUX8PHM/kCO8wJMjvboddCVHAAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

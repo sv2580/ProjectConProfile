@@ -21,6 +21,7 @@ namespace ProjectConProfile
         public Projekt _projekt { get; set; }
         private Profil _profilForm;
         public KoncentracnyProfil _zvolenyProfil { get; set; } //dat do druheho formu aj s treeview aj vsetkym
+        private bool isFullscreen = false;
 
         public Aplikacia()
         {
@@ -153,9 +154,20 @@ namespace ProjectConProfile
                 _profilForm.Show();
                 buttonSpat.BringToFront();
                 buttonSpat.Visible = true;
+                //label1.SendToBack();
+                label1.Visible = false;
+                this.panel1.Size = new System.Drawing.Size(1707, 40);
+
                 _profilForm.LocationChanged += (sender, e) => {
                     _profilForm.Location = new Point(0, 0);
                 };
+
+                buttonMinimalizuj.BringToFront();
+                buttonMinimalizuj.Visible = true;
+                buttonZrus.BringToFront();
+                buttonZrus.Visible = true;
+                buttonZvacsi.BringToFront();
+                buttonZvacsi.Visible = true;
             }
         }
 
@@ -182,7 +194,48 @@ namespace ProjectConProfile
                 panel.Controls.Remove(_profilForm);
                 _profilForm = null;
                 buttonSpat.Visible = false;
+                panel1.Visible = true;
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+         
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+         
+            
+        }
+
+        private void buttonZrus_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonZvacsi_Click(object sender, EventArgs e)
+        {
+
+            if (isFullscreen)
+            {
+                // Ak je obrazovka v režime na celú obrazovku, vráťte ju do určitej veľkosti
+                this.WindowState = FormWindowState.Normal;
+                this.FormBorderStyle = FormBorderStyle.FixedSingle;
+                isFullscreen = false;
+            }
+            else
+            {
+                // Ak je obrazovka v normálnom režime, zmeňte ju na celú obrazovku
+                this.WindowState = FormWindowState.Maximized;
+                this.FormBorderStyle = FormBorderStyle.None;
+                isFullscreen = true;
+            }
+        }
+
+        private void buttonMinimalizuj_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 

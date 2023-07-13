@@ -31,30 +31,57 @@ namespace ProjectConProfile
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Aplikacia));
             this.buttonNacitatData = new System.Windows.Forms.Button();
             this.buttonNacitatProjekt = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonMinimalizuj = new System.Windows.Forms.Button();
+            this.buttonZvacsi = new System.Windows.Forms.Button();
+            this.buttonZrus = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.buttonSpat = new System.Windows.Forms.Button();
             this.panel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonNacitatData
             // 
-            this.buttonNacitatData.Location = new System.Drawing.Point(434, 292);
+            this.buttonNacitatData.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonNacitatData.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonNacitatData.FlatAppearance.BorderSize = 2;
+            this.buttonNacitatData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNacitatData.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonNacitatData.ForeColor = System.Drawing.Color.Black;
+            this.buttonNacitatData.Image = ((System.Drawing.Image)(resources.GetObject("buttonNacitatData.Image")));
+            this.buttonNacitatData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonNacitatData.Location = new System.Drawing.Point(434, 382);
+            this.buttonNacitatData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonNacitatData.Name = "buttonNacitatData";
-            this.buttonNacitatData.Size = new System.Drawing.Size(298, 126);
+            this.buttonNacitatData.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.buttonNacitatData.Size = new System.Drawing.Size(299, 126);
             this.buttonNacitatData.TabIndex = 0;
-            this.buttonNacitatData.Text = "Načítať dáta";
+            this.buttonNacitatData.Text = "       Načítať dáta";
+            this.buttonNacitatData.UseMnemonic = false;
             this.buttonNacitatData.UseVisualStyleBackColor = true;
             this.buttonNacitatData.Click += new System.EventHandler(this.buttonNacitatData_Click);
             // 
             // buttonNacitatProjekt
             // 
-            this.buttonNacitatProjekt.Location = new System.Drawing.Point(772, 292);
+            this.buttonNacitatProjekt.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonNacitatProjekt.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonNacitatProjekt.FlatAppearance.BorderSize = 2;
+            this.buttonNacitatProjekt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNacitatProjekt.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonNacitatProjekt.Image = ((System.Drawing.Image)(resources.GetObject("buttonNacitatProjekt.Image")));
+            this.buttonNacitatProjekt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonNacitatProjekt.Location = new System.Drawing.Point(772, 382);
+            this.buttonNacitatProjekt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonNacitatProjekt.Name = "buttonNacitatProjekt";
+            this.buttonNacitatProjekt.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.buttonNacitatProjekt.Size = new System.Drawing.Size(305, 126);
             this.buttonNacitatProjekt.TabIndex = 2;
-            this.buttonNacitatProjekt.Text = "Načítať projekt";
+            this.buttonNacitatProjekt.Text = "         Načítať projekt";
             this.buttonNacitatProjekt.UseVisualStyleBackColor = true;
             this.buttonNacitatProjekt.Click += new System.EventHandler(this.buttonNacitatProjekt_Click);
             // 
@@ -63,23 +90,101 @@ namespace ProjectConProfile
             this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel.Controls.Add(this.panel1);
             this.panel.Controls.Add(this.buttonSpat);
             this.panel.Controls.Add(this.buttonNacitatProjekt);
             this.panel.Controls.Add(this.buttonNacitatData);
-            this.panel.Location = new System.Drawing.Point(0, 0);
+            this.panel.Location = new System.Drawing.Point(-2, -2);
+            this.panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(1557, 984);
+            this.panel.Size = new System.Drawing.Size(1572, 938);
             this.panel.TabIndex = 3;
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel1.Controls.Add(this.buttonMinimalizuj);
+            this.panel1.Controls.Add(this.buttonZvacsi);
+            this.panel1.Controls.Add(this.buttonZrus);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1572, 118);
+            this.panel1.TabIndex = 4;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // buttonMinimalizuj
+            // 
+            this.buttonMinimalizuj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonMinimalizuj.FlatAppearance.BorderSize = 0;
+            this.buttonMinimalizuj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMinimalizuj.Image = ((System.Drawing.Image)(resources.GetObject("buttonMinimalizuj.Image")));
+            this.buttonMinimalizuj.Location = new System.Drawing.Point(1398, 19);
+            this.buttonMinimalizuj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonMinimalizuj.Name = "buttonMinimalizuj";
+            this.buttonMinimalizuj.Size = new System.Drawing.Size(39, 28);
+            this.buttonMinimalizuj.TabIndex = 8;
+            this.buttonMinimalizuj.UseVisualStyleBackColor = true;
+            this.buttonMinimalizuj.Click += new System.EventHandler(this.buttonMinimalizuj_Click);
+            // 
+            // buttonZvacsi
+            // 
+            this.buttonZvacsi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonZvacsi.FlatAppearance.BorderSize = 0;
+            this.buttonZvacsi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonZvacsi.Image = ((System.Drawing.Image)(resources.GetObject("buttonZvacsi.Image")));
+            this.buttonZvacsi.Location = new System.Drawing.Point(1458, 19);
+            this.buttonZvacsi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonZvacsi.Name = "buttonZvacsi";
+            this.buttonZvacsi.Size = new System.Drawing.Size(32, 28);
+            this.buttonZvacsi.TabIndex = 7;
+            this.buttonZvacsi.UseVisualStyleBackColor = true;
+            this.buttonZvacsi.Click += new System.EventHandler(this.buttonZvacsi_Click);
+            // 
+            // buttonZrus
+            // 
+            this.buttonZrus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonZrus.FlatAppearance.BorderSize = 0;
+            this.buttonZrus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonZrus.Image = ((System.Drawing.Image)(resources.GetObject("buttonZrus.Image")));
+            this.buttonZrus.Location = new System.Drawing.Point(1508, 19);
+            this.buttonZrus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonZrus.Name = "buttonZrus";
+            this.buttonZrus.Size = new System.Drawing.Size(36, 28);
+            this.buttonZrus.TabIndex = 6;
+            this.buttonZrus.UseVisualStyleBackColor = true;
+            this.buttonZrus.Click += new System.EventHandler(this.buttonZrus_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(16, 26);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(240, 40);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Názov Appky";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // buttonSpat
             // 
-            this.buttonSpat.Location = new System.Drawing.Point(12, 12);
+            this.buttonSpat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonSpat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonSpat.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonSpat.FlatAppearance.BorderSize = 2;
+            this.buttonSpat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSpat.Image = ((System.Drawing.Image)(resources.GetObject("buttonSpat.Image")));
+            this.buttonSpat.Location = new System.Drawing.Point(3, 60);
+            this.buttonSpat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSpat.Name = "buttonSpat";
-            this.buttonSpat.Size = new System.Drawing.Size(44, 23);
+            this.buttonSpat.Size = new System.Drawing.Size(61, 33);
             this.buttonSpat.TabIndex = 3;
-            this.buttonSpat.Text = "<-";
-            this.buttonSpat.UseVisualStyleBackColor = true;
+            this.buttonSpat.UseVisualStyleBackColor = false;
             this.buttonSpat.Visible = false;
             this.buttonSpat.Click += new System.EventHandler(this.buttonSpat_Click);
             // 
@@ -87,14 +192,18 @@ namespace ProjectConProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1539, 937);
+            this.ClientSize = new System.Drawing.Size(1568, 928);
             this.Controls.Add(this.panel);
-            this.MinimumSize = new System.Drawing.Size(1557, 984);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(1321, 595);
             this.Name = "Aplikacia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Aplikácia";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -107,6 +216,11 @@ namespace ProjectConProfile
         private System.Windows.Forms.Button buttonNacitatProjekt;
         private System.Windows.Forms.Panel panel;
         private System.Windows.Forms.Button buttonSpat;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonMinimalizuj;
+        private System.Windows.Forms.Button buttonZvacsi;
+        private System.Windows.Forms.Button buttonZrus;
     }
 }
 

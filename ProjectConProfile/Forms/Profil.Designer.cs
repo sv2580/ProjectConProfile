@@ -20,17 +20,19 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+      
+            #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
+            /// <summary>
+            /// Required method for Designer support - do not modify
+            /// the contents of this method with the code editor.
+            /// </summary>
+            private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profil));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridNacitane = new System.Windows.Forms.DataGridView();
             this.treeViewPriecinky = new System.Windows.Forms.TreeView();
             this.buttonUlozit = new System.Windows.Forms.Button();
@@ -56,121 +58,151 @@
             // 
             this.dataGridNacitane.AllowUserToAddRows = false;
             this.dataGridNacitane.AllowUserToDeleteRows = false;
-            this.dataGridNacitane.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.dataGridNacitane.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGridNacitane.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridNacitane.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridNacitane.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridNacitane.Location = new System.Drawing.Point(387, 75);
+            this.dataGridNacitane.Location = new System.Drawing.Point(371, 113);
+            this.dataGridNacitane.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridNacitane.MultiSelect = false;
             this.dataGridNacitane.Name = "dataGridNacitane";
             this.dataGridNacitane.ReadOnly = true;
             this.dataGridNacitane.RowHeadersWidth = 10;
-            this.dataGridNacitane.Size = new System.Drawing.Size(649, 322);
+            this.dataGridNacitane.Size = new System.Drawing.Size(717, 363);
             this.dataGridNacitane.TabIndex = 2;
             this.dataGridNacitane.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridNacitane_CellContentClick_1);
             // 
             // treeViewPriecinky
             // 
-            this.treeViewPriecinky.Location = new System.Drawing.Point(12, 75);
+            this.treeViewPriecinky.Location = new System.Drawing.Point(16, 113);
+            this.treeViewPriecinky.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.treeViewPriecinky.Name = "treeViewPriecinky";
-            this.treeViewPriecinky.Size = new System.Drawing.Size(340, 322);
+            this.treeViewPriecinky.Size = new System.Drawing.Size(332, 362);
             this.treeViewPriecinky.TabIndex = 1;
             this.treeViewPriecinky.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewPriecinky_AfterSelect);
             // 
             // buttonUlozit
             // 
-            this.buttonUlozit.Location = new System.Drawing.Point(89, 29);
+            this.buttonUlozit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonUlozit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonUlozit.FlatAppearance.BorderSize = 2;
+            this.buttonUlozit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUlozit.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonUlozit.ForeColor = System.Drawing.Color.White;
+            this.buttonUlozit.Location = new System.Drawing.Point(105, 64);
+            this.buttonUlozit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 6);
             this.buttonUlozit.Name = "buttonUlozit";
-            this.buttonUlozit.Size = new System.Drawing.Size(160, 23);
+            this.buttonUlozit.Size = new System.Drawing.Size(145, 39);
             this.buttonUlozit.TabIndex = 3;
             this.buttonUlozit.Text = "Uložiť projekt";
-            this.buttonUlozit.UseVisualStyleBackColor = true;
+            this.buttonUlozit.UseVisualStyleBackColor = false;
             this.buttonUlozit.Click += new System.EventHandler(this.buttonUlozit_Click);
             // 
             // pridatPriecinokButton
             // 
-            this.pridatPriecinokButton.Location = new System.Drawing.Point(89, 412);
+            this.pridatPriecinokButton.BackColor = System.Drawing.Color.Silver;
+            this.pridatPriecinokButton.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.pridatPriecinokButton.FlatAppearance.BorderSize = 2;
+            this.pridatPriecinokButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pridatPriecinokButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.pridatPriecinokButton.Image = ((System.Drawing.Image)(resources.GetObject("pridatPriecinokButton.Image")));
+            this.pridatPriecinokButton.Location = new System.Drawing.Point(74, 479);
+            this.pridatPriecinokButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pridatPriecinokButton.Name = "pridatPriecinokButton";
-            this.pridatPriecinokButton.Size = new System.Drawing.Size(68, 23);
+            this.pridatPriecinokButton.Size = new System.Drawing.Size(85, 39);
             this.pridatPriecinokButton.TabIndex = 4;
-            this.pridatPriecinokButton.Text = "+";
-            this.pridatPriecinokButton.UseVisualStyleBackColor = true;
+            this.pridatPriecinokButton.UseVisualStyleBackColor = false;
             this.pridatPriecinokButton.Click += new System.EventHandler(this.pridatPriecinokButton_Click);
             // 
             // buttonPorovnat
             // 
-            this.buttonPorovnat.Location = new System.Drawing.Point(166, 412);
+            this.buttonPorovnat.BackColor = System.Drawing.Color.Silver;
+            this.buttonPorovnat.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.buttonPorovnat.FlatAppearance.BorderSize = 2;
+            this.buttonPorovnat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPorovnat.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonPorovnat.Location = new System.Drawing.Point(165, 479);
+            this.buttonPorovnat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonPorovnat.Name = "buttonPorovnat";
-            this.buttonPorovnat.Size = new System.Drawing.Size(83, 23);
+            this.buttonPorovnat.Size = new System.Drawing.Size(124, 39);
             this.buttonPorovnat.TabIndex = 5;
             this.buttonPorovnat.Text = "Porovnať";
-            this.buttonPorovnat.UseVisualStyleBackColor = true;
+            this.buttonPorovnat.UseVisualStyleBackColor = false;
             this.buttonPorovnat.Click += new System.EventHandler(this.buttonPorovnat_Click);
             // 
             // dataGridNasobeneData
             // 
             this.dataGridNasobeneData.AllowUserToAddRows = false;
             this.dataGridNasobeneData.AllowUserToDeleteRows = false;
-            this.dataGridNasobeneData.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.dataGridNasobeneData.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGridNasobeneData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridNasobeneData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridNasobeneData.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridNasobeneData.Location = new System.Drawing.Point(387, 415);
+            this.dataGridNasobeneData.Location = new System.Drawing.Point(371, 497);
+            this.dataGridNasobeneData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridNasobeneData.MultiSelect = false;
             this.dataGridNasobeneData.Name = "dataGridNasobeneData";
             this.dataGridNasobeneData.ReadOnly = true;
             this.dataGridNasobeneData.RowHeadersWidth = 10;
-            this.dataGridNasobeneData.Size = new System.Drawing.Size(649, 322);
+            this.dataGridNasobeneData.Size = new System.Drawing.Size(717, 375);
             this.dataGridNasobeneData.TabIndex = 6;
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(1062, 75);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(1106, 137);
+            this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(453, 322);
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(470, 338);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "Graf";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
             // buttonNasobit
             // 
-            this.buttonNasobit.Location = new System.Drawing.Point(1557, 984);
+            this.buttonNasobit.BackColor = System.Drawing.Color.LightGray;
+            this.buttonNasobit.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.buttonNasobit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNasobit.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonNasobit.Location = new System.Drawing.Point(1557, 985);
+            this.buttonNasobit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonNasobit.Name = "buttonNasobit";
-            this.buttonNasobit.Size = new System.Drawing.Size(72, 23);
+            this.buttonNasobit.Size = new System.Drawing.Size(85, 30);
             this.buttonNasobit.TabIndex = 8;
             this.buttonNasobit.Text = "Násobiť";
-            this.buttonNasobit.UseVisualStyleBackColor = true;
+            this.buttonNasobit.UseVisualStyleBackColor = false;
             this.buttonNasobit.Click += new System.EventHandler(this.buttonNasobit_Click);
             // 
             // dataGridProfil
             // 
             this.dataGridProfil.AllowUserToAddRows = false;
             this.dataGridProfil.AllowUserToDeleteRows = false;
-            this.dataGridProfil.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.dataGridProfil.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGridProfil.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridProfil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridProfil.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridProfil.Location = new System.Drawing.Point(1062, 415);
+            this.dataGridProfil.Location = new System.Drawing.Point(1106, 497);
+            this.dataGridProfil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridProfil.MultiSelect = false;
             this.dataGridProfil.Name = "dataGridProfil";
             this.dataGridProfil.ReadOnly = true;
             this.dataGridProfil.RowHeadersWidth = 10;
-            this.dataGridProfil.Size = new System.Drawing.Size(167, 322);
+            this.dataGridProfil.Size = new System.Drawing.Size(185, 375);
             this.dataGridProfil.TabIndex = 9;
             this.dataGridProfil.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProfil_CellContentClick);
             // 
             // Max
             // 
             this.Max.AutoSize = true;
-            this.Max.Location = new System.Drawing.Point(1270, 516);
+            this.Max.Location = new System.Drawing.Point(1308, 614);
             this.Max.Name = "Max";
             this.Max.Size = new System.Drawing.Size(32, 16);
             this.Max.TabIndex = 10;
@@ -180,7 +212,7 @@
             // Min
             // 
             this.Min.AutoSize = true;
-            this.Min.Location = new System.Drawing.Point(1270, 550);
+            this.Min.Location = new System.Drawing.Point(1308, 657);
             this.Min.Name = "Min";
             this.Min.Size = new System.Drawing.Size(28, 16);
             this.Min.TabIndex = 11;
@@ -190,7 +222,7 @@
             // std
             // 
             this.std.AutoSize = true;
-            this.std.Location = new System.Drawing.Point(1270, 583);
+            this.std.Location = new System.Drawing.Point(1308, 699);
             this.std.Name = "std";
             this.std.Size = new System.Drawing.Size(27, 16);
             this.std.TabIndex = 12;
@@ -199,7 +231,7 @@
             // std2
             // 
             this.std2.AutoSize = true;
-            this.std2.Location = new System.Drawing.Point(1430, 583);
+            this.std2.Location = new System.Drawing.Point(1455, 699);
             this.std2.Name = "std2";
             this.std2.Size = new System.Drawing.Size(27, 16);
             this.std2.TabIndex = 15;
@@ -208,7 +240,7 @@
             // min2
             // 
             this.min2.AutoSize = true;
-            this.min2.Location = new System.Drawing.Point(1430, 550);
+            this.min2.Location = new System.Drawing.Point(1455, 657);
             this.min2.Name = "min2";
             this.min2.Size = new System.Drawing.Size(28, 16);
             this.min2.TabIndex = 14;
@@ -217,7 +249,7 @@
             // max2
             // 
             this.max2.AutoSize = true;
-            this.max2.Location = new System.Drawing.Point(1430, 516);
+            this.max2.Location = new System.Drawing.Point(1455, 614);
             this.max2.Name = "max2";
             this.max2.Size = new System.Drawing.Size(32, 16);
             this.max2.TabIndex = 13;
@@ -227,8 +259,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1630, 749);
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1636, 1154);
             this.Controls.Add(this.std2);
             this.Controls.Add(this.min2);
             this.Controls.Add(this.max2);
@@ -244,7 +277,9 @@
             this.Controls.Add(this.buttonUlozit);
             this.Controls.Add(this.treeViewPriecinky);
             this.Controls.Add(this.dataGridNacitane);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Profil";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Profil";
             this.Load += new System.EventHandler(this.Profil_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNacitane)).EndInit();

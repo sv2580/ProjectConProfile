@@ -19,14 +19,52 @@ namespace ProjectConProfile.Forms
     {
         public Projekt _projekt;
         public List<KoncentracnyProfil> _zvolene;
+        private bool isDragging = false;
+        private Point startPoint;
 
         public Porovnanie(Projekt projekt)
         {
             InitializeComponent();
             _projekt = projekt;
             _zvolene = new List<KoncentracnyProfil>();
+            //pohyb okna poocou panel1
+            this.FormBorderStyle = FormBorderStyle.None;
+            panel1.MouseDown += Panel1_MouseDown;
+            panel1.MouseMove += Panel1_MouseMove;
+            panel1.MouseUp += Panel1_MouseUp;
+            //
             populovatTree();
         }
+
+
+        //pohyb okna poocou panel1
+        private void Panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                isDragging = true;
+                startPoint = new Point(e.X, e.Y);
+            }
+        }
+
+        private void Panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDragging && e.Button == MouseButtons.Left)
+            {
+                Point p = PointToScreen(e.Location);
+                Location = new Point(p.X - startPoint.X, p.Y - startPoint.Y);
+            }
+        }
+
+        private void Panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                isDragging = false;
+            }
+        }
+
+        //
 
         private void populovatTree()
         {
@@ -88,6 +126,40 @@ namespace ProjectConProfile.Forms
         }
         private void Porovnanie_Load(object sender, EventArgs e)
         {
+            Pen borderPen = new Pen(Color.Gray, 1);
+
+            // Vykreslenie obdĺžnika s okrajom
+            Rectangle rect = new Rectangle(0, 0, this.Width - 1, this.Height - 1);
+            Graphics graphics = this.CreateGraphics();
+            graphics.DrawRectangle(borderPen, rect);
+
+            // Uvoľnenie zdrojov
+            graphics.Dispose();
+            borderPen.Dispose();
         }
+
+        private void buttonZrus1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
+
+        private void buttonMinimalizuj1_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            Pen borderPen = new Pen(Color.Gray, 1);
+
+            // Vykreslenie obdĺžnika s okrajom
+            Rectangle rect = panel1.ClientRectangle;
+            rect.Width -= 1;
+            rect.Height -= 1;
+            e.Graphics.DrawRectangle(borderPen, rect);
+
+            // Uvoľnenie zdrojov
+            borderPen.Dispose();
+        }
+    }
 }

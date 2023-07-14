@@ -1,4 +1,8 @@
-﻿namespace ProjectConProfile.Forms
+﻿using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Windows.Forms;
+
+namespace ProjectConProfile.Forms
 {
     partial class Profil
     {
@@ -62,7 +66,7 @@
             this.dataGridNacitane.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridNacitane.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridNacitane.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridNacitane.Location = new System.Drawing.Point(374, 101);
+            this.dataGridNacitane.Location = new System.Drawing.Point(385, 136);
             this.dataGridNacitane.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridNacitane.MultiSelect = false;
             this.dataGridNacitane.Name = "dataGridNacitane";
@@ -74,7 +78,7 @@
             // 
             // treeViewPriecinky
             // 
-            this.treeViewPriecinky.Location = new System.Drawing.Point(12, 101);
+            this.treeViewPriecinky.Location = new System.Drawing.Point(23, 136);
             this.treeViewPriecinky.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.treeViewPriecinky.Name = "treeViewPriecinky";
             this.treeViewPriecinky.Size = new System.Drawing.Size(332, 362);
@@ -83,14 +87,13 @@
             // 
             // buttonUlozit
             // 
-            this.buttonUlozit.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonUlozit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.buttonUlozit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.buttonUlozit.FlatAppearance.BorderSize = 2;
             this.buttonUlozit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUlozit.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonUlozit.ForeColor = System.Drawing.Color.White;
-            this.buttonUlozit.Location = new System.Drawing.Point(180, -84);
+            this.buttonUlozit.Location = new System.Drawing.Point(109, 89);
             this.buttonUlozit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 6);
             this.buttonUlozit.Name = "buttonUlozit";
             this.buttonUlozit.Size = new System.Drawing.Size(145, 39);
@@ -107,7 +110,7 @@
             this.pridatPriecinokButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pridatPriecinokButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.pridatPriecinokButton.Image = ((System.Drawing.Image)(resources.GetObject("pridatPriecinokButton.Image")));
-            this.pridatPriecinokButton.Location = new System.Drawing.Point(89, 467);
+            this.pridatPriecinokButton.Location = new System.Drawing.Point(100, 502);
             this.pridatPriecinokButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pridatPriecinokButton.Name = "pridatPriecinokButton";
             this.pridatPriecinokButton.Size = new System.Drawing.Size(85, 39);
@@ -122,7 +125,7 @@
             this.buttonPorovnat.FlatAppearance.BorderSize = 2;
             this.buttonPorovnat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPorovnat.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonPorovnat.Location = new System.Drawing.Point(180, 467);
+            this.buttonPorovnat.Location = new System.Drawing.Point(191, 502);
             this.buttonPorovnat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonPorovnat.Name = "buttonPorovnat";
             this.buttonPorovnat.Size = new System.Drawing.Size(124, 39);
@@ -139,7 +142,7 @@
             this.dataGridNasobeneData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridNasobeneData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridNasobeneData.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridNasobeneData.Location = new System.Drawing.Point(374, 485);
+            this.dataGridNasobeneData.Location = new System.Drawing.Point(385, 520);
             this.dataGridNasobeneData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridNasobeneData.MultiSelect = false;
             this.dataGridNasobeneData.Name = "dataGridNasobeneData";
@@ -154,7 +157,7 @@
             this.chart1.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(1109, 125);
+            this.chart1.Location = new System.Drawing.Point(1120, 160);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
@@ -190,7 +193,7 @@
             this.dataGridProfil.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridProfil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridProfil.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridProfil.Location = new System.Drawing.Point(1109, 485);
+            this.dataGridProfil.Location = new System.Drawing.Point(1120, 520);
             this.dataGridProfil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridProfil.MultiSelect = false;
             this.dataGridProfil.Name = "dataGridProfil";
@@ -203,7 +206,7 @@
             // Max
             // 
             this.Max.AutoSize = true;
-            this.Max.Location = new System.Drawing.Point(1311, 602);
+            this.Max.Location = new System.Drawing.Point(1325, 639);
             this.Max.Name = "Max";
             this.Max.Size = new System.Drawing.Size(32, 16);
             this.Max.TabIndex = 10;
@@ -213,7 +216,7 @@
             // Min
             // 
             this.Min.AutoSize = true;
-            this.Min.Location = new System.Drawing.Point(1311, 645);
+            this.Min.Location = new System.Drawing.Point(1325, 682);
             this.Min.Name = "Min";
             this.Min.Size = new System.Drawing.Size(28, 16);
             this.Min.TabIndex = 11;
@@ -223,7 +226,7 @@
             // std
             // 
             this.std.AutoSize = true;
-            this.std.Location = new System.Drawing.Point(1311, 687);
+            this.std.Location = new System.Drawing.Point(1325, 724);
             this.std.Name = "std";
             this.std.Size = new System.Drawing.Size(27, 16);
             this.std.TabIndex = 12;
@@ -232,7 +235,7 @@
             // std2
             // 
             this.std2.AutoSize = true;
-            this.std2.Location = new System.Drawing.Point(1458, 687);
+            this.std2.Location = new System.Drawing.Point(1472, 724);
             this.std2.Name = "std2";
             this.std2.Size = new System.Drawing.Size(27, 16);
             this.std2.TabIndex = 15;
@@ -241,7 +244,7 @@
             // min2
             // 
             this.min2.AutoSize = true;
-            this.min2.Location = new System.Drawing.Point(1458, 645);
+            this.min2.Location = new System.Drawing.Point(1472, 682);
             this.min2.Name = "min2";
             this.min2.Size = new System.Drawing.Size(28, 16);
             this.min2.TabIndex = 14;
@@ -250,7 +253,7 @@
             // max2
             // 
             this.max2.AutoSize = true;
-            this.max2.Location = new System.Drawing.Point(1458, 602);
+            this.max2.Location = new System.Drawing.Point(1472, 639);
             this.max2.Name = "max2";
             this.max2.Size = new System.Drawing.Size(32, 16);
             this.max2.TabIndex = 13;
@@ -263,7 +266,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1716, 1028);
+            this.ClientSize = new System.Drawing.Size(1593, 912);
             this.Controls.Add(this.std2);
             this.Controls.Add(this.min2);
             this.Controls.Add(this.max2);
@@ -282,6 +285,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Profil";
+            this.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Profil";
             this.Load += new System.EventHandler(this.Profil_Load);

@@ -152,5 +152,10 @@ namespace ProjectConProfile.Forms
             // Uvoľnenie zdrojov
             borderPen.Dispose();
         }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

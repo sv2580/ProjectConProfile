@@ -114,7 +114,7 @@ namespace ProjectConProfile
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1662, 106);
+            this.panel1.Size = new System.Drawing.Size(1662, 96);
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -175,16 +175,16 @@ namespace ProjectConProfile
             // 
             // buttonSpat
             // 
-            this.buttonSpat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonSpat.BackColor = System.Drawing.Color.Silver;
             this.buttonSpat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonSpat.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonSpat.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.buttonSpat.FlatAppearance.BorderSize = 2;
             this.buttonSpat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSpat.Image = ((System.Drawing.Image)(resources.GetObject("buttonSpat.Image")));
-            this.buttonSpat.Location = new System.Drawing.Point(3, 60);
+            this.buttonSpat.Location = new System.Drawing.Point(11, 80);
             this.buttonSpat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSpat.Name = "buttonSpat";
-            this.buttonSpat.Size = new System.Drawing.Size(61, 33);
+            this.buttonSpat.Size = new System.Drawing.Size(61, 37);
             this.buttonSpat.TabIndex = 3;
             this.buttonSpat.UseVisualStyleBackColor = false;
             this.buttonSpat.Visible = false;

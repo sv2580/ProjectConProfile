@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -25,12 +26,51 @@ namespace ProjectConProfile
 
 
         private bool isFullscreen = false;
-       
+        private bool isDragging = false;
+        private Point startPoint;
+
         public Aplikacia()
         {
             _zvolenyProfil = null;
             InitializeComponent();
+            //pohyb okna poocou panel1
+            this.FormBorderStyle = FormBorderStyle.None;
+            panel1.MouseDown += Panel1_MouseDown;
+            panel1.MouseMove += Panel1_MouseMove;
+            panel1.MouseUp += Panel1_MouseUp;
+            //
         }
+
+
+
+        //pohyb okna poocou panel1
+        private void Panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                isDragging = true;
+                startPoint = new Point(e.X, e.Y);
+            }
+        }
+
+        private void Panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDragging && e.Button == MouseButtons.Left)
+            {
+                Point p = PointToScreen(e.Location);
+                Location = new Point(p.X - startPoint.X, p.Y - startPoint.Y);
+            }
+        }
+
+        private void Panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                isDragging = false;
+            }
+        }
+
+        //
 
 
 
@@ -149,22 +189,45 @@ namespace ProjectConProfile
                 _profilForm.TopLevel = false;
                 panel.Controls.Add(_profilForm);
                 _profilForm.ControlBox = false;
-                _profilForm.MinimumSize = _profilForm.MaximumSize = _profilForm.Size;
+                // _profilForm.MinimumSize = _profilForm.MaximumSize = _profilForm.Size;
+                //
+                _profilForm.MinimumSize = _profilForm.MaximumSize = this.panel.Size;
+                //
                 _profilForm.FormBorderStyle = FormBorderStyle.None;
                 _profilForm.Dock = DockStyle.Fill;
                 this.panel.Controls.Add(_profilForm);
                 this.panel.Tag = _profilForm;
+
+                //
+
+                if (isFullscreen)
+                {
+                    if (_profilForm != null)
+                    {
+                        _profilForm.WindowState = FormWindowState.Maximized;
+                    }
+
+                    panel1.BringToFront(); // Zobraziť panel nad formulárom Profil
+                    buttonSpat.BringToFront();
+                }
+                //
+
+
+
                 _profilForm.BringToFront();
                 _profilForm.Show();
                 buttonSpat.BringToFront();
                 buttonSpat.Visible = true;
                 //label1.SendToBack();
                 label1.Visible = false;
-                this.panel1.Size = new System.Drawing.Size(1707, 40);
+                this.panel1.Size = new System.Drawing.Size(1707, 50);
 
                 _profilForm.LocationChanged += (sender, e) => {
                     _profilForm.Location = new Point(0, 0);
                 };
+
+
+         
 
                 buttonMinimalizuj.BringToFront();
                 buttonMinimalizuj.Visible = true;
@@ -190,6 +253,7 @@ namespace ProjectConProfile
 
         }
 
+        
         private void buttonSpat_Click(object sender, EventArgs e)
         {
             if (_profilForm != null)
@@ -200,6 +264,7 @@ namespace ProjectConProfile
                 buttonSpat.Visible = false;
                 panel1.Visible = true;
             }
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -235,6 +300,7 @@ namespace ProjectConProfile
                 }
 
                 panel1.BringToFront(); // Zobraziť panel nad formulárom Profil
+                buttonSpat.BringToFront();
             }
             else
             {
@@ -245,9 +311,10 @@ namespace ProjectConProfile
 
                 if (_profilForm != null)
                 {
-                    _profilForm.WindowState = FormWindowState.Maximized;
+                   _profilForm.WindowState = FormWindowState.Maximized;
                 }
                 panel1.BringToFront();
+                buttonSpat.BringToFront();
             }
 
             // Aktualizovať stav premennej isFullscreen

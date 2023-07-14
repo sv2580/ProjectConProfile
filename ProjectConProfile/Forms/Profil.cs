@@ -5,9 +5,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -43,6 +45,7 @@ namespace ProjectConProfile.Forms
             //
             _panel1 = panel1;
             //
+            
 
             _faktory = new MultimapDictionary();
             populovatTree();
@@ -212,7 +215,6 @@ namespace ProjectConProfile.Forms
         }
         private void Profil_Load(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized; // Pridaný riadok pre nastavenie stavu okna na maximálny
             _panel1.Visible = true;
             _panel1.BringToFront();
 
@@ -282,12 +284,15 @@ namespace ProjectConProfile.Forms
             }
         }
 
+      
+
         private void buttonPorovnat_Click(object sender, EventArgs e)
         {
             Porovnanie porovnanie = new Porovnanie(_projekt);
             porovnanie.Show();
-
+            
         }
+
 
         private void nacitanieFaktorov(string subor)
         {

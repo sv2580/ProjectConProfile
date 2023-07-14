@@ -93,7 +93,6 @@ namespace ProjectConProfile
             this.panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel.Controls.Add(this.panel1);
-            this.panel.Controls.Add(this.buttonSpat);
             this.panel.Controls.Add(this.buttonNacitatProjekt);
             this.panel.Controls.Add(this.buttonNacitatData);
             this.panel.Location = new System.Drawing.Point(0, -2);
@@ -107,6 +106,7 @@ namespace ProjectConProfile
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.panel1.Controls.Add(this.buttonMinimalizuj);
+            this.panel1.Controls.Add(this.buttonSpat);
             this.panel1.Controls.Add(this.buttonZvacsi);
             this.panel1.Controls.Add(this.buttonZrus);
             this.panel1.Controls.Add(this.label1);
@@ -175,13 +175,13 @@ namespace ProjectConProfile
             // 
             // buttonSpat
             // 
-            this.buttonSpat.BackColor = System.Drawing.Color.Silver;
+            this.buttonSpat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.buttonSpat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonSpat.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.buttonSpat.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.buttonSpat.FlatAppearance.BorderSize = 2;
             this.buttonSpat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSpat.Image = ((System.Drawing.Image)(resources.GetObject("buttonSpat.Image")));
-            this.buttonSpat.Location = new System.Drawing.Point(11, 71);
+            this.buttonSpat.Location = new System.Drawing.Point(11, 12);
             this.buttonSpat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSpat.Name = "buttonSpat";
             this.buttonSpat.Size = new System.Drawing.Size(50, 35);

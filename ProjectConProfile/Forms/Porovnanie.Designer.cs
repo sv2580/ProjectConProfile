@@ -32,9 +32,9 @@ namespace ProjectConProfile.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Porovnanie));
             this.treeViewPorovnanie = new System.Windows.Forms.TreeView();
             this.buttonPorovnat = new System.Windows.Forms.Button();
@@ -60,6 +60,7 @@ namespace ProjectConProfile.Forms
             this.buttonPorovnat.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.buttonPorovnat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPorovnat.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonPorovnat.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonPorovnat.Location = new System.Drawing.Point(188, 503);
             this.buttonPorovnat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonPorovnat.Name = "buttonPorovnat";
@@ -71,18 +72,18 @@ namespace ProjectConProfile.Forms
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(531, 145);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(659, 450);
             this.chart1.TabIndex = 8;
             this.chart1.Text = "Graf";
@@ -97,7 +98,7 @@ namespace ProjectConProfile.Forms
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1246, 76);
+            this.panel1.Size = new System.Drawing.Size(1234, 74);
             this.panel1.TabIndex = 9;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -107,7 +108,7 @@ namespace ProjectConProfile.Forms
             this.buttonMinimalizuj1.FlatAppearance.BorderSize = 0;
             this.buttonMinimalizuj1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMinimalizuj1.Image = ((System.Drawing.Image)(resources.GetObject("buttonMinimalizuj1.Image")));
-            this.buttonMinimalizuj1.Location = new System.Drawing.Point(1157, 7);
+            this.buttonMinimalizuj1.Location = new System.Drawing.Point(1145, 7);
             this.buttonMinimalizuj1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonMinimalizuj1.Name = "buttonMinimalizuj1";
             this.buttonMinimalizuj1.Size = new System.Drawing.Size(39, 28);
@@ -121,7 +122,7 @@ namespace ProjectConProfile.Forms
             this.buttonZrus1.FlatAppearance.BorderSize = 0;
             this.buttonZrus1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonZrus1.Image = ((System.Drawing.Image)(resources.GetObject("buttonZrus1.Image")));
-            this.buttonZrus1.Location = new System.Drawing.Point(1204, 7);
+            this.buttonZrus1.Location = new System.Drawing.Point(1192, 7);
             this.buttonZrus1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonZrus1.Name = "buttonZrus1";
             this.buttonZrus1.Size = new System.Drawing.Size(36, 28);
@@ -134,7 +135,7 @@ namespace ProjectConProfile.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1246, 668);
+            this.ClientSize = new System.Drawing.Size(1234, 662);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.buttonPorovnat);
@@ -143,6 +144,7 @@ namespace ProjectConProfile.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Porovnanie";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Porovnanie";
             this.Load += new System.EventHandler(this.Porovnanie_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();

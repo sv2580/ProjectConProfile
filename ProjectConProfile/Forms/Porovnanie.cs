@@ -126,16 +126,7 @@ namespace ProjectConProfile.Forms
         }
         private void Porovnanie_Load(object sender, EventArgs e)
         {
-            Pen borderPen = new Pen(Color.Gray, 1);
-
-            // Vykreslenie obdĺžnika s okrajom
-            Rectangle rect = new Rectangle(0, 0, this.Width - 1, this.Height - 1);
-            Graphics graphics = this.CreateGraphics();
-            graphics.DrawRectangle(borderPen, rect);
-
-            // Uvoľnenie zdrojov
-            graphics.Dispose();
-            borderPen.Dispose();
+           
         }
 
         private void buttonZrus1_Click(object sender, EventArgs e)

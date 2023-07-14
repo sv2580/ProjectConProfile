@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -21,24 +22,27 @@ namespace ProjectConProfile
         public Projekt _projekt { get; set; }
         private Profil _profilForm;
         public KoncentracnyProfil _zvolenyProfil { get; set; } //dat do druheho formu aj s treeview aj vsetkym
-        private bool isFullscreen = false;
 
+
+        private bool isFullscreen = false;
+       
         public Aplikacia()
         {
             _zvolenyProfil = null;
-            InitializeComponent();          
+            InitializeComponent();
         }
 
-     
+
+
         private void buttonNacitatData_Click(object sender, EventArgs e)
         {
             _projekt = new Projekt();
             _zvolenyProfil = nacitajData(_projekt);
-            if(_zvolenyProfil != null)
-               otvorProfilForm();
+            if (_zvolenyProfil != null)
+                otvorProfilForm();
         }
 
-        public  KoncentracnyProfil nacitajData(Projekt projekt)
+        public KoncentracnyProfil nacitajData(Projekt projekt)
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
 
@@ -141,7 +145,7 @@ namespace ProjectConProfile
         {
             if (_profilForm == null)
             {
-                _profilForm = new Profil(_projekt,0);
+                _profilForm = new Profil(_projekt, 0, panel1);
                 _profilForm.TopLevel = false;
                 panel.Controls.Add(_profilForm);
                 _profilForm.ControlBox = false;
@@ -200,13 +204,13 @@ namespace ProjectConProfile
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-         
+
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-         
-            
+
+
         }
 
         private void buttonZrus_Click(object sender, EventArgs e)
@@ -221,8 +225,16 @@ namespace ProjectConProfile
             {
                 // Ak je obrazovka v režime na celú obrazovku, vráťte ju do určitej veľkosti
                 this.WindowState = FormWindowState.Normal;
-                this.FormBorderStyle = FormBorderStyle.FixedSingle;
+                this.FormBorderStyle = FormBorderStyle.None;
                 isFullscreen = false;
+
+                if (_profilForm != null)
+                {
+                    _profilForm.WindowState = FormWindowState.Normal;
+                    _profilForm.Size = new Size(this.ClientSize.Width, this.ClientSize.Height);
+                }
+
+                panel1.BringToFront(); // Zobraziť panel nad formulárom Profil
             }
             else
             {
@@ -230,7 +242,19 @@ namespace ProjectConProfile
                 this.WindowState = FormWindowState.Maximized;
                 this.FormBorderStyle = FormBorderStyle.None;
                 isFullscreen = true;
+
+                if (_profilForm != null)
+                {
+                    _profilForm.WindowState = FormWindowState.Maximized;
+                }
+                panel1.BringToFront();
             }
+
+            // Aktualizovať stav premennej isFullscreen
+            isFullscreen = (this.WindowState == FormWindowState.Maximized && this.FormBorderStyle == FormBorderStyle.None);
+
+
+
         }
 
         private void buttonMinimalizuj_Click(object sender, EventArgs e)

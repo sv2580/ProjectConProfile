@@ -55,7 +55,7 @@ namespace ProjectConProfile
             this.buttonNacitatData.ForeColor = System.Drawing.Color.Black;
             this.buttonNacitatData.Image = ((System.Drawing.Image)(resources.GetObject("buttonNacitatData.Image")));
             this.buttonNacitatData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonNacitatData.Location = new System.Drawing.Point(434, 382);
+            this.buttonNacitatData.Location = new System.Drawing.Point(505, 446);
             this.buttonNacitatData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonNacitatData.Name = "buttonNacitatData";
             this.buttonNacitatData.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -75,7 +75,7 @@ namespace ProjectConProfile
             this.buttonNacitatProjekt.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonNacitatProjekt.Image = ((System.Drawing.Image)(resources.GetObject("buttonNacitatProjekt.Image")));
             this.buttonNacitatProjekt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonNacitatProjekt.Location = new System.Drawing.Point(772, 382);
+            this.buttonNacitatProjekt.Location = new System.Drawing.Point(843, 446);
             this.buttonNacitatProjekt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonNacitatProjekt.Name = "buttonNacitatProjekt";
             this.buttonNacitatProjekt.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -90,14 +90,16 @@ namespace ProjectConProfile
             this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel.Controls.Add(this.panel1);
             this.panel.Controls.Add(this.buttonSpat);
             this.panel.Controls.Add(this.buttonNacitatProjekt);
             this.panel.Controls.Add(this.buttonNacitatData);
-            this.panel.Location = new System.Drawing.Point(-2, -2);
+            this.panel.Location = new System.Drawing.Point(0, -2);
             this.panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(1572, 938);
+            this.panel.Size = new System.Drawing.Size(1664, 1017);
             this.panel.TabIndex = 3;
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
             // 
@@ -110,9 +112,9 @@ namespace ProjectConProfile
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1572, 118);
+            this.panel1.Size = new System.Drawing.Size(1662, 106);
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -122,8 +124,8 @@ namespace ProjectConProfile
             this.buttonMinimalizuj.FlatAppearance.BorderSize = 0;
             this.buttonMinimalizuj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMinimalizuj.Image = ((System.Drawing.Image)(resources.GetObject("buttonMinimalizuj.Image")));
-            this.buttonMinimalizuj.Location = new System.Drawing.Point(1398, 19);
-            this.buttonMinimalizuj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonMinimalizuj.Location = new System.Drawing.Point(1488, 19);
+            this.buttonMinimalizuj.Margin = new System.Windows.Forms.Padding(4);
             this.buttonMinimalizuj.Name = "buttonMinimalizuj";
             this.buttonMinimalizuj.Size = new System.Drawing.Size(39, 28);
             this.buttonMinimalizuj.TabIndex = 8;
@@ -136,8 +138,8 @@ namespace ProjectConProfile
             this.buttonZvacsi.FlatAppearance.BorderSize = 0;
             this.buttonZvacsi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonZvacsi.Image = ((System.Drawing.Image)(resources.GetObject("buttonZvacsi.Image")));
-            this.buttonZvacsi.Location = new System.Drawing.Point(1458, 19);
-            this.buttonZvacsi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonZvacsi.Location = new System.Drawing.Point(1548, 19);
+            this.buttonZvacsi.Margin = new System.Windows.Forms.Padding(4);
             this.buttonZvacsi.Name = "buttonZvacsi";
             this.buttonZvacsi.Size = new System.Drawing.Size(32, 28);
             this.buttonZvacsi.TabIndex = 7;
@@ -150,8 +152,8 @@ namespace ProjectConProfile
             this.buttonZrus.FlatAppearance.BorderSize = 0;
             this.buttonZrus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonZrus.Image = ((System.Drawing.Image)(resources.GetObject("buttonZrus.Image")));
-            this.buttonZrus.Location = new System.Drawing.Point(1508, 19);
-            this.buttonZrus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonZrus.Location = new System.Drawing.Point(1598, 19);
+            this.buttonZrus.Margin = new System.Windows.Forms.Padding(4);
             this.buttonZrus.Name = "buttonZrus";
             this.buttonZrus.Size = new System.Drawing.Size(36, 28);
             this.buttonZrus.TabIndex = 6;
@@ -163,7 +165,7 @@ namespace ProjectConProfile
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(16, 26);
+            this.label1.Location = new System.Drawing.Point(23, 38);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(240, 40);
@@ -192,11 +194,10 @@ namespace ProjectConProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1568, 928);
+            this.ClientSize = new System.Drawing.Size(1658, 1009);
             this.Controls.Add(this.panel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(1321, 595);
             this.Name = "Aplikacia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Aplikácia";

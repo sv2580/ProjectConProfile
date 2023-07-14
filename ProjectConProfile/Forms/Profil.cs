@@ -25,15 +25,24 @@ namespace ProjectConProfile.Forms
         public const string SuborFaktorovSpektier = "faktory.txt";
         private List<ComboBox> _boxy = new List<ComboBox>();
 
+        //
+        private Panel _panel1;
+        //
+
+
 
         MultimapDictionary _faktory;
 
-        public Profil(Projekt projekt, int index)
+        public Profil(Projekt projekt, int index, Panel panel1)
         {
+            
             InitializeComponent();
             _form = new Aplikacia();
             _projekt = projekt;
             _zvolenyProfil = _projekt._profily[index];
+            //
+            _panel1 = panel1;
+            //
 
             _faktory = new MultimapDictionary();
             populovatTree();
@@ -55,6 +64,8 @@ namespace ProjectConProfile.Forms
             vytvorComboboxy();
 
         }
+
+        
 
         private void populovatTree()
         {
@@ -201,6 +212,9 @@ namespace ProjectConProfile.Forms
         }
         private void Profil_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized; // Pridaný riadok pre nastavenie stavu okna na maximálny
+            _panel1.Visible = true;
+            _panel1.BringToFront();
 
         }
         private void treeViewPriecinky_AfterSelect(object sender, TreeViewEventArgs e)

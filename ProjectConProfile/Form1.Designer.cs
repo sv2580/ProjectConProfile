@@ -181,10 +181,10 @@ namespace ProjectConProfile
             this.buttonSpat.FlatAppearance.BorderSize = 2;
             this.buttonSpat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSpat.Image = ((System.Drawing.Image)(resources.GetObject("buttonSpat.Image")));
-            this.buttonSpat.Location = new System.Drawing.Point(11, 80);
+            this.buttonSpat.Location = new System.Drawing.Point(11, 71);
             this.buttonSpat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSpat.Name = "buttonSpat";
-            this.buttonSpat.Size = new System.Drawing.Size(61, 37);
+            this.buttonSpat.Size = new System.Drawing.Size(50, 35);
             this.buttonSpat.TabIndex = 3;
             this.buttonSpat.UseVisualStyleBackColor = false;
             this.buttonSpat.Visible = false;

@@ -34,9 +34,9 @@ namespace ProjectConProfile.Forms
             private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profil));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridNacitane = new System.Windows.Forms.DataGridView();
             this.treeViewPriecinky = new System.Windows.Forms.TreeView();
             this.buttonUlozit = new System.Windows.Forms.Button();
@@ -66,7 +66,7 @@ namespace ProjectConProfile.Forms
             this.dataGridNacitane.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridNacitane.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridNacitane.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridNacitane.Location = new System.Drawing.Point(385, 136);
+            this.dataGridNacitane.Location = new System.Drawing.Point(383, 157);
             this.dataGridNacitane.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridNacitane.MultiSelect = false;
             this.dataGridNacitane.Name = "dataGridNacitane";
@@ -78,7 +78,7 @@ namespace ProjectConProfile.Forms
             // 
             // treeViewPriecinky
             // 
-            this.treeViewPriecinky.Location = new System.Drawing.Point(23, 136);
+            this.treeViewPriecinky.Location = new System.Drawing.Point(21, 157);
             this.treeViewPriecinky.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.treeViewPriecinky.Name = "treeViewPriecinky";
             this.treeViewPriecinky.Size = new System.Drawing.Size(332, 362);
@@ -93,7 +93,7 @@ namespace ProjectConProfile.Forms
             this.buttonUlozit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUlozit.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonUlozit.ForeColor = System.Drawing.Color.White;
-            this.buttonUlozit.Location = new System.Drawing.Point(109, 89);
+            this.buttonUlozit.Location = new System.Drawing.Point(107, 110);
             this.buttonUlozit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 6);
             this.buttonUlozit.Name = "buttonUlozit";
             this.buttonUlozit.Size = new System.Drawing.Size(145, 39);
@@ -110,7 +110,7 @@ namespace ProjectConProfile.Forms
             this.pridatPriecinokButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pridatPriecinokButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.pridatPriecinokButton.Image = ((System.Drawing.Image)(resources.GetObject("pridatPriecinokButton.Image")));
-            this.pridatPriecinokButton.Location = new System.Drawing.Point(100, 502);
+            this.pridatPriecinokButton.Location = new System.Drawing.Point(98, 523);
             this.pridatPriecinokButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pridatPriecinokButton.Name = "pridatPriecinokButton";
             this.pridatPriecinokButton.Size = new System.Drawing.Size(85, 39);
@@ -125,7 +125,7 @@ namespace ProjectConProfile.Forms
             this.buttonPorovnat.FlatAppearance.BorderSize = 2;
             this.buttonPorovnat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPorovnat.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonPorovnat.Location = new System.Drawing.Point(191, 502);
+            this.buttonPorovnat.Location = new System.Drawing.Point(189, 523);
             this.buttonPorovnat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonPorovnat.Name = "buttonPorovnat";
             this.buttonPorovnat.Size = new System.Drawing.Size(124, 39);
@@ -142,7 +142,7 @@ namespace ProjectConProfile.Forms
             this.dataGridNasobeneData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridNasobeneData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridNasobeneData.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridNasobeneData.Location = new System.Drawing.Point(385, 520);
+            this.dataGridNasobeneData.Location = new System.Drawing.Point(383, 541);
             this.dataGridNasobeneData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridNasobeneData.MultiSelect = false;
             this.dataGridNasobeneData.Name = "dataGridNasobeneData";
@@ -153,18 +153,18 @@ namespace ProjectConProfile.Forms
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(1120, 160);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(1118, 181);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(470, 338);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "Graf";
@@ -193,7 +193,7 @@ namespace ProjectConProfile.Forms
             this.dataGridProfil.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridProfil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridProfil.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dataGridProfil.Location = new System.Drawing.Point(1120, 520);
+            this.dataGridProfil.Location = new System.Drawing.Point(1118, 541);
             this.dataGridProfil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridProfil.MultiSelect = false;
             this.dataGridProfil.Name = "dataGridProfil";
@@ -206,7 +206,7 @@ namespace ProjectConProfile.Forms
             // Max
             // 
             this.Max.AutoSize = true;
-            this.Max.Location = new System.Drawing.Point(1325, 639);
+            this.Max.Location = new System.Drawing.Point(1323, 660);
             this.Max.Name = "Max";
             this.Max.Size = new System.Drawing.Size(32, 16);
             this.Max.TabIndex = 10;
@@ -216,7 +216,7 @@ namespace ProjectConProfile.Forms
             // Min
             // 
             this.Min.AutoSize = true;
-            this.Min.Location = new System.Drawing.Point(1325, 682);
+            this.Min.Location = new System.Drawing.Point(1323, 703);
             this.Min.Name = "Min";
             this.Min.Size = new System.Drawing.Size(28, 16);
             this.Min.TabIndex = 11;
@@ -226,7 +226,7 @@ namespace ProjectConProfile.Forms
             // std
             // 
             this.std.AutoSize = true;
-            this.std.Location = new System.Drawing.Point(1325, 724);
+            this.std.Location = new System.Drawing.Point(1323, 745);
             this.std.Name = "std";
             this.std.Size = new System.Drawing.Size(27, 16);
             this.std.TabIndex = 12;
@@ -235,7 +235,7 @@ namespace ProjectConProfile.Forms
             // std2
             // 
             this.std2.AutoSize = true;
-            this.std2.Location = new System.Drawing.Point(1472, 724);
+            this.std2.Location = new System.Drawing.Point(1470, 745);
             this.std2.Name = "std2";
             this.std2.Size = new System.Drawing.Size(27, 16);
             this.std2.TabIndex = 15;
@@ -244,7 +244,7 @@ namespace ProjectConProfile.Forms
             // min2
             // 
             this.min2.AutoSize = true;
-            this.min2.Location = new System.Drawing.Point(1472, 682);
+            this.min2.Location = new System.Drawing.Point(1470, 703);
             this.min2.Name = "min2";
             this.min2.Size = new System.Drawing.Size(28, 16);
             this.min2.TabIndex = 14;
@@ -253,7 +253,7 @@ namespace ProjectConProfile.Forms
             // max2
             // 
             this.max2.AutoSize = true;
-            this.max2.Location = new System.Drawing.Point(1472, 639);
+            this.max2.Location = new System.Drawing.Point(1470, 660);
             this.max2.Name = "max2";
             this.max2.Size = new System.Drawing.Size(32, 16);
             this.max2.TabIndex = 13;

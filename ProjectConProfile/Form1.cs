@@ -97,6 +97,11 @@ namespace ProjectConProfile
                 }
 
                 string[] vsetkySubory = Directory.GetFiles(vybranyPriecinok, "*.sp");
+                if (vsetkySubory.Length == 0)
+                {
+                    MessageBox.Show($"Vo vybranom priečinku sa nenachádzajú súbory .sp");
+                    return null;
+                }
 
                 bool nacitataneExcitacie = false;
                 List<NacitaneData> zoznamNacitanychDat = new List<NacitaneData>();
@@ -175,10 +180,13 @@ namespace ProjectConProfile
                     string projectData = File.ReadAllText(openFileDialog.FileName);
                     _projekt = JsonConvert.DeserializeObject<Projekt>(projectData);
                     _projekt._nazovProjektu = Path.GetFileName(openFileDialog.FileName);
+                    otvorProfilForm();
+                    return;
                 }
             }
 
-            otvorProfilForm();
+            MessageBox.Show("Pri načítaní došlo k chybe.");
+
         }
 
         private void otvorProfilForm()

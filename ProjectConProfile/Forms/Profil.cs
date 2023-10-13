@@ -280,7 +280,7 @@ namespace ProjectConProfile.Forms
             KoncentracnyProfil nacitaneData = _form.nacitajData(_projekt);
             if (nacitaneData != null)
             {
-                pridajDoTreePriecinok(_zvolenyProfil);
+                pridajDoTreePriecinok(nacitaneData);
             }
         }
 
@@ -288,8 +288,27 @@ namespace ProjectConProfile.Forms
 
         private void buttonPorovnat_Click(object sender, EventArgs e)
         {
-            Porovnanie porovnanie = new Porovnanie(_projekt);
-            porovnanie.Show();
+            int profilyNaPorovnanie = 0;
+
+
+            foreach(KoncentracnyProfil profil in _projekt._profily)
+            {
+                if (profil._profil.Count > 0)
+                    profilyNaPorovnanie++;
+                if (profilyNaPorovnanie == 2)
+                    break;
+            }
+
+            if(profilyNaPorovnanie < 2)
+            {
+                MessageBox.Show("Pre porovnanie je potrebné mať vytvorené najmenej dva koncentračné profily.");
+            } else
+            {
+                Porovnanie porovnanie = new Porovnanie(_projekt);
+                porovnanie.Show();
+            }
+
+            
             
         }
 

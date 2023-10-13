@@ -39,11 +39,11 @@ namespace ProjectConProfile.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Porovnanie));
             this.treeViewPorovnanie = new System.Windows.Forms.TreeView();
             this.buttonPorovnat = new System.Windows.Forms.Button();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartCompare = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonMinimalizuj1 = new System.Windows.Forms.Button();
             this.buttonZrus1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartCompare)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,24 +71,24 @@ namespace ProjectConProfile.Forms
             this.buttonPorovnat.UseVisualStyleBackColor = false;
             this.buttonPorovnat.Click += new System.EventHandler(this.buttonPorovnat_Click);
             // 
-            // chart1
+            // chartCompare
             // 
             chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            this.chartCompare.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(531, 145);
-            this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            this.chartCompare.Legends.Add(legend1);
+            this.chartCompare.Location = new System.Drawing.Point(531, 145);
+            this.chartCompare.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chartCompare.Name = "chartCompare";
+            this.chartCompare.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(659, 450);
-            this.chart1.TabIndex = 8;
-            this.chart1.Text = "Graf";
-            this.chart1.Click += new System.EventHandler(this.chart1_Click);
+            this.chartCompare.Series.Add(series1);
+            this.chartCompare.Size = new System.Drawing.Size(659, 450);
+            this.chartCompare.TabIndex = 8;
+            this.chartCompare.Text = "Graf";
+            this.chartCompare.Click += new System.EventHandler(this.chart1_Click);
             // 
             // panel1
             // 
@@ -139,7 +139,7 @@ namespace ProjectConProfile.Forms
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1234, 662);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.chartCompare);
             this.Controls.Add(this.buttonPorovnat);
             this.Controls.Add(this.treeViewPorovnanie);
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -149,7 +149,7 @@ namespace ProjectConProfile.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Porovnanie";
             this.Load += new System.EventHandler(this.Porovnanie_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartCompare)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -160,7 +160,7 @@ namespace ProjectConProfile.Forms
 
         private System.Windows.Forms.TreeView treeViewPorovnanie;
         private System.Windows.Forms.Button buttonPorovnat;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartCompare;
         private Panel panel1;
         private System.Windows.Forms.Button buttonZrus1;
         private System.Windows.Forms.Button buttonMinimalizuj1;

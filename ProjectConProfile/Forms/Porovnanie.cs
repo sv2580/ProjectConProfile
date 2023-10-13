@@ -72,7 +72,8 @@ namespace ProjectConProfile.Forms
 
             for (int i = 0; i < _projekt._profily.Count; i++)
             {
-                treeViewPorovnanie.Nodes.Add(Path.GetFileName(_projekt._profily[i]._nazovPriecinku));
+                if(_projekt._profily[i]._profil.Count > 0)
+                    treeViewPorovnanie.Nodes.Add(Path.GetFileName(_projekt._profily[i]._nazovPriecinku));
             }
 
             treeViewPorovnanie.EndUpdate();
@@ -105,8 +106,9 @@ namespace ProjectConProfile.Forms
                 }
             }
 
-            chart1.Series.Clear();
-            foreach (KoncentracnyProfil data in _projekt._profily)
+            chartCompare.Series.Clear();
+
+            foreach (KoncentracnyProfil data in _zvolene)
             {
                 Series series = new Series();
                 series.ChartType = SeriesChartType.Point;
@@ -117,12 +119,22 @@ namespace ProjectConProfile.Forms
                 }
                 series.IsVisibleInLegend = true;
                 series.LegendText = Path.GetFileName(data._nazovPriecinku);
-                chart1.Series.Add(series);
-                chart1.Series[chart1.Series.Count - 1].ChartType = SeriesChartType.Line;
+                chartCompare.Series.Add(series);
+                chartCompare.Series[chartCompare.Series.Count - 1].ChartType = SeriesChartType.Line;
+
+                //series.ChartType = SeriesChartType.Point;
+
+               
             }
             
-            chart1.ChartAreas[0].AxisY.Minimum = 0;
-            chart1.Legends[0].Docking = Docking.Bottom;
+            chartCompare.ChartAreas[0].AxisY.Minimum = 0;
+            chartCompare.Legends[0].Docking = Docking.Bottom;
+        
+            foreach (Series series in chartCompare.Series)
+            {
+                DataPointCollection pom = series.Points;
+                ;
+            }
         }
         private void Porovnanie_Load(object sender, EventArgs e)
         {

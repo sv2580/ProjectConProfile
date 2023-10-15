@@ -55,7 +55,7 @@ namespace ProjectConProfile
             this.buttonNacitatData.ForeColor = System.Drawing.Color.Black;
             this.buttonNacitatData.Image = ((System.Drawing.Image)(resources.GetObject("buttonNacitatData.Image")));
             this.buttonNacitatData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonNacitatData.Location = new System.Drawing.Point(460, 446);
+            this.buttonNacitatData.Location = new System.Drawing.Point(352, 446);
             this.buttonNacitatData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonNacitatData.Name = "buttonNacitatData";
             this.buttonNacitatData.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -75,7 +75,7 @@ namespace ProjectConProfile
             this.buttonNacitatProjekt.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttonNacitatProjekt.Image = ((System.Drawing.Image)(resources.GetObject("buttonNacitatProjekt.Image")));
             this.buttonNacitatProjekt.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonNacitatProjekt.Location = new System.Drawing.Point(798, 446);
+            this.buttonNacitatProjekt.Location = new System.Drawing.Point(690, 446);
             this.buttonNacitatProjekt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonNacitatProjekt.Name = "buttonNacitatProjekt";
             this.buttonNacitatProjekt.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -98,7 +98,7 @@ namespace ProjectConProfile
             this.panel.Location = new System.Drawing.Point(0, -2);
             this.panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(1575, 1017);
+            this.panel.Size = new System.Drawing.Size(1359, 1017);
             this.panel.TabIndex = 3;
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
             // 
@@ -114,7 +114,7 @@ namespace ProjectConProfile
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1573, 96);
+            this.panel1.Size = new System.Drawing.Size(1357, 96);
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -124,7 +124,7 @@ namespace ProjectConProfile
             this.buttonMinimalizuj.FlatAppearance.BorderSize = 0;
             this.buttonMinimalizuj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMinimalizuj.Image = ((System.Drawing.Image)(resources.GetObject("buttonMinimalizuj.Image")));
-            this.buttonMinimalizuj.Location = new System.Drawing.Point(1399, 19);
+            this.buttonMinimalizuj.Location = new System.Drawing.Point(1183, 19);
             this.buttonMinimalizuj.Margin = new System.Windows.Forms.Padding(4);
             this.buttonMinimalizuj.Name = "buttonMinimalizuj";
             this.buttonMinimalizuj.Size = new System.Drawing.Size(39, 28);
@@ -155,7 +155,7 @@ namespace ProjectConProfile
             this.buttonZvacsi.FlatAppearance.BorderSize = 0;
             this.buttonZvacsi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonZvacsi.Image = ((System.Drawing.Image)(resources.GetObject("buttonZvacsi.Image")));
-            this.buttonZvacsi.Location = new System.Drawing.Point(1459, 19);
+            this.buttonZvacsi.Location = new System.Drawing.Point(1243, 19);
             this.buttonZvacsi.Margin = new System.Windows.Forms.Padding(4);
             this.buttonZvacsi.Name = "buttonZvacsi";
             this.buttonZvacsi.Size = new System.Drawing.Size(32, 28);
@@ -169,7 +169,7 @@ namespace ProjectConProfile
             this.buttonZrus.FlatAppearance.BorderSize = 0;
             this.buttonZrus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonZrus.Image = ((System.Drawing.Image)(resources.GetObject("buttonZrus.Image")));
-            this.buttonZrus.Location = new System.Drawing.Point(1509, 19);
+            this.buttonZrus.Location = new System.Drawing.Point(1293, 19);
             this.buttonZrus.Margin = new System.Windows.Forms.Padding(4);
             this.buttonZrus.Name = "buttonZrus";
             this.buttonZrus.Size = new System.Drawing.Size(36, 28);
@@ -194,7 +194,7 @@ namespace ProjectConProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1669, 1009);
+            this.ClientSize = new System.Drawing.Size(1361, 1009);
             this.Controls.Add(this.panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

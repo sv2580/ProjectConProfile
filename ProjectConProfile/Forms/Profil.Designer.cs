@@ -34,9 +34,9 @@ namespace ProjectConProfile.Forms
             private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profil));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridNacitane = new System.Windows.Forms.DataGridView();
             this.treeViewPriecinky = new System.Windows.Forms.TreeView();
             this.buttonUlozit = new System.Windows.Forms.Button();
@@ -52,6 +52,7 @@ namespace ProjectConProfile.Forms
             this.std2 = new System.Windows.Forms.Label();
             this.min2 = new System.Windows.Forms.Label();
             this.max2 = new System.Windows.Forms.Label();
+            this.buttonExport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNacitane)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNasobeneData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -92,7 +93,7 @@ namespace ProjectConProfile.Forms
             this.buttonUlozit.FlatAppearance.BorderSize = 2;
             this.buttonUlozit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUlozit.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonUlozit.ForeColor = System.Drawing.Color.White;
+            this.buttonUlozit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonUlozit.Location = new System.Drawing.Point(107, 110);
             this.buttonUlozit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 6);
             this.buttonUlozit.Name = "buttonUlozit";
@@ -148,23 +149,23 @@ namespace ProjectConProfile.Forms
             this.dataGridNasobeneData.Name = "dataGridNasobeneData";
             this.dataGridNasobeneData.ReadOnly = true;
             this.dataGridNasobeneData.RowHeadersWidth = 10;
-            this.dataGridNasobeneData.Size = new System.Drawing.Size(717, 375);
+            this.dataGridNasobeneData.Size = new System.Drawing.Size(717, 367);
             this.dataGridNasobeneData.TabIndex = 6;
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(1118, 181);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(470, 338);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "Graf";
@@ -199,7 +200,7 @@ namespace ProjectConProfile.Forms
             this.dataGridProfil.Name = "dataGridProfil";
             this.dataGridProfil.ReadOnly = true;
             this.dataGridProfil.RowHeadersWidth = 10;
-            this.dataGridProfil.Size = new System.Drawing.Size(185, 375);
+            this.dataGridProfil.Size = new System.Drawing.Size(184, 367);
             this.dataGridProfil.TabIndex = 9;
             this.dataGridProfil.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProfil_CellContentClick);
             // 
@@ -259,6 +260,21 @@ namespace ProjectConProfile.Forms
             this.max2.TabIndex = 13;
             this.max2.Text = "Max";
             // 
+            // buttonExport
+            // 
+            this.buttonExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExport.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonExport.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonExport.Location = new System.Drawing.Point(112, 717);
+            this.buttonExport.Name = "buttonExport";
+            this.buttonExport.Size = new System.Drawing.Size(140, 44);
+            this.buttonExport.TabIndex = 16;
+            this.buttonExport.Text = "Exportovať";
+            this.buttonExport.UseVisualStyleBackColor = false;
+            this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click); // Pridajte obsluhu udalosti pre button
+            this.buttonExport.Visible = false;
+            // 
             // Profil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -267,6 +283,7 @@ namespace ProjectConProfile.Forms
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1593, 912);
+            this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.std2);
             this.Controls.Add(this.min2);
             this.Controls.Add(this.max2);
@@ -315,5 +332,8 @@ namespace ProjectConProfile.Forms
         private System.Windows.Forms.Label std2;
         private System.Windows.Forms.Label min2;
         private System.Windows.Forms.Label max2;
+        private System.Windows.Forms.Button buttonExport;
+
+        
     }
 }

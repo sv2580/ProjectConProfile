@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -383,6 +384,7 @@ namespace ProjectConProfile.Forms
            profilGrid();
             pridatDoGrafu(_zvolenyProfil._excitacia, _zvolenyProfil._profil, "Max");
             buttonExport.Visible = true;
+            buttonExportPicture.Visible = true;
         }
 
         private void chart1_Click(object sender, EventArgs e)
@@ -481,6 +483,29 @@ namespace ProjectConProfile.Forms
             ExportDataGridsToCSV(dataGridNacitane, dataGridNasobeneData, dataGridProfil);
         }
 
+        private void ExportChartAsImage()
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Obrázky (*.png)|*.png";
+            saveFileDialog.Title = "Vyberte umiestnenie pre exportovaný obrázok";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Vytvorenie snímku grafu
+                Bitmap chartImage = new Bitmap(chart1.Width, chart1.Height);
+                chart1.DrawToBitmap(chartImage, new Rectangle(0, 0, chart1.Width, chart1.Height));
+
+                // Uloženie snímku ako obrázka
+                chartImage.Save(saveFileDialog.FileName, ImageFormat.Png);
+
+                MessageBox.Show("Obrázok bol úspešne exportovaný do súboru " + saveFileDialog.FileName + ".");
+            }
+        }
+
+        private void buttonExportPicture_Click(object sender, EventArgs e)
+        {
+            ExportChartAsImage();
+        }
     }
 }
 

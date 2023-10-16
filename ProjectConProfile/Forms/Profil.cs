@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -26,6 +27,8 @@ namespace ProjectConProfile.Forms
         private KoncentracnyProfil _zvolenyProfil;
         public const string SuborFaktorovSpektier = "faktory.txt";
         private List<ComboBox> _boxy = new List<ComboBox>();
+        //pridane Ninka - uchovavanie povodných dát niekde
+        private List<NacitaneData> povodneData;
 
         //
         private Panel _panel1;
@@ -347,6 +350,7 @@ namespace ProjectConProfile.Forms
 
         private void buttonNasobit_Click(object sender, EventArgs e)
         {
+            povodneData = new List<NacitaneData>(_zvolenyProfil._nacitaneData);
             List<double> faktory = new List<double>();
             for (int i = 0; i < dataGridNacitane.Columns.Count; i++)
             {
@@ -395,9 +399,11 @@ namespace ProjectConProfile.Forms
                 chart1.Series.RemoveAt(chart1.Series.Count - 1);
             }
 
-            _zvolenyProfil.vytvoritProfil();
-            profilGrid();
+           _zvolenyProfil.vytvoritProfil();
+           profilGrid();
             pridatDoGrafu(_zvolenyProfil._excitacia, _zvolenyProfil._profil, "Max");
+            buttonExport.Visible = true;
+            buttonExportPicture.Visible = true;
         }
 
         private void chart1_Click(object sender, EventArgs e)
@@ -420,6 +426,105 @@ namespace ProjectConProfile.Forms
 
         }
 
+
+        private void ExportDataGridsToCSV(DataGridView dataGridView1, DataGridView dataGridView2, DataGridView dataGridView3)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "CSV súbory (*.csv)|*.csv";
+            saveFileDialog.Title = "Vyberte umiestnenie pre exportovaný CSV súbor";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName))
+                {
+                    // Export hlavičky tabuľky 1 (dataGridNasobeneData)
+                    foreach (DataGridViewColumn column in dataGridView1.Columns)
+                    {
+                        writer.Write(column.HeaderText + ";");
+                    }
+                    writer.Write(";"); // Prázdny stĺpec
+
+                    // Export hlavičky tabuľky 2 (dataGridNasobeneData)
+                    foreach (DataGridViewColumn column in dataGridView2.Columns)
+                    {
+                        writer.Write(column.HeaderText + ";");
+                    }
+                    writer.Write(";"); // Prázdny stĺpec
+
+                    // Export hlavičky tabuľky 3 (dataGridProfil)
+                    foreach (DataGridViewColumn column in dataGridView3.Columns)
+                    {
+                        writer.Write(column.HeaderText + ";");
+                    }
+                    writer.WriteLine();
+
+                    //export dat
+
+                    int maxRowCount = Math.Max(dataGridView1.Rows.Count, Math.Max(dataGridView2.Rows.Count, dataGridView3.Rows.Count));
+
+                    for (int i = 0; i < maxRowCount; i++)
+                    {
+                        if (i < dataGridView1.Rows.Count)
+                        {
+                            foreach (DataGridViewCell cell in dataGridView1.Rows[i].Cells)
+                            {
+                                writer.Write(cell.Value + ";");
+                            }
+                        }
+                        writer.Write(";"); // Prázdny stĺpec
+
+                        if (i < dataGridView1.Rows.Count)
+                        {
+                            foreach (DataGridViewCell cell in dataGridView2.Rows[i].Cells)
+                            {
+                                writer.Write(cell.Value + ";");
+                            }
+                        }
+                        writer.Write(";"); // Prázdny stĺpec
+
+                        if (i < dataGridView2.Rows.Count)
+                        {
+                            foreach (DataGridViewCell cell in dataGridView3.Rows[i].Cells)
+                            {
+                                writer.Write(cell.Value + ";");
+                            }
+                        }
+                        writer.WriteLine();
+                    }
+                }
+
+                MessageBox.Show("Dáta boli úspešne exportované do súboru " + saveFileDialog.FileName + ".");
+            }
+        }
+
+        private void buttonExport_Click(object sender, EventArgs e)
+        {
+            ExportDataGridsToCSV(dataGridNacitane, dataGridNasobeneData, dataGridProfil);
+        }
+
+        private void ExportChartAsImage()
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Obrázky (*.png)|*.png";
+            saveFileDialog.Title = "Vyberte umiestnenie pre exportovaný obrázok";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Vytvorenie snímku grafu
+                Bitmap chartImage = new Bitmap(chart1.Width, chart1.Height);
+                chart1.DrawToBitmap(chartImage, new Rectangle(0, 0, chart1.Width, chart1.Height));
+
+                // Uloženie snímku ako obrázka
+                chartImage.Save(saveFileDialog.FileName, ImageFormat.Png);
+
+                MessageBox.Show("Obrázok bol úspešne exportovaný do súboru " + saveFileDialog.FileName + ".");
+            }
+        }
+
+        private void buttonExportPicture_Click(object sender, EventArgs e)
+        {
+            ExportChartAsImage();
+        }
     }
 }
 

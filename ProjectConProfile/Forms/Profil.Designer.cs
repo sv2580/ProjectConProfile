@@ -52,6 +52,8 @@ namespace ProjectConProfile.Forms
             this.std2 = new System.Windows.Forms.Label();
             this.min2 = new System.Windows.Forms.Label();
             this.max2 = new System.Windows.Forms.Label();
+            this.buttonExport = new System.Windows.Forms.Button();
+            this.buttonExportPicture = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNacitane)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNasobeneData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -92,7 +94,7 @@ namespace ProjectConProfile.Forms
             this.buttonUlozit.FlatAppearance.BorderSize = 2;
             this.buttonUlozit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUlozit.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonUlozit.ForeColor = System.Drawing.Color.White;
+            this.buttonUlozit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonUlozit.Location = new System.Drawing.Point(107, 110);
             this.buttonUlozit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 6);
             this.buttonUlozit.Name = "buttonUlozit";
@@ -148,7 +150,7 @@ namespace ProjectConProfile.Forms
             this.dataGridNasobeneData.Name = "dataGridNasobeneData";
             this.dataGridNasobeneData.ReadOnly = true;
             this.dataGridNasobeneData.RowHeadersWidth = 10;
-            this.dataGridNasobeneData.Size = new System.Drawing.Size(717, 375);
+            this.dataGridNasobeneData.Size = new System.Drawing.Size(717, 367);
             this.dataGridNasobeneData.TabIndex = 6;
             // 
             // chart1
@@ -157,7 +159,7 @@ namespace ProjectConProfile.Forms
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(1118, 181);
+            this.chart1.Location = new System.Drawing.Point(1117, 157);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
@@ -199,7 +201,7 @@ namespace ProjectConProfile.Forms
             this.dataGridProfil.Name = "dataGridProfil";
             this.dataGridProfil.ReadOnly = true;
             this.dataGridProfil.RowHeadersWidth = 10;
-            this.dataGridProfil.Size = new System.Drawing.Size(185, 375);
+            this.dataGridProfil.Size = new System.Drawing.Size(184, 367);
             this.dataGridProfil.TabIndex = 9;
             this.dataGridProfil.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProfil_CellContentClick);
             // 
@@ -259,6 +261,36 @@ namespace ProjectConProfile.Forms
             this.max2.TabIndex = 13;
             this.max2.Text = "Max";
             // 
+            // buttonExport
+            // 
+            this.buttonExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExport.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonExport.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonExport.Location = new System.Drawing.Point(112, 717);
+            this.buttonExport.Name = "buttonExport";
+            this.buttonExport.Size = new System.Drawing.Size(140, 44);
+            this.buttonExport.TabIndex = 16;
+            this.buttonExport.Text = "Exportovať";
+            this.buttonExport.UseVisualStyleBackColor = false;
+            this.buttonExport.Visible = false;
+            this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
+            // 
+            // buttonExportPicture
+            // 
+            this.buttonExportPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonExportPicture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExportPicture.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonExportPicture.ForeColor = System.Drawing.Color.White;
+            this.buttonExportPicture.Location = new System.Drawing.Point(1252, 485);
+            this.buttonExportPicture.Name = "buttonExportPicture";
+            this.buttonExportPicture.Size = new System.Drawing.Size(127, 51);
+            this.buttonExportPicture.TabIndex = 17;
+            this.buttonExportPicture.Text = "Exportovať obrázok";
+            this.buttonExportPicture.UseVisualStyleBackColor = false;
+            this.buttonExportPicture.Visible = false;
+            this.buttonExportPicture.Click += new System.EventHandler(this.buttonExportPicture_Click);
+            // 
             // Profil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -267,6 +299,8 @@ namespace ProjectConProfile.Forms
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1593, 912);
+            this.Controls.Add(this.buttonExportPicture);
+            this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.std2);
             this.Controls.Add(this.min2);
             this.Controls.Add(this.max2);
@@ -315,5 +349,7 @@ namespace ProjectConProfile.Forms
         private System.Windows.Forms.Label std2;
         private System.Windows.Forms.Label min2;
         private System.Windows.Forms.Label max2;
+        private System.Windows.Forms.Button buttonExport;
+        private Button buttonExportPicture;
     }
 }

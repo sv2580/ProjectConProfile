@@ -131,6 +131,10 @@ namespace ProjectConProfile
                             {
                                 if (startReading && !string.IsNullOrWhiteSpace(line))
                                 {
+                                    if (zoznamNacitanychDat.Count > 0 && row >= excitacie.Count)
+                                    {
+                                        nacitataneExcitacie = false;
+                                    }
                                     string[] words = line.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries); //rozdelenie slov v riadku
                                     if (nacitataneExcitacie == false && double.TryParse(words[0].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double x))
                                     {

@@ -158,12 +158,19 @@ namespace ProjectConProfile.Forms
                 dataTable.Columns.Add(nacitane._nazovSuboru);
             }
 
-            for (int j = 0; j < _zvolenyProfil._nacitaneData[0]._data.Count; j++)
+            for (int j = 0; j < _zvolenyProfil._maxPocet; j++)
             {
                 DataRow newRow = dataTable.NewRow();
                 for (int i = 0; i < _zvolenyProfil._nacitaneData.Count; i++)
                 {
-                    newRow[_zvolenyProfil._nacitaneData[i]._nazovSuboru] = data[i][j];
+
+                    if (_zvolenyProfil._nacitaneData[i]._data.Count > j)
+                    {
+                        newRow[_zvolenyProfil._nacitaneData[i]._nazovSuboru] = data[i][j];
+                    } else
+                    {
+                        newRow[_zvolenyProfil._nacitaneData[i]._nazovSuboru] = '-';
+                    }
                 }
                 dataTable.Rows.Add(newRow);
             }
@@ -207,7 +214,7 @@ namespace ProjectConProfile.Forms
             Series series = new Series();
             series.ChartType = SeriesChartType.Point;
 
-            for (int i = 0; i < x.Count; i++)
+            for (int i = 0; i < y.Count; i++)
             {
                 series.Points.AddXY(x[i], y[i]);
             }

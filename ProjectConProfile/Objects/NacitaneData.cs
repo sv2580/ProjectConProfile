@@ -12,6 +12,8 @@ namespace ProjectConProfile.Objects
         public List<double> _data { get; set; }
         public string _nazovSuboru { get; set; }
 
+        
+
 
         public NacitaneData(int spektrum, List<double> data, string nazovSuboru)
         {

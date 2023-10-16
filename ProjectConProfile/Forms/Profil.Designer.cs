@@ -34,9 +34,9 @@ namespace ProjectConProfile.Forms
             private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profil));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridNacitane = new System.Windows.Forms.DataGridView();
             this.treeViewPriecinky = new System.Windows.Forms.TreeView();
             this.buttonUlozit = new System.Windows.Forms.Button();
@@ -54,6 +54,12 @@ namespace ProjectConProfile.Forms
             this.max2 = new System.Windows.Forms.Label();
             this.buttonExport = new System.Windows.Forms.Button();
             this.buttonExportPicture = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNacitane)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNasobeneData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -155,18 +161,18 @@ namespace ProjectConProfile.Forms
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(1117, 157);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(470, 338);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "Graf";
@@ -237,7 +243,7 @@ namespace ProjectConProfile.Forms
             // std2
             // 
             this.std2.AutoSize = true;
-            this.std2.Location = new System.Drawing.Point(1470, 745);
+            this.std2.Location = new System.Drawing.Point(1452, 745);
             this.std2.Name = "std2";
             this.std2.Size = new System.Drawing.Size(27, 16);
             this.std2.TabIndex = 15;
@@ -246,7 +252,7 @@ namespace ProjectConProfile.Forms
             // min2
             // 
             this.min2.AutoSize = true;
-            this.min2.Location = new System.Drawing.Point(1470, 703);
+            this.min2.Location = new System.Drawing.Point(1451, 703);
             this.min2.Name = "min2";
             this.min2.Size = new System.Drawing.Size(28, 16);
             this.min2.TabIndex = 14;
@@ -255,7 +261,7 @@ namespace ProjectConProfile.Forms
             // max2
             // 
             this.max2.AutoSize = true;
-            this.max2.Location = new System.Drawing.Point(1470, 660);
+            this.max2.Location = new System.Drawing.Point(1451, 660);
             this.max2.Name = "max2";
             this.max2.Size = new System.Drawing.Size(32, 16);
             this.max2.TabIndex = 13;
@@ -291,6 +297,48 @@ namespace ProjectConProfile.Forms
             this.buttonExportPicture.Visible = false;
             this.buttonExportPicture.Click += new System.EventHandler(this.buttonExportPicture_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(1357, 657);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(88, 22);
+            this.textBox1.TabIndex = 18;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(1357, 700);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(88, 22);
+            this.textBox2.TabIndex = 19;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(1357, 742);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(88, 22);
+            this.textBox3.TabIndex = 20;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(1485, 742);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(88, 22);
+            this.textBox4.TabIndex = 23;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(1485, 700);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(88, 22);
+            this.textBox5.TabIndex = 22;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(1485, 657);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(88, 22);
+            this.textBox6.TabIndex = 21;
+            // 
             // Profil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -298,7 +346,13 @@ namespace ProjectConProfile.Forms
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1593, 912);
+            this.ClientSize = new System.Drawing.Size(1747, 912);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonExportPicture);
             this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.std2);
@@ -351,5 +405,11 @@ namespace ProjectConProfile.Forms
         private System.Windows.Forms.Label max2;
         private System.Windows.Forms.Button buttonExport;
         private Button buttonExportPicture;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private TextBox textBox3;
+        private TextBox textBox4;
+        private TextBox textBox5;
+        private TextBox textBox6;
     }
 }

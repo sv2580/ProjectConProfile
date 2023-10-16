@@ -411,6 +411,22 @@ namespace ProjectConProfile.Forms
             pridatDoGrafu(_zvolenyProfil._excitacia, _zvolenyProfil._profil, "Max");
             buttonExport.Visible = true;
             buttonExportPicture.Visible = true;
+
+            //SABKA
+            double maxValue = FindMaxValueInDataGridNacitane();
+            double minValue = FindMinValueInDataGridNacitane();
+            double standardDeviation = CalculateStandardDeviation();
+            double maxValueN = FindMaxValueInDataGridNasobene();
+            double minValueN = FindMinValueInDataGridNasobene();
+            double standardDeviationN = CalculateStandardDeviationNasobene();
+
+            textBox1.Text = maxValue.ToString();
+            textBox2.Text = minValue.ToString();
+            textBox3.Text = standardDeviation.ToString();
+            textBox6.Text = maxValueN.ToString();
+            textBox5.Text = minValueN.ToString();
+            textBox4.Text = standardDeviationN.ToString();
+
         }
 
         private void chart1_Click(object sender, EventArgs e)
@@ -531,6 +547,160 @@ namespace ProjectConProfile.Forms
         private void buttonExportPicture_Click(object sender, EventArgs e)
         {
             ExportChartAsImage();
+        }
+
+        private double FindMaxValueInDataGridNacitane()
+        {
+            double maxValue = double.MinValue;
+
+            // Loop through the rows in the DataGridView
+            foreach (DataGridViewRow row in dataGridNacitane.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.Value != null)
+                    {
+                        if (double.TryParse(cell.Value.ToString(), out double cellValue))
+                        {
+                            if (cellValue > maxValue)
+                            {
+                                maxValue = cellValue;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return maxValue;
+        }
+
+        private double FindMaxValueInDataGridNasobene()
+        {
+            double maxValueN = double.MinValue;
+
+            // Loop through the rows in the DataGridView
+            foreach (DataGridViewRow row in dataGridNasobeneData.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.Value != null)
+                    {
+                        if (double.TryParse(cell.Value.ToString(), out double cellValue))
+                        {
+                            if (cellValue > maxValueN)
+                            {
+                                maxValueN = cellValue;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return maxValueN;
+        }
+
+        private double FindMinValueInDataGridNacitane()
+        {
+            double minValue = double.MaxValue;
+
+            // Loop through the rows in the DataGridView
+            foreach (DataGridViewRow row in dataGridNacitane.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.Value != null)
+                    {
+                        if (double.TryParse(cell.Value.ToString(), out double cellValue))
+                        {
+                            if (cellValue < minValue)
+                            {
+                                minValue = cellValue;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return minValue;
+        }
+
+        private double FindMinValueInDataGridNasobene()
+        {
+            double minValueN = double.MaxValue;
+
+            // Loop through the rows in the DataGridView
+            foreach (DataGridViewRow row in dataGridNasobeneData.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.Value != null)
+                    {
+                        if (double.TryParse(cell.Value.ToString(), out double cellValue))
+                        {
+                            if (cellValue < minValueN)
+                            {
+                                minValueN = cellValue;
+                            }
+                        }
+                    }
+                }
+            }
+
+            return minValueN;
+        }
+
+        private double CalculateStandardDeviation()
+        {
+            List<double> values = new List<double>();
+
+            // Loop through the rows in the DataGridView
+            foreach (DataGridViewRow row in dataGridNacitane.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.Value != null)
+                    {
+                        if (double.TryParse(cell.Value.ToString(), out double cellValue))
+                        {
+                            values.Add(cellValue);
+                        }
+                    }
+                }
+            }
+
+            // Calculate standard deviation using LINQ
+            double mean = values.Average();
+            double sumOfSquaredDifferences = values.Sum(value => Math.Pow(value - mean, 2));
+            double standardDeviation = Math.Sqrt(sumOfSquaredDifferences / values.Count);
+
+            return standardDeviation;
+        }
+
+        private double CalculateStandardDeviationNasobene()
+        {
+            List<double> values = new List<double>();
+
+            // Loop through the rows in the DataGridView
+            foreach (DataGridViewRow row in dataGridNasobeneData.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.Value != null)
+                    {
+                        if (double.TryParse(cell.Value.ToString(), out double cellValue))
+                        {
+                            values.Add(cellValue);
+                        }
+                    }
+                }
+            }
+
+            // Calculate standard deviation using LINQ
+            double meanN = values.Average();
+            double sumOfSquaredDifferencesN = values.Sum(value => Math.Pow(value - meanN, 2));
+            double standardDeviationN = Math.Sqrt(sumOfSquaredDifferencesN / values.Count);
+
+            return standardDeviationN;
         }
     }
 }

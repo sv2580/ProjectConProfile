@@ -25,7 +25,6 @@ namespace ProjectConProfile.Forms
         public Porovnanie(Projekt projekt)
         {
             InitializeComponent();
-            this.chartCompare.Hide();
             _projekt = projekt;
             _zvolene = new List<KoncentracnyProfil>();
             //pohyb okna poocou panel1
@@ -136,9 +135,6 @@ namespace ProjectConProfile.Forms
                 DataPointCollection pom = series.Points;
                 ;
             }
-
-            chartCompare.Show();
-
         }
         private void Porovnanie_Load(object sender, EventArgs e)
         {

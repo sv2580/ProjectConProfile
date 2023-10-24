@@ -43,6 +43,9 @@ namespace ProjectConProfile.Forms
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonMinimalizuj1 = new System.Windows.Forms.Button();
             this.buttonZrus1 = new System.Windows.Forms.Button();
+            this.max = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chartCompare)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -132,12 +135,43 @@ namespace ProjectConProfile.Forms
             this.buttonZrus1.UseVisualStyleBackColor = true;
             this.buttonZrus1.Click += new System.EventHandler(this.buttonZrus1_Click);
             // 
+            // max
+            // 
+            this.max.AutoSize = true;
+            this.max.Location = new System.Drawing.Point(60, 578);
+            this.max.Name = "max";
+            this.max.Size = new System.Drawing.Size(32, 16);
+            this.max.TabIndex = 10;
+            this.max.Text = "Max";
+            this.max.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(60, 611);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(28, 16);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Min";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(60, 643);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(27, 16);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Std";
+            // 
             // Porovnanie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1234, 662);
+            this.ClientSize = new System.Drawing.Size(1234, 719);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.max);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.chartCompare);
             this.Controls.Add(this.buttonPorovnat);
@@ -152,6 +186,7 @@ namespace ProjectConProfile.Forms
             ((System.ComponentModel.ISupportInitialize)(this.chartCompare)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -164,5 +199,8 @@ namespace ProjectConProfile.Forms
         private Panel panel1;
         private System.Windows.Forms.Button buttonZrus1;
         private System.Windows.Forms.Button buttonMinimalizuj1;
+        private Label max;
+        private Label label1;
+        private Label label2;
     }
 }

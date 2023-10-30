@@ -22,6 +22,7 @@ namespace ProjectConProfile
     {
         public Projekt _projekt { get; set; }
         private Profil _profilForm;
+        private NastaveniaSuborov _nastavenia;
         public KoncentracnyProfil _zvolenyProfil { get; set; } //dat do druheho formu aj s treeview aj vsetkym
 
 
@@ -38,6 +39,7 @@ namespace ProjectConProfile
             panel1.MouseDown += Panel1_MouseDown;
             panel1.MouseMove += Panel1_MouseMove;
             panel1.MouseUp += Panel1_MouseUp;
+            _nastavenia = new NastaveniaSuborov();
             //
         }
 
@@ -85,6 +87,8 @@ namespace ProjectConProfile
         public KoncentracnyProfil nacitajData(Projekt projekt)
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
+            if (_nastavenia.cestaKDatam != null)
+                dialog.SelectedPath = _nastavenia.cestaKDatam;
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
@@ -193,7 +197,7 @@ namespace ProjectConProfile
         {
             if (_profilForm == null)
             {
-                _profilForm = new Profil(_projekt, 0, panel1);
+                _profilForm = new Profil(_projekt, 0, panel1, _nastavenia);
                 _profilForm.TopLevel = false;
                 panel.Controls.Add(_profilForm);
                 _profilForm.ControlBox = false;
@@ -335,6 +339,12 @@ namespace ProjectConProfile
         private void buttonMinimalizuj_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void buttonNastavenia_Click(object sender, EventArgs e)
+        {
+            Nastavenia nastaveniaForm = new Nastavenia(_nastavenia);
+            nastaveniaForm.Show();
         }
     }
 

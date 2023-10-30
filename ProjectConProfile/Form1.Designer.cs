@@ -35,6 +35,7 @@ namespace ProjectConProfile
             this.buttonNacitatData = new System.Windows.Forms.Button();
             this.buttonNacitatProjekt = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
+            this.buttonNastavenia = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonMinimalizuj = new System.Windows.Forms.Button();
             this.buttonSpat = new System.Windows.Forms.Button();
@@ -92,6 +93,7 @@ namespace ProjectConProfile
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel.Controls.Add(this.buttonNastavenia);
             this.panel.Controls.Add(this.panel1);
             this.panel.Controls.Add(this.buttonNacitatProjekt);
             this.panel.Controls.Add(this.buttonNacitatData);
@@ -101,6 +103,24 @@ namespace ProjectConProfile
             this.panel.Size = new System.Drawing.Size(1359, 1017);
             this.panel.TabIndex = 3;
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
+            // 
+            // buttonNastavenia
+            // 
+            this.buttonNastavenia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonNastavenia.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonNastavenia.FlatAppearance.BorderSize = 2;
+            this.buttonNastavenia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNastavenia.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonNastavenia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonNastavenia.Location = new System.Drawing.Point(601, 789);
+            this.buttonNastavenia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonNastavenia.Name = "buttonNastavenia";
+            this.buttonNastavenia.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.buttonNastavenia.Size = new System.Drawing.Size(165, 56);
+            this.buttonNastavenia.TabIndex = 5;
+            this.buttonNastavenia.Text = "Nastavenia";
+            this.buttonNastavenia.UseVisualStyleBackColor = true;
+            this.buttonNastavenia.Click += new System.EventHandler(this.buttonNastavenia_Click);
             // 
             // panel1
             // 
@@ -222,6 +242,7 @@ namespace ProjectConProfile
         private System.Windows.Forms.Button buttonMinimalizuj;
         private System.Windows.Forms.Button buttonZvacsi;
         private System.Windows.Forms.Button buttonZrus;
+        private Button buttonNastavenia;
     }
 }
 

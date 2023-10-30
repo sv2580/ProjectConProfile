@@ -14,6 +14,12 @@ namespace ProjectConProfile.Objects
         public List<double> _profil { get; set; }
         public string _nazovPriecinku { get; set; }
 
+       
+        public double _maxValueN { get; set; }
+        public double _minValueN { get; set; }
+
+        public double _standardDeviationN { get; set; }
+
         //TO-DO statistiky
         public KoncentracnyProfil(List<NacitaneData> nacitaneData, List<double> excitacia, string nazovPriecinku)
         {
@@ -22,6 +28,11 @@ namespace ProjectConProfile.Objects
             _profil = new List<double>();
             _nasobeneData = new List<NasobeneData>();
             _nazovPriecinku = nazovPriecinku;
+            
+            
+            _maxValueN = new double();
+            _minValueN = new double();
+            _standardDeviationN = new double();
         }
 
         public void vytvoritProfil()

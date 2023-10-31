@@ -31,10 +31,10 @@ namespace ProjectConProfile.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Nastavenia));
+            System.Windows.Forms.Label labelNastavenia;
             this.buttonMinimalizuj1 = new System.Windows.Forms.Button();
             this.buttonZrus1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labelNastavenia = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,6 +44,7 @@ namespace ProjectConProfile.Forms
             this.buttonZmenitSuborFaktory = new System.Windows.Forms.Button();
             this.buttonZmenitPriecinokData = new System.Windows.Forms.Button();
             this.buttonZmenitOdkazUkladania = new System.Windows.Forms.Button();
+            labelNastavenia = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,12 +54,13 @@ namespace ProjectConProfile.Forms
             this.buttonMinimalizuj1.FlatAppearance.BorderSize = 0;
             this.buttonMinimalizuj1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMinimalizuj1.Image = ((System.Drawing.Image)(resources.GetObject("buttonMinimalizuj1.Image")));
-            this.buttonMinimalizuj1.Location = new System.Drawing.Point(443, 7);
+            this.buttonMinimalizuj1.Location = new System.Drawing.Point(516, 7);
             this.buttonMinimalizuj1.Margin = new System.Windows.Forms.Padding(4);
             this.buttonMinimalizuj1.Name = "buttonMinimalizuj1";
             this.buttonMinimalizuj1.Size = new System.Drawing.Size(39, 28);
             this.buttonMinimalizuj1.TabIndex = 9;
             this.buttonMinimalizuj1.UseVisualStyleBackColor = true;
+            this.buttonMinimalizuj1.Click += new System.EventHandler(this.buttonMinimalizuj1_Click);
             // 
             // buttonZrus1
             // 
@@ -66,40 +68,44 @@ namespace ProjectConProfile.Forms
             this.buttonZrus1.FlatAppearance.BorderSize = 0;
             this.buttonZrus1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonZrus1.Image = ((System.Drawing.Image)(resources.GetObject("buttonZrus1.Image")));
-            this.buttonZrus1.Location = new System.Drawing.Point(490, 7);
+            this.buttonZrus1.Location = new System.Drawing.Point(563, 7);
             this.buttonZrus1.Margin = new System.Windows.Forms.Padding(4);
             this.buttonZrus1.Name = "buttonZrus1";
             this.buttonZrus1.Size = new System.Drawing.Size(36, 28);
             this.buttonZrus1.TabIndex = 7;
             this.buttonZrus1.UseVisualStyleBackColor = true;
+            this.buttonZrus1.Click += new System.EventHandler(this.buttonZrus1_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.labelNastavenia);
+            this.panel1.Controls.Add(labelNastavenia);
             this.panel1.Controls.Add(this.buttonMinimalizuj1);
             this.panel1.Controls.Add(this.buttonZrus1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(532, 74);
+            this.panel1.Size = new System.Drawing.Size(605, 93);
             this.panel1.TabIndex = 10;
             // 
             // labelNastavenia
             // 
-            this.labelNastavenia.AutoSize = true;
-            this.labelNastavenia.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelNastavenia.ForeColor = System.Drawing.Color.White;
-            this.labelNastavenia.Location = new System.Drawing.Point(12, 23);
-            this.labelNastavenia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelNastavenia.Name = "labelNastavenia";
-            this.labelNastavenia.Size = new System.Drawing.Size(151, 29);
-            this.labelNastavenia.TabIndex = 10;
-            this.labelNastavenia.Text = "Nastavenia";
-            this.labelNastavenia.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.labelNastavenia.Click += new System.EventHandler(this.label1_Click_1);
+            labelNastavenia.AutoSize = true;
+            labelNastavenia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            labelNastavenia.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            labelNastavenia.ForeColor = System.Drawing.Color.White;
+            labelNastavenia.Image = ((System.Drawing.Image)(resources.GetObject("labelNastavenia.Image")));
+            labelNastavenia.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            labelNastavenia.Location = new System.Drawing.Point(12, 25);
+            labelNastavenia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            labelNastavenia.Name = "labelNastavenia";
+            labelNastavenia.Size = new System.Drawing.Size(224, 36);
+            labelNastavenia.TabIndex = 10;
+            labelNastavenia.Text = "    Nastavenia";
+            labelNastavenia.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            labelNastavenia.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // label1
             // 
@@ -214,7 +220,7 @@ namespace ProjectConProfile.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(532, 530);
+            this.ClientSize = new System.Drawing.Size(605, 592);
             this.Controls.Add(this.buttonZmenitOdkazUkladania);
             this.Controls.Add(this.buttonZmenitPriecinokData);
             this.Controls.Add(this.buttonZmenitSuborFaktory);
@@ -225,6 +231,7 @@ namespace ProjectConProfile.Forms
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Nastavenia";
             this.Text = "Nastavenia";
             this.Load += new System.EventHandler(this.Nastavenia_Load);
@@ -241,7 +248,6 @@ namespace ProjectConProfile.Forms
         private System.Windows.Forms.Button buttonMinimalizuj1;
         private System.Windows.Forms.Button buttonZrus1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label labelNastavenia;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

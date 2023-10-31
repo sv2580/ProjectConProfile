@@ -134,4 +134,19 @@
         70GY+2GTnPvrCQR/OaR/AJo/fnw5NDDMu75+kFKet6lUfI2LV5oAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="labelNastavenia.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="labelNastavenia.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAFkSURBVDhPxZSxSgNBFEUTDfkMBW0VhAS08hvU5OtMGgUj
+        BCwVRNRWf0Ct7FSwUNBScD13c192dXcFN4UHDmbuvBmzsy/T+BeSJNmSHtaDDYY4wg7e4S128RAHLvsd
+        Ctte1MILrOIcVaPatpcXcYF49V/xiMdWn4Oo6Xh5ESb1X6PwDT9xzdOab+I2PqB4wZanMwhVOMAzFFqw
+        hFd46bIpZAuuEVqjtU1PTzfUCwh6ztdR3zId5yHbweDAcQZhnJ/Oad6x8j28x1VHKYznMM70+zkSqM/U
+        FuLUcQrjzUmcfOARjnM+o9DarE81cChm31AQVD3yPuqRVxylMNYjP6HoOs4gzL+UvrMNrHopPQxGjicQ
+        /GwbfctlvMaytll0jdCaXczaJiDMN/Y7ljV2H+NRVVts7IDJsp+eFp/Y2EjoVyKK5xcw+dfLQTdR9eWQ
+        h8L89aW2uPFnZUOX1YMNZr9g69FofAHQ8t9OwBO5/wAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

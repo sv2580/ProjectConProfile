@@ -84,5 +84,15 @@ namespace ProjectConProfile.Forms
 
             }
         }
+
+        private void buttonZrus1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonMinimalizuj1_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

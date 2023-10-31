@@ -343,7 +343,25 @@ namespace ProjectConProfile
 
         private void buttonNastavenia_Click(object sender, EventArgs e)
         {
+            // Nastavenia nastaveniaForm = new Nastavenia(_nastavenia);
+            //nastaveniaForm.Show();
+
+
+
+            // Získa aktuálnu obrazovku, na ktorej je aplikácia spustená.
+            Screen currentScreen = Screen.FromControl(this);
+
+            // Vytvorí nové okno s nastaveniami.
             Nastavenia nastaveniaForm = new Nastavenia(_nastavenia);
+
+            // Nastaví stred obrazovky ako polohu okna s nastaveniami.
+            nastaveniaForm.StartPosition = FormStartPosition.Manual;
+            nastaveniaForm.Location = new Point(
+                currentScreen.Bounds.Left + (currentScreen.Bounds.Width - nastaveniaForm.Width) / 2,
+                currentScreen.Bounds.Top + (currentScreen.Bounds.Height - nastaveniaForm.Height) / 2
+            );
+
+            // Zobrazí okno s nastaveniami na strede obrazovky.
             nastaveniaForm.Show();
         }
     }

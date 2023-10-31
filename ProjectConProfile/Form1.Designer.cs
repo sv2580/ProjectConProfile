@@ -111,14 +111,15 @@ namespace ProjectConProfile
             this.buttonNastavenia.FlatAppearance.BorderSize = 2;
             this.buttonNastavenia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNastavenia.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonNastavenia.Image = ((System.Drawing.Image)(resources.GetObject("buttonNastavenia.Image")));
             this.buttonNastavenia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonNastavenia.Location = new System.Drawing.Point(601, 789);
+            this.buttonNastavenia.Location = new System.Drawing.Point(665, 767);
             this.buttonNastavenia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonNastavenia.Name = "buttonNastavenia";
-            this.buttonNastavenia.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.buttonNastavenia.Size = new System.Drawing.Size(165, 56);
-            this.buttonNastavenia.TabIndex = 5;
-            this.buttonNastavenia.Text = "Nastavenia";
+            this.buttonNastavenia.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonNastavenia.Size = new System.Drawing.Size(223, 73);
+            this.buttonNastavenia.TabIndex = 2;
+            this.buttonNastavenia.Text = "      Nastavenia";
             this.buttonNastavenia.UseVisualStyleBackColor = true;
             this.buttonNastavenia.Click += new System.EventHandler(this.buttonNastavenia_Click);
             // 

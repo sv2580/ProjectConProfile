@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
@@ -25,11 +26,11 @@ namespace ProjectConProfile.Forms
         private Aplikacia _form;
         private Projekt _projekt;
         private KoncentracnyProfil _zvolenyProfil;
-        public const string SuborFaktorovSpektier = "faktory.txt";
+        public string SuborFaktorovSpektier;
         private List<ComboBox> _boxy = new List<ComboBox>();
         //pridane Ninka - uchovavanie povodných dát niekde
         private List<NacitaneData> povodneData;
-
+        private NastaveniaSuborov _nastavenia;
         //
         private Panel _panel1;
         //
@@ -38,17 +39,19 @@ namespace ProjectConProfile.Forms
 
         MultimapDictionary _faktory;
 
-        public Profil(Projekt projekt, int index, Panel panel1)
+        public Profil(Projekt projekt, int index, Panel panel1, NastaveniaSuborov nastavenia)
         {
-            
+
             InitializeComponent();
             _form = new Aplikacia();
             _projekt = projekt;
             _zvolenyProfil = _projekt._profily[index];
             //
             _panel1 = panel1;
+            _nastavenia = nastavenia;
+
             //
-            
+
 
             _faktory = new MultimapDictionary();
             populovatTree();
@@ -66,12 +69,14 @@ namespace ProjectConProfile.Forms
 
 
             vytvoritGraf();
-            nacitanieFaktorov(SuborFaktorovSpektier);
-            vytvorComboboxy();
 
+            if (_nastavenia.cestaKSuboruFakt == null)
+                _nastavenia.cestaKSuboruFakt = "faktory.txt";
+            nacitanieFaktorov(_nastavenia.cestaKSuboruFakt);
+            vytvorComboboxy();
         }
 
-        
+
 
         private void populovatTree()
         {
@@ -234,7 +239,7 @@ namespace ProjectConProfile.Forms
                 //{
                 //    this.Controls.Remove(comboBox);
                 //}
-                foreach(ComboBox box in _boxy)
+                foreach (ComboBox box in _boxy)
                 {
                     this.Controls.Remove(box);
                 }
@@ -264,10 +269,14 @@ namespace ProjectConProfile.Forms
 
         private void buttonUlozit_Click(object sender, EventArgs e)
         {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
 
             var serializedProject = JsonConvert.SerializeObject(_projekt);
+            if(_nastavenia.cestaNaUkladanie != null)
+                saveFileDialog.InitialDirectory = _nastavenia.cestaNaUkladanie;
 
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+
+            using (saveFileDialog)
             {
                 saveFileDialog.Filter = "CPRJ files (*.cprj)|*.cprj";
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -287,14 +296,14 @@ namespace ProjectConProfile.Forms
             }
         }
 
-      
+
 
         private void buttonPorovnat_Click(object sender, EventArgs e)
         {
             int profilyNaPorovnanie = 0;
 
 
-            foreach(KoncentracnyProfil profil in _projekt._profily)
+            foreach (KoncentracnyProfil profil in _projekt._profily)
             {
                 if (profil._profil.Count > 0)
                     profilyNaPorovnanie++;
@@ -302,50 +311,93 @@ namespace ProjectConProfile.Forms
                     break;
             }
 
-            if(profilyNaPorovnanie < 2)
+            if (profilyNaPorovnanie < 2)
             {
                 MessageBox.Show("Pre porovnanie je potrebné mať vytvorené najmenej dva koncentračné profily.");
-            } else
+            }
+            else
             {
                 Porovnanie porovnanie = new Porovnanie(_projekt);
                 porovnanie.Show();
             }
 
-            
-            
+
+
         }
 
 
         private void nacitanieFaktorov(string subor)
         {
             //nacitanie spektier z textaku
-            using (StreamReader reader = new StreamReader(subor)) //na prvom mieste spektrum na druhom faktor
-            {
-                string line;
-                int row = 0;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    int spektrum = -1;
-                    double faktor = -1;
-                    if (!string.IsNullOrWhiteSpace(line))
-                    {
-                        string[] words = line.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
-                        if (int.TryParse(words[0].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out int key))
-                        {
-                            spektrum = key;
-                        }
 
-                        if (double.TryParse(words[1].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double value))
+            if (File.Exists(_nastavenia.cestaKSuboruFakt))
+            {
+                using (StreamReader reader = new StreamReader(_nastavenia.cestaKSuboruFakt)) //na prvom mieste spektrum na druhom faktor
+                {
+                    string line;
+                    int row = 0;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        int spektrum = -1;
+                        double faktor = -1;
+                        if (!string.IsNullOrWhiteSpace(line))
                         {
-                            faktor = value;
-                            row++;
+                            string[] words = line.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                            if (int.TryParse(words[0].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out int key))
+                            {
+                                spektrum = key;
+                            }
+
+                            if (double.TryParse(words[1].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double value))
+                            {
+                                faktor = value;
+                                row++;
+                            }
+                            if (spektrum != -1 && faktor != -1)
+                                _faktory.AddValue(spektrum, faktor);
                         }
-                        if (spektrum != -1 && faktor != -1)
-                            _faktory.AddValue(spektrum, faktor);
                     }
                 }
+        ;
             }
-            ;
+            else // nemalo by sa stat kedze sa vytvara v appdata ale preistotu 
+            {
+                DialogResult result = MessageBox.Show("Súbor s faktormi nenájdený. Chcete teraz vytvoriť prázdny súbor kde sa budú faktory ukladať? ", "Vytvoriť", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // načítanie dialogu kde sa nastaví tento prádzny súbor
+
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                    saveFileDialog.Filter = "(*.txt)|*.txt";
+                    saveFileDialog.Title = "Vyberte umiestnenie pre vytvorený súbor";
+                    saveFileDialog.FileName = "faktory.txt";
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string filePath = saveFileDialog.FileName;
+
+                        // Vytvorenie prázdneho súboru
+                        try
+                        {
+                            File.Create(filePath).Close();
+                            MessageBox.Show("Prázdny súbor bol vytvorený, nastavenia uložené.", "Informácia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            _nastavenia.cestaKSuboruFakt = filePath;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Chyba pri vytváraní súboru: " + ex.Message, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+
+
+                else if (result == DialogResult.No)
+                {
+                    // zavretie všetkého vrátenie na hlavnú stranu
+                }
+            }
         }
 
         private void buttonNasobit_Click(object sender, EventArgs e)
@@ -362,9 +414,10 @@ namespace ProjectConProfile.Forms
 
                     if (combobox.Text != "" && double.TryParse(combobox.Text, NumberStyles.Float, CultureInfo.InvariantCulture, out double faktor))
                     {
-                        using (StreamWriter writer = new StreamWriter("faktory.txt", true))
+                        
+                        using (StreamWriter writer = new StreamWriter(_nastavenia.cestaKSuboruFakt, true))
                         {
-                            writer.WriteLine(spektrum + " " + faktor + "\n");
+                            writer.WriteLine(spektrum + " " + faktor);
                         }
                         zvolenyFaktor = faktor;
                     }
@@ -399,8 +452,8 @@ namespace ProjectConProfile.Forms
                 chart1.Series.RemoveAt(chart1.Series.Count - 1);
             }
 
-           _zvolenyProfil.vytvoritProfil();
-           profilGrid();
+            _zvolenyProfil.vytvoritProfil();
+            profilGrid();
             pridatDoGrafu(_zvolenyProfil._excitacia, _zvolenyProfil._profil, "Max");
             buttonExport.Visible = true;
             buttonExportPicture.Visible = true;
@@ -448,6 +501,8 @@ namespace ProjectConProfile.Forms
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "CSV súbory (*.csv)|*.csv";
             saveFileDialog.Title = "Vyberte umiestnenie pre exportovaný CSV súbor";
+            if (_nastavenia.cestaNaUkladanie != null)
+                saveFileDialog.InitialDirectory = _nastavenia.cestaNaUkladanie;
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -523,6 +578,8 @@ namespace ProjectConProfile.Forms
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Obrázky (*.png)|*.png";
             saveFileDialog.Title = "Vyberte umiestnenie pre exportovaný obrázok";
+            if (_nastavenia.cestaNaUkladanie != null)
+                saveFileDialog.InitialDirectory = _nastavenia.cestaNaUkladanie;
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {

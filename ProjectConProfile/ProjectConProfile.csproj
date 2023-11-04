@@ -94,6 +94,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Nastavenia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Nastavenia.Designer.cs">
+      <DependentUpon>Nastavenia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Porovnanie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,11 +116,16 @@
     <Compile Include="Objects\MultimapDictionary.cs" />
     <Compile Include="Objects\NacitaneData.cs" />
     <Compile Include="Objects\NasobeneData.cs" />
+    <Compile Include="Objects\NastaveniaSuborov.cs" />
     <Compile Include="Objects\Projekt.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Nastavenia.resx">
+      <DependentUpon>Nastavenia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Porovnanie.resx">
       <DependentUpon>Porovnanie.cs</DependentUpon>
@@ -144,6 +155,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="files\faktory.txt" />
+    <Content Include="files\nastavenia.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

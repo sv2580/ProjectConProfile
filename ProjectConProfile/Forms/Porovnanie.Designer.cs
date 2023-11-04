@@ -57,6 +57,7 @@ namespace ProjectConProfile.Forms
             this.treeViewPorovnanie.Name = "treeViewPorovnanie";
             this.treeViewPorovnanie.Size = new System.Drawing.Size(340, 322);
             this.treeViewPorovnanie.TabIndex = 2;
+            this.treeViewPorovnanie.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewPorovnanie_AfterSelect);
             // 
             // buttonPorovnat
             // 
@@ -153,6 +154,7 @@ namespace ProjectConProfile.Forms
             this.label1.Size = new System.Drawing.Size(28, 16);
             this.label1.TabIndex = 11;
             this.label1.Text = "Min";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // label2
             // 
@@ -162,6 +164,7 @@ namespace ProjectConProfile.Forms
             this.label2.Size = new System.Drawing.Size(27, 16);
             this.label2.TabIndex = 12;
             this.label2.Text = "Std";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Porovnanie
             // 

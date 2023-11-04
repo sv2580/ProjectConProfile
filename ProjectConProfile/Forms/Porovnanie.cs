@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace ProjectConProfile.Forms
@@ -25,6 +26,7 @@ namespace ProjectConProfile.Forms
         public Porovnanie(Projekt projekt)
         {
             InitializeComponent();
+            
             _projekt = projekt;
             _zvolene = new List<KoncentracnyProfil>();
             //pohyb okna poocou panel1
@@ -34,6 +36,8 @@ namespace ProjectConProfile.Forms
             panel1.MouseUp += Panel1_MouseUp;
             //
             populovatTree();
+         
+            treeViewPorovnanie.NodeMouseClick += treeViewPorovnanie_NodeMouseClick;
         }
 
 
@@ -173,6 +177,28 @@ namespace ProjectConProfile.Forms
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void treeViewPorovnanie_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            // Handle the click event here
+            TreeNode selectedNode = e.Node;
+            if (selectedNode != null)
+            {
+
+                foreach (KoncentracnyProfil kpS in _zvolene)
+                {
+
+                    if (Path.GetFileName(kpS._nazovPriecinku) == selectedNode.Text) {
+
+                        textBox1.Text = kpS._maxValueN.ToString();
+                        textBox2.Text = kpS._minValueN.ToString();
+                        textBox3.Text = kpS._standardDeviationN.ToString();
+                    }
+                }
+
+                
+            }
         }
 
         private void treeViewPorovnanie_AfterSelect(object sender, TreeViewEventArgs e)

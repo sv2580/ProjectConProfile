@@ -34,9 +34,9 @@ namespace ProjectConProfile.Forms
             private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profil));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridNacitane = new System.Windows.Forms.DataGridView();
             this.treeViewPriecinky = new System.Windows.Forms.TreeView();
             this.buttonUlozit = new System.Windows.Forms.Button();
@@ -60,10 +60,17 @@ namespace ProjectConProfile.Forms
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNacitane)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNasobeneData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProfil)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridNacitane
@@ -161,18 +168,18 @@ namespace ProjectConProfile.Forms
             // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea9.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea9);
+            legend9.Name = "Legend1";
+            this.chart1.Legends.Add(legend9);
             this.chart1.Location = new System.Drawing.Point(1117, 157);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series9.ChartArea = "ChartArea1";
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.chart1.Series.Add(series9);
             this.chart1.Size = new System.Drawing.Size(470, 338);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "Graf";
@@ -214,7 +221,7 @@ namespace ProjectConProfile.Forms
             // Max
             // 
             this.Max.AutoSize = true;
-            this.Max.Location = new System.Drawing.Point(1323, 660);
+            this.Max.Location = new System.Drawing.Point(13, 48);
             this.Max.Name = "Max";
             this.Max.Size = new System.Drawing.Size(32, 16);
             this.Max.TabIndex = 10;
@@ -224,7 +231,7 @@ namespace ProjectConProfile.Forms
             // Min
             // 
             this.Min.AutoSize = true;
-            this.Min.Location = new System.Drawing.Point(1323, 703);
+            this.Min.Location = new System.Drawing.Point(13, 91);
             this.Min.Name = "Min";
             this.Min.Size = new System.Drawing.Size(28, 16);
             this.Min.TabIndex = 11;
@@ -234,7 +241,7 @@ namespace ProjectConProfile.Forms
             // std
             // 
             this.std.AutoSize = true;
-            this.std.Location = new System.Drawing.Point(1323, 745);
+            this.std.Location = new System.Drawing.Point(13, 133);
             this.std.Name = "std";
             this.std.Size = new System.Drawing.Size(27, 16);
             this.std.TabIndex = 12;
@@ -243,7 +250,7 @@ namespace ProjectConProfile.Forms
             // std2
             // 
             this.std2.AutoSize = true;
-            this.std2.Location = new System.Drawing.Point(1452, 745);
+            this.std2.Location = new System.Drawing.Point(142, 133);
             this.std2.Name = "std2";
             this.std2.Size = new System.Drawing.Size(27, 16);
             this.std2.TabIndex = 15;
@@ -252,7 +259,7 @@ namespace ProjectConProfile.Forms
             // min2
             // 
             this.min2.AutoSize = true;
-            this.min2.Location = new System.Drawing.Point(1451, 703);
+            this.min2.Location = new System.Drawing.Point(141, 91);
             this.min2.Name = "min2";
             this.min2.Size = new System.Drawing.Size(28, 16);
             this.min2.TabIndex = 14;
@@ -261,7 +268,7 @@ namespace ProjectConProfile.Forms
             // max2
             // 
             this.max2.AutoSize = true;
-            this.max2.Location = new System.Drawing.Point(1451, 660);
+            this.max2.Location = new System.Drawing.Point(141, 48);
             this.max2.Name = "max2";
             this.max2.Size = new System.Drawing.Size(32, 16);
             this.max2.TabIndex = 13;
@@ -299,45 +306,112 @@ namespace ProjectConProfile.Forms
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(1357, 657);
+            this.textBox1.Location = new System.Drawing.Point(47, 45);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(88, 22);
             this.textBox1.TabIndex = 18;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(1357, 700);
+            this.textBox2.Location = new System.Drawing.Point(47, 88);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(88, 22);
             this.textBox2.TabIndex = 19;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(1357, 742);
+            this.textBox3.Location = new System.Drawing.Point(47, 130);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(88, 22);
             this.textBox3.TabIndex = 20;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(1485, 742);
+            this.textBox4.Location = new System.Drawing.Point(175, 130);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(88, 22);
             this.textBox4.TabIndex = 23;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(1485, 700);
+            this.textBox5.Location = new System.Drawing.Point(175, 88);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(88, 22);
             this.textBox5.TabIndex = 22;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(1485, 657);
+            this.textBox6.Location = new System.Drawing.Point(175, 45);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(88, 22);
             this.textBox6.TabIndex = 21;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(77, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 27);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "ŠTATISTIKY";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(1330, 583);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(278, 40);
+            this.panel1.TabIndex = 25;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.textBox4);
+            this.panel2.Controls.Add(this.textBox5);
+            this.panel2.Controls.Add(this.textBox6);
+            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.std2);
+            this.panel2.Controls.Add(this.min2);
+            this.panel2.Controls.Add(this.max2);
+            this.panel2.Controls.Add(this.std);
+            this.panel2.Controls.Add(this.Min);
+            this.panel2.Controls.Add(this.Max);
+            this.panel2.Location = new System.Drawing.Point(1329, 629);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(278, 176);
+            this.panel2.TabIndex = 26;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.label2.Location = new System.Drawing.Point(37, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 18);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "ORIGINÁLNE";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.label3.Location = new System.Drawing.Point(151, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(112, 18);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "PRENÁSOBENÉ";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Profil
             // 
@@ -347,20 +421,10 @@ namespace ProjectConProfile.Forms
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1747, 912);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonExportPicture);
             this.Controls.Add(this.buttonExport);
-            this.Controls.Add(this.std2);
-            this.Controls.Add(this.min2);
-            this.Controls.Add(this.max2);
-            this.Controls.Add(this.std);
-            this.Controls.Add(this.Min);
-            this.Controls.Add(this.Max);
             this.Controls.Add(this.dataGridProfil);
             this.Controls.Add(this.buttonNasobit);
             this.Controls.Add(this.chart1);
@@ -381,8 +445,11 @@ namespace ProjectConProfile.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNasobeneData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProfil)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -411,5 +478,10 @@ namespace ProjectConProfile.Forms
         private TextBox textBox4;
         private TextBox textBox5;
         private TextBox textBox6;
+        private Label label1;
+        private Panel panel1;
+        private Panel panel2;
+        private Label label2;
+        private Label label3;
     }
 }

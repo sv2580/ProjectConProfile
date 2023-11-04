@@ -473,6 +473,19 @@ namespace ProjectConProfile.Forms
             textBox5.Text = minValueN.ToString();
             textBox4.Text = standardDeviationN.ToString();
 
+           //_zvolenyProfil._maxValue = maxValue;
+           //_zvolenyProfil._minValue = minValue;
+           // _zvolenyProfil._standardDeviation = standardDeviation;
+            _zvolenyProfil._maxValueN = maxValueN;
+            _zvolenyProfil._minValueN = minValueN;
+            _zvolenyProfil._standardDeviationN = standardDeviationN;
+
+
+            // string fileName =  ".txt";
+
+            // Call the function to save variables to a text file
+            //SaveStatsToFile(fileName, maxValue, minValue, standardDeviation, maxValueN, minValueN, standardDeviationN);
+
         }
 
         private void chart1_Click(object sender, EventArgs e)
@@ -751,6 +764,40 @@ namespace ProjectConProfile.Forms
             double standardDeviationN = Math.Sqrt(sumOfSquaredDifferencesN / values.Count);
 
             return standardDeviationN;
+        }
+
+
+        private void SaveStatsToFile(string filePath, params object[] variables)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    foreach (object variable in variables)
+                    {
+                        writer.WriteLine(variable.ToString());
+                    }
+                }
+                //Console.WriteLine("Variables saved successfully to: " + filePath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error occurred while saving variables: " + ex.Message);
+            }
+        }
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -34,9 +34,9 @@ namespace ProjectConProfile.Forms
             private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Profil));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridNacitane = new System.Windows.Forms.DataGridView();
             this.treeViewPriecinky = new System.Windows.Forms.TreeView();
             this.buttonUlozit = new System.Windows.Forms.Button();
@@ -63,8 +63,9 @@ namespace ProjectConProfile.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.help = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNacitane)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNasobeneData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -168,18 +169,18 @@ namespace ProjectConProfile.Forms
             // 
             // chart1
             // 
-            chartArea9.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea9);
-            legend9.Name = "Legend1";
-            this.chart1.Legends.Add(legend9);
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(1117, 157);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series9.ChartArea = "ChartArea1";
-            series9.Legend = "Legend1";
-            series9.Name = "Series1";
-            this.chart1.Series.Add(series9);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(470, 338);
             this.chart1.TabIndex = 7;
             this.chart1.Text = "Graf";
@@ -389,18 +390,6 @@ namespace ProjectConProfile.Forms
             this.panel2.Size = new System.Drawing.Size(278, 176);
             this.panel2.TabIndex = 26;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label2.Location = new System.Drawing.Point(37, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 18);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "ORIGINÁLNE";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -413,6 +402,32 @@ namespace ProjectConProfile.Forms
             this.label3.Text = "PRENÁSOBENÉ";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.label2.Location = new System.Drawing.Point(37, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 18);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "ORIGINÁLNE";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // help
+            // 
+            this.help.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.help.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.help.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.help.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.help.Location = new System.Drawing.Point(21, 867);
+            this.help.Name = "help";
+            this.help.Size = new System.Drawing.Size(38, 31);
+            this.help.TabIndex = 27;
+            this.help.Text = "?";
+            this.help.UseVisualStyleBackColor = false;
+            this.help.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Profil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -421,6 +436,7 @@ namespace ProjectConProfile.Forms
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1747, 912);
+            this.Controls.Add(this.help);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonExportPicture);
@@ -483,5 +499,6 @@ namespace ProjectConProfile.Forms
         private Panel panel2;
         private Label label2;
         private Label label3;
+        private Button help;
     }
 }

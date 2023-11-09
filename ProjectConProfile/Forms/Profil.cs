@@ -799,6 +799,41 @@ namespace ProjectConProfile.Forms
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Specify the PDF file name without the path
+            string pdfFileName = "prirucka.pdf";
+            string startupPath = Application.StartupPath;
+
+            string targetPath = startupPath;
+            for (int i = 0; i < 3; i++)
+            {
+                targetPath = Path.GetDirectoryName(targetPath);
+                if (targetPath == null)
+                {
+                    MessageBox.Show("Unable to navigate back 3 directories from the startup path.", "Error");
+                    return;
+                }
+            }
+
+            // Combine the known directory and the provided file name
+            string pdfFilePath = Path.Combine(targetPath, pdfFileName);
+
+            
+
+            // Check if the file exists before attempting to open it
+            if (File.Exists(pdfFilePath))
+            {
+                // Open the PDF file using the default PDF viewer
+                Process.Start(pdfFilePath);
+            }
+            else
+            {
+                
+                MessageBox.Show("ERROR: príručka neexistuje");
+            }
+        }
     }
 }
 

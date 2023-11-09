@@ -42,6 +42,7 @@ namespace ProjectConProfile
             this.buttonZvacsi = new System.Windows.Forms.Button();
             this.buttonZrus = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.helpbttn = new System.Windows.Forms.Button();
             this.panel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -93,6 +94,7 @@ namespace ProjectConProfile
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel.Controls.Add(this.helpbttn);
             this.panel.Controls.Add(this.buttonNastavenia);
             this.panel.Controls.Add(this.panel1);
             this.panel.Controls.Add(this.buttonNacitatProjekt);
@@ -211,6 +213,21 @@ namespace ProjectConProfile
             this.label1.Text = "Názov Appky";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // helpbttn
+            // 
+            this.helpbttn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.helpbttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.helpbttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.helpbttn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.helpbttn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.helpbttn.Location = new System.Drawing.Point(30, 809);
+            this.helpbttn.Name = "helpbttn";
+            this.helpbttn.Size = new System.Drawing.Size(38, 31);
+            this.helpbttn.TabIndex = 28;
+            this.helpbttn.Text = "?";
+            this.helpbttn.UseVisualStyleBackColor = false;
+            this.helpbttn.Click += new System.EventHandler(this.helpbttn_Click);
+            // 
             // Aplikacia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -244,6 +261,7 @@ namespace ProjectConProfile
         private System.Windows.Forms.Button buttonZvacsi;
         private System.Windows.Forms.Button buttonZrus;
         private Button buttonNastavenia;
+        private Button helpbttn;
     }
 }
 

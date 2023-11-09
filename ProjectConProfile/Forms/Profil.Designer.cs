@@ -65,7 +65,7 @@ namespace ProjectConProfile.Forms
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.help = new System.Windows.Forms.Button();
+            this.helpbttn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNacitane)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNasobeneData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -414,19 +414,19 @@ namespace ProjectConProfile.Forms
             this.label2.Text = "ORIGINÁLNE";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // help
+            // helpbttn
             // 
-            this.help.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.help.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.help.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.help.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.help.Location = new System.Drawing.Point(21, 867);
-            this.help.Name = "help";
-            this.help.Size = new System.Drawing.Size(38, 31);
-            this.help.TabIndex = 27;
-            this.help.Text = "?";
-            this.help.UseVisualStyleBackColor = false;
-            this.help.Click += new System.EventHandler(this.button1_Click);
+            this.helpbttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.helpbttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.helpbttn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.helpbttn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.helpbttn.Location = new System.Drawing.Point(21, 876);
+            this.helpbttn.Name = "helpbttn";
+            this.helpbttn.Size = new System.Drawing.Size(38, 31);
+            this.helpbttn.TabIndex = 27;
+            this.helpbttn.Text = "?";
+            this.helpbttn.UseVisualStyleBackColor = false;
+            this.helpbttn.Click += new System.EventHandler(this.button1_Click);
             // 
             // Profil
             // 
@@ -436,7 +436,7 @@ namespace ProjectConProfile.Forms
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1747, 912);
-            this.Controls.Add(this.help);
+            this.Controls.Add(this.helpbttn);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.buttonExportPicture);
@@ -499,6 +499,6 @@ namespace ProjectConProfile.Forms
         private Panel panel2;
         private Label label2;
         private Label label3;
-        private Button help;
+        private Button helpbttn;
     }
 }

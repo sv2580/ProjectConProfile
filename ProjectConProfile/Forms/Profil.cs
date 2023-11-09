@@ -34,6 +34,7 @@ namespace ProjectConProfile.Forms
         private NastaveniaSuborov _nastavenia;
         //
         private Panel _panel1;
+        string priruckaPath;
         //
 
 
@@ -75,6 +76,7 @@ namespace ProjectConProfile.Forms
                 _nastavenia.cestaKSuboruFakt = "faktory.txt";
             nacitanieFaktorov(_nastavenia.cestaKSuboruFakt);
             vytvorComboboxy();
+            check_prirucka();
         }
 
 
@@ -801,19 +803,21 @@ namespace ProjectConProfile.Forms
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void check_prirucka()
         {
             // Specify the PDF file name without the path
-            string pdfFileName = "prirucka.pdf";
+            string pdfFileName = "Deploy/prirucka.pdf";
             string startupPath = Application.StartupPath;
 
             string targetPath = startupPath;
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
                 targetPath = Path.GetDirectoryName(targetPath);
                 if (targetPath == null)
+
                 {
-                    MessageBox.Show("Unable to navigate back 3 directories from the startup path.", "Error");
+                    helpbttn.Hide();
+                    //MessageBox.Show("Unable to navigate back 2 directories from the startup path.", "Error");
                     return;
                 }
             }
@@ -821,19 +825,25 @@ namespace ProjectConProfile.Forms
             // Combine the known directory and the provided file name
             string pdfFilePath = Path.Combine(targetPath, pdfFileName);
 
-            
+
 
             // Check if the file exists before attempting to open it
             if (File.Exists(pdfFilePath))
             {
                 // Open the PDF file using the default PDF viewer
-                Process.Start(pdfFilePath);
+                priruckaPath = pdfFilePath;
             }
             else
             {
-                
-                MessageBox.Show("ERROR: príručka neexistuje");
+
+                helpbttn.Hide();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            Process.Start(priruckaPath);
         }
     }
 }

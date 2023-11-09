@@ -194,6 +194,7 @@ namespace ProjectConProfile.Forms
                         textBox1.Text = kpS._maxValueN.ToString();
                         textBox2.Text = kpS._minValueN.ToString();
                         textBox3.Text = kpS._standardDeviationN.ToString();
+                        nazov_suboru.Text = selectedNode.Text;
                     }
                 }
 

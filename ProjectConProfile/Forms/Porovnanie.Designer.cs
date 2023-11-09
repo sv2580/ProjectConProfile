@@ -49,6 +49,7 @@ namespace ProjectConProfile.Forms
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.nazov_suboru = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chartCompare)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -141,7 +142,7 @@ namespace ProjectConProfile.Forms
             // max
             // 
             this.max.AutoSize = true;
-            this.max.Location = new System.Drawing.Point(60, 578);
+            this.max.Location = new System.Drawing.Point(79, 601);
             this.max.Name = "max";
             this.max.Size = new System.Drawing.Size(32, 16);
             this.max.TabIndex = 10;
@@ -151,7 +152,7 @@ namespace ProjectConProfile.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(60, 614);
+            this.label1.Location = new System.Drawing.Point(79, 637);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 16);
             this.label1.TabIndex = 11;
@@ -160,7 +161,7 @@ namespace ProjectConProfile.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(61, 646);
+            this.label2.Location = new System.Drawing.Point(80, 669);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 16);
             this.label2.TabIndex = 12;
@@ -168,24 +169,33 @@ namespace ProjectConProfile.Forms
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(98, 575);
+            this.textBox1.Location = new System.Drawing.Point(117, 598);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 13;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(98, 611);
+            this.textBox2.Location = new System.Drawing.Point(117, 634);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 22);
             this.textBox2.TabIndex = 14;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(98, 643);
+            this.textBox3.Location = new System.Drawing.Point(117, 666);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 22);
             this.textBox3.TabIndex = 15;
+            // 
+            // nazov_suboru
+            // 
+            this.nazov_suboru.AutoSize = true;
+            this.nazov_suboru.Location = new System.Drawing.Point(79, 568);
+            this.nazov_suboru.Name = "nazov_suboru";
+            this.nazov_suboru.Size = new System.Drawing.Size(60, 16);
+            this.nazov_suboru.TabIndex = 16;
+            this.nazov_suboru.Text = "Štatistiky";
             // 
             // Porovnanie
             // 
@@ -193,6 +203,7 @@ namespace ProjectConProfile.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1234, 719);
+            this.Controls.Add(this.nazov_suboru);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -232,5 +243,6 @@ namespace ProjectConProfile.Forms
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
+        private Label nazov_suboru;
     }
 }

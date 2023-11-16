@@ -33,9 +33,9 @@ namespace ProjectConProfile.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Porovnanie));
             this.treeViewPorovnanie = new System.Windows.Forms.TreeView();
             this.buttonPorovnat = new System.Windows.Forms.Button();
@@ -77,18 +77,18 @@ namespace ProjectConProfile.Forms
             // 
             // chartCompare
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartCompare.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartCompare.Legends.Add(legend1);
+            chartArea7.Name = "ChartArea1";
+            this.chartCompare.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.chartCompare.Legends.Add(legend7);
             this.chartCompare.Location = new System.Drawing.Point(531, 145);
             this.chartCompare.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chartCompare.Name = "chartCompare";
             this.chartCompare.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartCompare.Series.Add(series1);
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.chartCompare.Series.Add(series7);
             this.chartCompare.Size = new System.Drawing.Size(659, 450);
             this.chartCompare.TabIndex = 8;
             this.chartCompare.Text = "Graf";
@@ -101,6 +101,7 @@ namespace ProjectConProfile.Forms
             this.panel1.Controls.Add(this.buttonMinimalizuj1);
             this.panel1.Controls.Add(this.buttonZrus1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
@@ -170,7 +171,7 @@ namespace ProjectConProfile.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1234, 719);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -179,7 +180,7 @@ namespace ProjectConProfile.Forms
             this.Controls.Add(this.chartCompare);
             this.Controls.Add(this.buttonPorovnat);
             this.Controls.Add(this.treeViewPorovnanie);
-            this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Porovnanie";

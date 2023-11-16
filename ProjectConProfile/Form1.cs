@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
@@ -41,6 +42,33 @@ namespace ProjectConProfile
             panel1.MouseUp += Panel1_MouseUp;
             _nastavenia = new NastaveniaSuborov();
             //
+
+
+            this.Load += Aplikacia_Load;
+
+
+            //
+        }
+
+
+        //rozpoznanie na ktorej obrazovke sa ma appka otvorit
+        private void Aplikacia_Load(object sender, EventArgs e)
+        {
+            // Získame všetky monitory
+            Screen[] screens = Screen.AllScreens;
+
+            // Nájdeme monitor, ktorý obsahuje väčšiu časť okna Visual Studio
+            foreach (Screen screen in screens)
+            {
+                if (screen.Bounds.Contains(this.Location))
+                {
+                    // Nastavíme polohu na pracovnú oblasť tohto monitora
+                    this.StartPosition = FormStartPosition.Manual;
+                    this.Location = screen.WorkingArea.Location;
+                    this.WindowState = FormWindowState.Maximized;
+                    break;
+                }
+            }
         }
 
 
@@ -197,6 +225,7 @@ namespace ProjectConProfile
         {
             if (_profilForm == null)
             {
+                
                 _profilForm = new Profil(_projekt, 0, panel1, _nastavenia);
                 _profilForm.TopLevel = false;
                 panel.Controls.Add(_profilForm);
@@ -245,8 +274,8 @@ namespace ProjectConProfile
                 buttonMinimalizuj.Visible = true;
                 buttonZrus.BringToFront();
                 buttonZrus.Visible = true;
-                buttonZvacsi.BringToFront();
-                buttonZvacsi.Visible = true;
+                //buttonZvacsi.BringToFront();
+                //buttonZvacsi.Visible = true;
             }
         }
 
@@ -295,7 +324,7 @@ namespace ProjectConProfile
             this.Close();
         }
 
-        private void buttonZvacsi_Click(object sender, EventArgs e)
+        /*private void buttonZvacsi_Click(object sender, EventArgs e)
         {
 
             if (isFullscreen)
@@ -334,7 +363,7 @@ namespace ProjectConProfile
 
 
 
-        }
+        }*/
 
         private void buttonMinimalizuj_Click(object sender, EventArgs e)
         {

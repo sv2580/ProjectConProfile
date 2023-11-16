@@ -39,7 +39,6 @@ namespace ProjectConProfile
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonMinimalizuj = new System.Windows.Forms.Button();
             this.buttonSpat = new System.Windows.Forms.Button();
-            this.buttonZvacsi = new System.Windows.Forms.Button();
             this.buttonZrus = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel.SuspendLayout();
@@ -92,6 +91,7 @@ namespace ProjectConProfile
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel.BackColor = System.Drawing.Color.White;
             this.panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel.Controls.Add(this.buttonNastavenia);
             this.panel.Controls.Add(this.panel1);
@@ -128,7 +128,6 @@ namespace ProjectConProfile
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.panel1.Controls.Add(this.buttonMinimalizuj);
             this.panel1.Controls.Add(this.buttonSpat);
-            this.panel1.Controls.Add(this.buttonZvacsi);
             this.panel1.Controls.Add(this.buttonZrus);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -145,7 +144,7 @@ namespace ProjectConProfile
             this.buttonMinimalizuj.FlatAppearance.BorderSize = 0;
             this.buttonMinimalizuj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMinimalizuj.Image = ((System.Drawing.Image)(resources.GetObject("buttonMinimalizuj.Image")));
-            this.buttonMinimalizuj.Location = new System.Drawing.Point(1396, 19);
+            this.buttonMinimalizuj.Location = new System.Drawing.Point(1459, 19);
             this.buttonMinimalizuj.Margin = new System.Windows.Forms.Padding(4);
             this.buttonMinimalizuj.Name = "buttonMinimalizuj";
             this.buttonMinimalizuj.Size = new System.Drawing.Size(39, 28);
@@ -169,20 +168,6 @@ namespace ProjectConProfile
             this.buttonSpat.UseVisualStyleBackColor = false;
             this.buttonSpat.Visible = false;
             this.buttonSpat.Click += new System.EventHandler(this.buttonSpat_Click);
-            // 
-            // buttonZvacsi
-            // 
-            this.buttonZvacsi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonZvacsi.FlatAppearance.BorderSize = 0;
-            this.buttonZvacsi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonZvacsi.Image = ((System.Drawing.Image)(resources.GetObject("buttonZvacsi.Image")));
-            this.buttonZvacsi.Location = new System.Drawing.Point(1456, 19);
-            this.buttonZvacsi.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonZvacsi.Name = "buttonZvacsi";
-            this.buttonZvacsi.Size = new System.Drawing.Size(32, 28);
-            this.buttonZvacsi.TabIndex = 7;
-            this.buttonZvacsi.UseVisualStyleBackColor = true;
-            this.buttonZvacsi.Click += new System.EventHandler(this.buttonZvacsi_Click);
             // 
             // buttonZrus
             // 
@@ -241,7 +226,7 @@ namespace ProjectConProfile
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonMinimalizuj;
-        private System.Windows.Forms.Button buttonZvacsi;
+        //private System.Windows.Forms.Button buttonZvacsi;
         private System.Windows.Forms.Button buttonZrus;
         private Button buttonNastavenia;
     }

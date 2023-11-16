@@ -49,7 +49,15 @@ namespace ProjectConProfile.Forms
             //
             _panel1 = panel1;
             _nastavenia = nastavenia;
+           
 
+
+            //UPRAVY
+            /// Odstrániť rám okna
+            this.FormBorderStyle = FormBorderStyle.None;
+            // Maximalizovať okno
+            this.WindowState = FormWindowState.Maximized;
+            this.Dock = DockStyle.Fill;
             //
 
 

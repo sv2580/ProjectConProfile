@@ -18,6 +18,23 @@ namespace ProjectConProfile.Forms
         {
             _nastaveniaSuborov = nastaveniaSuborov;
             InitializeComponent();
+            InitializeCustomBorder();
+        }
+
+        private void InitializeCustomBorder()
+        {
+
+            this.Paint += (sender, e) =>
+            {
+                int borderWidth = 1; // Šírka sivého okraja
+                Rectangle borderRectangle = new Rectangle(0, 0, this.Width - 1, this.Height - 1);
+
+                // Vykreslite sivý obdĺžnik
+                using (Pen borderPen = new Pen(Color.Gray, borderWidth))
+                {
+                    e.Graphics.DrawRectangle(borderPen, borderRectangle);
+                }
+            };
         }
 
 

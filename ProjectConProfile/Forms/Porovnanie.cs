@@ -33,8 +33,31 @@ namespace ProjectConProfile.Forms
             panel1.MouseMove += Panel1_MouseMove;
             panel1.MouseUp += Panel1_MouseUp;
             //
+
+            InitializeCustomBorder();
+
+
             populovatTree();
         }
+
+        //okraj okna
+        private void InitializeCustomBorder()
+        {
+
+            this.Paint += (sender, e) =>
+            {
+                int borderWidth = 1; // Šírka sivého okraja
+                Rectangle borderRectangle = new Rectangle(0, 0, this.Width - 1, this.Height - 1);
+
+                // Vykreslite sivý obdĺžnik
+                using (Pen borderPen = new Pen(Color.Gray, borderWidth))
+                {
+                    e.Graphics.DrawRectangle(borderPen, borderRectangle);
+                }
+            };
+        }
+
+
 
 
         //pohyb okna poocou panel1
@@ -153,7 +176,7 @@ namespace ProjectConProfile.Forms
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            Pen borderPen = new Pen(Color.Gray, 1);
+            Pen borderPen = new Pen(Color.DarkTurquoise, 1);
 
             // Vykreslenie obdĺžnika s okrajom
             Rectangle rect = panel1.ClientRectangle;

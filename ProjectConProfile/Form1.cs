@@ -119,7 +119,7 @@ namespace ProjectConProfile
                     List<double> nacitaneData = new List<double>();
                     int spektrum = -1;
 
-                    string pattern = @"(?<=m)\d+(?=\.)"; //cisla co su po m a pred . 
+                    string pattern = @"(?<=m)\d+(?=.*\.sp)";
                     Match typeOfData = Regex.Match(Path.GetFileName(subor), pattern); //chcem extrahovat cislo suboru ako su 0,2 atd pred .sp
                     if (int.TryParse(typeOfData.Value, NumberStyles.Float, CultureInfo.InvariantCulture, out int resultType))
                     {

@@ -20,7 +20,7 @@ namespace ProjectConProfile.Objects
 
         public double _standardDeviationN { get; set; }
 
-        //TO-DO statistiky
+
         public KoncentracnyProfil(List<NacitaneData> nacitaneData, List<double> excitacia, string nazovPriecinku)
         {
             _nacitaneData = nacitaneData;

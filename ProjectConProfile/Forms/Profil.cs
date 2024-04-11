@@ -142,20 +142,41 @@ namespace ProjectConProfile.Forms
 
         private DataTable populovatGrid(bool nasobene)
         {
-            List<List<double>> data = new List<List<double>>();
+            List<List<string>> data = new List<List<string>>();
+            // string[][] data = new string[_zvolenyProfil._nacitaneData.Count][];
 
             if (!nasobene)
             {
                 for (int i = 0; i < _zvolenyProfil._nacitaneData.Count; i++)
                 {
-                    data.Add(new List<double>(_zvolenyProfil._nacitaneData[i]._data));
+                    List<string> pom = new List<string>();
+                    for (int j = 0; j < _zvolenyProfil._excitacia.Count; j++)
+                    {
+
+                        if (_zvolenyProfil._nacitaneData[i]._data[j].HasValue)
+                            pom.Add(_zvolenyProfil._nacitaneData[i]._data[j].ToString());
+                        else
+                            pom.Add("-");
+
+                    }
+
+                    data.Add(pom);
                 }
             }
             else
             {
                 for (int i = 0; i < _zvolenyProfil._nacitaneData.Count; i++)
                 {
-                    data.Add(new List<double>(_zvolenyProfil._nasobeneData[i]._nasobeneData));
+                    List<string> pom = new List<string>();
+                    for (int j = 0; j < _zvolenyProfil._excitacia.Count; j++)
+                    {
+                        if (_zvolenyProfil._nasobeneData[i]._nasobeneData[j].HasValue)
+                            pom.Add(_zvolenyProfil._nasobeneData[i]._nasobeneData[j].ToString());
+                        else
+                            pom.Add("-");
+                    }
+
+                    data.Add(pom);
                 }
             }
 
@@ -166,7 +187,7 @@ namespace ProjectConProfile.Forms
                 dataTable.Columns.Add(nacitane._nazovSuboru);
             }
 
-            for (int j = 0; j < _zvolenyProfil._nacitaneData[0]._data.Count; j++)
+            for (int j = 0; j < _zvolenyProfil._nacitaneData[0]._data.Length; j++)
             {
                 DataRow newRow = dataTable.NewRow();
                 for (int i = 0; i < _zvolenyProfil._nacitaneData.Count; i++)
@@ -179,13 +200,14 @@ namespace ProjectConProfile.Forms
             return dataTable;
 
         }
+
         private void profilGrid()
         {
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("Excitácie");
             dataTable.Columns.Add("Maximá");
 
-            for (int j = 0; j < _zvolenyProfil._profil.Count; j++)
+            for (int j = 0; j < _zvolenyProfil._profil.Length; j++)
             {
                 DataRow newRow = dataTable.NewRow();
                 newRow["Excitácie"] = _zvolenyProfil._excitacia[j];
@@ -203,14 +225,18 @@ namespace ProjectConProfile.Forms
             {
                 pridatDoGrafu(_zvolenyProfil._excitacia, data._data, data._spektrum.ToString());
             }
-            if (_zvolenyProfil._profil.Count > 0)
-                pridatDoGrafu(_zvolenyProfil._excitacia, _zvolenyProfil._profil, "Max");
+            if (_zvolenyProfil._profil.Length > 0)
+            {
+                double?[] list = _zvolenyProfil._profil.Select(x => (double?)x).ToArray();
+                pridatDoGrafu(_zvolenyProfil._excitacia, list, "Max");
+
+            }
 
             chart1.ChartAreas[0].AxisY.Minimum = 0;
             chart1.Legends[0].Docking = Docking.Bottom;
 
         }
-        private void pridatDoGrafu(List<double> x, List<double> y, string nazov)
+        private void pridatDoGrafu(List<double> x, double?[] y, string nazov)
         {
             Series series = new Series();
             series.ChartType = SeriesChartType.Point;
@@ -275,7 +301,7 @@ namespace ProjectConProfile.Forms
             SaveFileDialog saveFileDialog = new SaveFileDialog();
 
             var serializedProject = JsonConvert.SerializeObject(_projekt);
-            if(_nastavenia.cestaNaUkladanie != null)
+            if (_nastavenia.cestaNaUkladanie != null)
                 saveFileDialog.InitialDirectory = _nastavenia.cestaNaUkladanie;
 
 
@@ -308,7 +334,7 @@ namespace ProjectConProfile.Forms
 
             foreach (KoncentracnyProfil profil in _projekt._profily)
             {
-                if (profil._profil.Count > 0)
+                if (profil._profil.Length > 0)
                     profilyNaPorovnanie++;
                 if (profilyNaPorovnanie == 2)
                     break;
@@ -417,7 +443,7 @@ namespace ProjectConProfile.Forms
 
                     if (combobox.Text != "" && double.TryParse(combobox.Text, NumberStyles.Float, CultureInfo.InvariantCulture, out double faktor))
                     {
-                        
+
                         using (StreamWriter writer = new StreamWriter(_nastavenia.cestaKSuboruFakt, true))
                         {
                             writer.WriteLine(spektrum + " " + faktor);
@@ -448,16 +474,18 @@ namespace ProjectConProfile.Forms
 
             dataGridNasobeneData.DataSource = populovatGrid(true);
 
-            if (_zvolenyProfil._profil.Count > 0)
+            if (_zvolenyProfil._profil.Length > 0)
             {
-                _zvolenyProfil._profil = new List<double>();
+                _zvolenyProfil._profil = new double[_zvolenyProfil._excitacia.Count];
                 chart1.Series[chart1.Series.Count - 1].Points.Clear();
                 chart1.Series.RemoveAt(chart1.Series.Count - 1);
             }
 
             _zvolenyProfil.vytvoritProfil();
             profilGrid();
-            pridatDoGrafu(_zvolenyProfil._excitacia, _zvolenyProfil._profil, "Max");
+            double?[] list = _zvolenyProfil._profil.Select(x => (double?)x).ToArray();
+
+            pridatDoGrafu(_zvolenyProfil._excitacia, list, "Max");
             buttonExport.Visible = true;
             buttonExportPicture.Visible = true;
 
@@ -476,9 +504,9 @@ namespace ProjectConProfile.Forms
             textBox5.Text = minValueN.ToString();
             textBox4.Text = standardDeviationN.ToString();
 
-           //_zvolenyProfil._maxValue = maxValue;
-           //_zvolenyProfil._minValue = minValue;
-           // _zvolenyProfil._standardDeviation = standardDeviation;
+            //_zvolenyProfil._maxValue = maxValue;
+            //_zvolenyProfil._minValue = minValue;
+            // _zvolenyProfil._standardDeviation = standardDeviation;
             _zvolenyProfil._maxValueN = maxValueN;
             _zvolenyProfil._minValueN = minValueN;
             _zvolenyProfil._standardDeviationN = standardDeviationN;

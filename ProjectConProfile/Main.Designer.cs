@@ -35,6 +35,7 @@ namespace ProjectConProfile
             this.buttonNacitatData = new System.Windows.Forms.Button();
             this.buttonNacitatProjekt = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
+            this.helpbttn = new System.Windows.Forms.Button();
             this.buttonNastavenia = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonMinimalizuj = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@ namespace ProjectConProfile
             this.buttonZvacsi = new System.Windows.Forms.Button();
             this.buttonZrus = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.helpbttn = new System.Windows.Forms.Button();
             this.panel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -99,12 +99,28 @@ namespace ProjectConProfile
             this.panel.Controls.Add(this.panel1);
             this.panel.Controls.Add(this.buttonNacitatProjekt);
             this.panel.Controls.Add(this.buttonNacitatData);
-            this.panel.Location = new System.Drawing.Point(0, -2);
+            this.panel.Location = new System.Drawing.Point(0, -1);
             this.panel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(1572, 1017);
+            this.panel.Size = new System.Drawing.Size(1573, 1017);
             this.panel.TabIndex = 3;
             this.panel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
+            // 
+            // helpbttn
+            // 
+            this.helpbttn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.helpbttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.helpbttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.helpbttn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
+            this.helpbttn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.helpbttn.Location = new System.Drawing.Point(29, 809);
+            this.helpbttn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.helpbttn.Name = "helpbttn";
+            this.helpbttn.Size = new System.Drawing.Size(37, 31);
+            this.helpbttn.TabIndex = 28;
+            this.helpbttn.Text = "?";
+            this.helpbttn.UseVisualStyleBackColor = false;
+            this.helpbttn.Click += new System.EventHandler(this.helpbttn_Click);
             // 
             // buttonNastavenia
             // 
@@ -118,7 +134,7 @@ namespace ProjectConProfile
             this.buttonNastavenia.Location = new System.Drawing.Point(665, 767);
             this.buttonNastavenia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonNastavenia.Name = "buttonNastavenia";
-            this.buttonNastavenia.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonNastavenia.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.buttonNastavenia.Size = new System.Drawing.Size(223, 73);
             this.buttonNastavenia.TabIndex = 2;
             this.buttonNastavenia.Text = "      Nastavenia";
@@ -135,9 +151,9 @@ namespace ProjectConProfile
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1570, 96);
+            this.panel1.Size = new System.Drawing.Size(1571, 96);
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -147,8 +163,8 @@ namespace ProjectConProfile
             this.buttonMinimalizuj.FlatAppearance.BorderSize = 0;
             this.buttonMinimalizuj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMinimalizuj.Image = ((System.Drawing.Image)(resources.GetObject("buttonMinimalizuj.Image")));
-            this.buttonMinimalizuj.Location = new System.Drawing.Point(1396, 19);
-            this.buttonMinimalizuj.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonMinimalizuj.Location = new System.Drawing.Point(1396, 18);
+            this.buttonMinimalizuj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonMinimalizuj.Name = "buttonMinimalizuj";
             this.buttonMinimalizuj.Size = new System.Drawing.Size(39, 28);
             this.buttonMinimalizuj.TabIndex = 8;
@@ -166,7 +182,7 @@ namespace ProjectConProfile
             this.buttonSpat.Location = new System.Drawing.Point(11, 12);
             this.buttonSpat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSpat.Name = "buttonSpat";
-            this.buttonSpat.Size = new System.Drawing.Size(50, 35);
+            this.buttonSpat.Size = new System.Drawing.Size(51, 34);
             this.buttonSpat.TabIndex = 3;
             this.buttonSpat.UseVisualStyleBackColor = false;
             this.buttonSpat.Visible = false;
@@ -178,8 +194,8 @@ namespace ProjectConProfile
             this.buttonZvacsi.FlatAppearance.BorderSize = 0;
             this.buttonZvacsi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonZvacsi.Image = ((System.Drawing.Image)(resources.GetObject("buttonZvacsi.Image")));
-            this.buttonZvacsi.Location = new System.Drawing.Point(1456, 19);
-            this.buttonZvacsi.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonZvacsi.Location = new System.Drawing.Point(1456, 18);
+            this.buttonZvacsi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonZvacsi.Name = "buttonZvacsi";
             this.buttonZvacsi.Size = new System.Drawing.Size(32, 28);
             this.buttonZvacsi.TabIndex = 7;
@@ -192,8 +208,8 @@ namespace ProjectConProfile
             this.buttonZrus.FlatAppearance.BorderSize = 0;
             this.buttonZrus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonZrus.Image = ((System.Drawing.Image)(resources.GetObject("buttonZrus.Image")));
-            this.buttonZrus.Location = new System.Drawing.Point(1506, 19);
-            this.buttonZrus.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonZrus.Location = new System.Drawing.Point(1507, 18);
+            this.buttonZrus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonZrus.Name = "buttonZrus";
             this.buttonZrus.Size = new System.Drawing.Size(36, 28);
             this.buttonZrus.TabIndex = 6;
@@ -205,34 +221,19 @@ namespace ProjectConProfile
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(23, 38);
+            this.label1.Location = new System.Drawing.Point(55, 37);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(240, 40);
+            this.label1.Size = new System.Drawing.Size(521, 40);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Názov Appky";
+            this.label1.Text = "Tvorba Koncentračného Profilu";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // helpbttn
-            // 
-            this.helpbttn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.helpbttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.helpbttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.helpbttn.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Bold);
-            this.helpbttn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.helpbttn.Location = new System.Drawing.Point(30, 809);
-            this.helpbttn.Name = "helpbttn";
-            this.helpbttn.Size = new System.Drawing.Size(38, 31);
-            this.helpbttn.TabIndex = 28;
-            this.helpbttn.Text = "?";
-            this.helpbttn.UseVisualStyleBackColor = false;
-            this.helpbttn.Click += new System.EventHandler(this.helpbttn_Click);
             // 
             // Aplikacia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1574, 1009);
+            this.ClientSize = new System.Drawing.Size(1573, 1009);
             this.Controls.Add(this.panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

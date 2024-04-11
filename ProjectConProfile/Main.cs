@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using ProjectConProfile.Forms;
 using ProjectConProfile.Objects;
 using System;
@@ -110,14 +111,12 @@ namespace ProjectConProfile
                     return null;
                 }
 
-                bool nacitataneExcitacie = false;
                 List<NacitaneData> zoznamNacitanychDat = new List<NacitaneData>();
                 List<double> excitacie = new List<double>();
 
 
                 foreach (string subor in vsetkySubory)
                 {
-                    List<double> nacitaneData = new List<double>();
                     int spektrum = -1;
 
                     string pattern = @"(?<=m)\d+(?=.*\.sp)";
@@ -133,21 +132,17 @@ namespace ProjectConProfile
                         {
                             string line;
                             bool startReading = false;
-                            int row = 0;
                             while ((line = reader.ReadLine()) != null)
                             {
                                 if (startReading && !string.IsNullOrWhiteSpace(line))
                                 {
-                                    string[] words = line.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries); //rozdelenie slov v riadku
-                                    if (nacitataneExcitacie == false && double.TryParse(words[0].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double x))
+                                    string[] words = line.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                                    if (double.TryParse(words[0].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double x))
                                     {
-                                        excitacie.Add(x);
-                                    }
+                                        if (excitacie.Count == 0 || excitacie.Last() < x)
+                                            excitacie.Add(x);
 
-                                    if (double.TryParse(words[1].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double result)) //skusam slovo dat na double
-                                    {
-                                        nacitaneData.Add(result);
-                                        row++;
+                                        //TODO co ak chyba nejaka stredna hodnota?
                                     }
                                 }
 
@@ -155,7 +150,36 @@ namespace ProjectConProfile
                                     startReading = true;
 
                             }
-                            nacitataneExcitacie = true;
+
+                        }
+
+                        using (StreamReader reader = new StreamReader(subor))
+                        {
+                            string line;
+                            bool startReading = false;
+                            double?[] nacitaneData = new double?[excitacie.Count];
+
+                            while ((line = reader.ReadLine()) != null)
+                            {
+                                if (startReading && !string.IsNullOrWhiteSpace(line))
+                                {
+                                    string[] words = line.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries); //rozdelenie slov v riadku
+                                    int index = -1;
+                                    if (double.TryParse(words[0].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double x))
+                                    {
+                                        index = excitacie.BinarySearch(x);
+
+                                    }
+                                    if (double.TryParse(words[1].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double result)) //skusam slovo dat na double
+                                    {
+                                        nacitaneData[index] = result;
+                                    }
+                                }
+
+                                if (startReading == false && line == "#DATA") //zacnem nacitavat data po tomto slove
+                                    startReading = true;
+
+                            }
                             zoznamNacitanychDat.Add(new NacitaneData(spektrum, nacitaneData, Path.GetFileName(subor)));
 
                         }
@@ -237,12 +261,13 @@ namespace ProjectConProfile
                 label1.Visible = false;
                 this.panel1.Size = new System.Drawing.Size(1707, 50);
 
-                _profilForm.LocationChanged += (sender, e) => {
+                _profilForm.LocationChanged += (sender, e) =>
+                {
                     _profilForm.Location = new Point(0, 0);
                 };
 
 
-         
+
 
                 buttonMinimalizuj.BringToFront();
                 buttonMinimalizuj.Visible = true;
@@ -268,7 +293,7 @@ namespace ProjectConProfile
 
         }
 
-        
+
         private void buttonSpat_Click(object sender, EventArgs e)
         {
             if (_profilForm != null)
@@ -326,7 +351,7 @@ namespace ProjectConProfile
 
                 if (_profilForm != null)
                 {
-                   _profilForm.WindowState = FormWindowState.Maximized;
+                    _profilForm.WindowState = FormWindowState.Maximized;
                 }
                 panel1.BringToFront();
                 buttonSpat.BringToFront();

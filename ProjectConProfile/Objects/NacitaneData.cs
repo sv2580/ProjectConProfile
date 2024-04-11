@@ -9,11 +9,11 @@ namespace ProjectConProfile.Objects
     public class NacitaneData
     {
         public int _spektrum { get; set; }
-        public List<double> _data { get; set; }
+        public double?[] _data { get; set; }
         public string _nazovSuboru { get; set; }
 
 
-        public NacitaneData(int spektrum, List<double> data, string nazovSuboru)
+        public NacitaneData(int spektrum, double?[] data, string nazovSuboru)
         {
             this._spektrum = spektrum;
             this._data = data;

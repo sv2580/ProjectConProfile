@@ -11,7 +11,7 @@ namespace ProjectConProfile.Objects
         public List<NacitaneData> _nacitaneData { get; set; }
         public List<NasobeneData> _nasobeneData { get; set; }
         public List<double> _excitacia { get; set; }
-        public List<double> _profil { get; set; }
+        public double[] _profil { get; set; }
         public string _nazovPriecinku { get; set; }
 
        
@@ -25,7 +25,7 @@ namespace ProjectConProfile.Objects
         {
             _nacitaneData = nacitaneData;
             _excitacia = excitacia;
-            _profil = new List<double>();
+            _profil = new double[excitacia.Count];
             _nasobeneData = new List<NasobeneData>();
             _nazovPriecinku = nazovPriecinku;
             
@@ -38,16 +38,22 @@ namespace ProjectConProfile.Objects
         public void vytvoritProfil()
         {
             if(_nasobeneData.Count > 0) {
-                for (int i = 0; i < _nasobeneData[0]._nasobeneData.Count; i++)
+                int index = 0;
+                for (int i = 0; i < _excitacia.Count; i++)
                 {
                     double max = -1;
                     for (int j = 0; j < _nasobeneData.Count; j++)
                     {
-                        double pom = _nasobeneData[j]._nasobeneData[i];
-                        if (pom > max)
-                            max = pom;
+                        if (_nasobeneData[j]._nasobeneData[i].HasValue)
+                        {
+                            double pom = _nasobeneData[j]._nasobeneData[i].Value;
+                            if (pom > max)
+                                max = pom;
+                        }
+                     
                     }
-                    _profil.Add(max);
+                    _profil[index] = max;
+                    index++;
                 }
             }
         }

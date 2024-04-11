@@ -76,7 +76,7 @@ namespace ProjectConProfile.Forms
 
             for (int i = 0; i < _projekt._profily.Count; i++)
             {
-                if(_projekt._profily[i]._profil.Count > 0)
+                if(_projekt._profily[i]._profil.Length > 0)
                     treeViewPorovnanie.Nodes.Add(Path.GetFileName(_projekt._profily[i]._nazovPriecinku));
             }
 
@@ -117,7 +117,7 @@ namespace ProjectConProfile.Forms
                 Series series = new Series();
                 series.ChartType = SeriesChartType.Point;
 
-                for (int i = 0; i < data._profil.Count; i++)
+                for (int i = 0; i < data._profil.Length; i++)
                 {
                     series.Points.AddXY(data._excitacia[i], data._profil[i]);
                 }

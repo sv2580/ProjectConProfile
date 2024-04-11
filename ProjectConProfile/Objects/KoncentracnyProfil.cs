@@ -25,7 +25,6 @@ namespace ProjectConProfile.Objects
         {
             _nacitaneData = nacitaneData;
             _excitacia = excitacia;
-            _profil = new double[excitacia.Count];
             _nasobeneData = new List<NasobeneData>();
             _nazovPriecinku = nazovPriecinku;
             
@@ -37,7 +36,9 @@ namespace ProjectConProfile.Objects
 
         public void vytvoritProfil()
         {
-            if(_nasobeneData.Count > 0) {
+            _profil = new double[_excitacia.Count];
+
+            if (_nasobeneData.Count > 0) {
                 int index = 0;
                 for (int i = 0; i < _excitacia.Count; i++)
                 {

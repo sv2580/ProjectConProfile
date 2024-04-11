@@ -36,6 +36,8 @@ namespace ProjectConProfile
 
         public Aplikacia()
         {
+            this.WindowState = FormWindowState.Maximized;
+
             _zvolenyProfil = null;
             InitializeComponent();
             //pohyb okna poocou panel1
@@ -113,13 +115,60 @@ namespace ProjectConProfile
 
                 List<NacitaneData> zoznamNacitanychDat = new List<NacitaneData>();
                 List<double> excitacie = new List<double>();
+                bool excitacieNacitane = false;
+                foreach (string subor in vsetkySubory)
+                {
+                    try
+                    {
+                        using (StreamReader reader = new StreamReader(subor))
+                        {
+                            int index = 0;
+                            string line;
+                            bool startReading = false;
+                            int lastNumOfRows = 0;
+                            while ((line = reader.ReadLine()) != null)
+                            {
+                                if (startReading && !string.IsNullOrWhiteSpace(line))
+                                {
+                                    string[] words = line.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                                    if (double.TryParse(words[0].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double x))
+                                    {
+                                        if (!excitacieNacitane || (excitacieNacitane && lastNumOfRows < index && !excitacie.Contains(x)))
+                                            excitacie.Add(x);
+
+                                        if (index == 362)
+                                            ;
 
 
+
+                                        //TODO co ak chyba nejaka stredna hodnota?
+                                    }                                         
+                                    
+                                   
+                                }
+
+                                if (startReading == false && line == "#DATA") //zacnem nacitavat data po tomto slove
+                                    startReading = true;
+                                index++;
+                            }
+
+                            excitacieNacitane = true;
+                            lastNumOfRows = index;
+
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Pri načítaní súboru došlo k chybe: {ex}");
+                    }
+                }
+                excitacie.Sort();
                 foreach (string subor in vsetkySubory)
                 {
                     int spektrum = -1;
 
-                    string pattern = @"(?<=m)\d+(?=.*\.sp)";
+                    string pattern = @"\d+(?=(\.sp|sp\.sp))";
                     Match typeOfData = Regex.Match(Path.GetFileName(subor), pattern); //chcem extrahovat cislo suboru ako su 0,2 atd pred .sp
                     if (int.TryParse(typeOfData.Value, NumberStyles.Float, CultureInfo.InvariantCulture, out int resultType))
                     {
@@ -128,30 +177,6 @@ namespace ProjectConProfile
 
                     try
                     {
-                        using (StreamReader reader = new StreamReader(subor))
-                        {
-                            string line;
-                            bool startReading = false;
-                            while ((line = reader.ReadLine()) != null)
-                            {
-                                if (startReading && !string.IsNullOrWhiteSpace(line))
-                                {
-                                    string[] words = line.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
-                                    if (double.TryParse(words[0].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double x))
-                                    {
-                                        if (excitacie.Count == 0 || excitacie.Last() < x)
-                                            excitacie.Add(x);
-
-                                        //TODO co ak chyba nejaka stredna hodnota?
-                                    }
-                                }
-
-                                if (startReading == false && line == "#DATA") //zacnem nacitavat data po tomto slove
-                                    startReading = true;
-
-                            }
-
-                        }
 
                         using (StreamReader reader = new StreamReader(subor))
                         {
@@ -198,8 +223,6 @@ namespace ProjectConProfile
             }
             return null;
         }
-
-
 
         private void buttonNacitatProjekt_Click(object sender, EventArgs e)
         {

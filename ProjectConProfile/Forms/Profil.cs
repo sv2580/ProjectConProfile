@@ -73,7 +73,7 @@ namespace ProjectConProfile.Forms
             vytvoritGraf();
 
             if (_nastavenia.cestaKSuboruFakt == null)
-                _nastavenia.cestaKSuboruFakt = "faktory.txt";
+                _nastavenia.cestaKSuboruFakt = "factors.txt";
             nacitanieFaktorov(_nastavenia.cestaKSuboruFakt);
             vytvorComboboxy();
             check_prirucka();
@@ -121,7 +121,7 @@ namespace ProjectConProfile.Forms
                                                 + i * (rozmerX + 10),
                                                   dataGridNacitane.Location.Y - 25);
                 comboBox.Size = new System.Drawing.Size(rozmerX, 21);
-                comboBox.Name = "comboBox" + spektrum;
+                comboBox.Name = "comboBox" + i;
                 buttonNasobit.Location = new Point(dataGridNacitane.Location.X + dataGridNacitane.Width,
                                                   dataGridNacitane.Location.Y - 25);
 
@@ -225,7 +225,7 @@ namespace ProjectConProfile.Forms
             {
                 pridatDoGrafu(_zvolenyProfil._excitacia, data._data, data._spektrum.ToString());
             }
-            if (_zvolenyProfil._profil.Length > 0)
+            if (_zvolenyProfil._profil != null &&_zvolenyProfil._profil.Length > 0)
             {
                 double?[] list = _zvolenyProfil._profil.Select(x => (double?)x).ToArray();
                 pridatDoGrafu(_zvolenyProfil._excitacia, list, "Max");
@@ -325,8 +325,6 @@ namespace ProjectConProfile.Forms
             }
         }
 
-
-
         private void buttonPorovnat_Click(object sender, EventArgs e)
         {
             int profilyNaPorovnanie = 0;
@@ -334,7 +332,7 @@ namespace ProjectConProfile.Forms
 
             foreach (KoncentracnyProfil profil in _projekt._profily)
             {
-                if (profil._profil.Length > 0)
+                if (profil._profil != null && profil._profil.Length > 0)
                     profilyNaPorovnanie++;
                 if (profilyNaPorovnanie == 2)
                     break;
@@ -353,7 +351,6 @@ namespace ProjectConProfile.Forms
 
 
         }
-
 
         private void nacitanieFaktorov(string subor)
         {
@@ -401,7 +398,7 @@ namespace ProjectConProfile.Forms
                     saveFileDialog.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
                     saveFileDialog.Filter = "(*.txt)|*.txt";
                     saveFileDialog.Title = "Vyberte umiestnenie pre vytvorený súbor";
-                    saveFileDialog.FileName = "faktory.txt";
+                    saveFileDialog.FileName = "factors.txt";
 
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
@@ -413,6 +410,17 @@ namespace ProjectConProfile.Forms
                             File.Create(filePath).Close();
                             MessageBox.Show("Prázdny súbor bol vytvorený, nastavenia uložené.", "Informácia", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             _nastavenia.cestaKSuboruFakt = filePath;
+
+                            string[] lines = {
+                                "0 1",
+                                "2 1.4",
+                                "8 2.2",
+                                "32 3.6",
+                                "128 5",
+                                "512 1"
+                            };
+
+                            File.WriteAllLines(filePath, lines);
                         }
                         catch (Exception ex)
                         {
@@ -437,16 +445,19 @@ namespace ProjectConProfile.Forms
             {
                 int spektrum = _zvolenyProfil._nacitaneData[i]._spektrum;
                 double zvolenyFaktor = -1;
-                ComboBox combobox = this.Controls["comboBox" + spektrum] as ComboBox;
+                ComboBox combobox = this.Controls["comboBox" + i] as ComboBox;
                 if (combobox.SelectedIndex == -1)
                 {
-
                     if (combobox.Text != "" && double.TryParse(combobox.Text, NumberStyles.Float, CultureInfo.InvariantCulture, out double faktor))
                     {
-
                         using (StreamWriter writer = new StreamWriter(_nastavenia.cestaKSuboruFakt, true))
                         {
-                            writer.WriteLine(spektrum + " " + faktor);
+                            if (spektrum != -1 && faktor != -1 && !_faktory.GetValue(spektrum).Contains(faktor))
+                            {
+                                writer.WriteLine(spektrum + " " + faktor);
+                                combobox.Items.Add(faktor);
+                                _faktory.AddValue(spektrum,faktor);
+                            }
                         }
                         zvolenyFaktor = faktor;
                     }
@@ -455,7 +466,6 @@ namespace ProjectConProfile.Forms
                         MessageBox.Show("Chybne zadané hodnoty");
                         return;
                     }
-
                 }
                 else
                 {
@@ -474,7 +484,7 @@ namespace ProjectConProfile.Forms
 
             dataGridNasobeneData.DataSource = populovatGrid(true);
 
-            if (_zvolenyProfil._profil.Length > 0)
+            if (_zvolenyProfil._profil != null && _zvolenyProfil._profil.Length > 0)
             {
                 _zvolenyProfil._profil = new double[_zvolenyProfil._excitacia.Count];
                 chart1.Series[chart1.Series.Count - 1].Points.Clear();
@@ -538,7 +548,6 @@ namespace ProjectConProfile.Forms
         {
 
         }
-
 
         private void ExportDataGridsToCSV(DataGridView dataGridView1, DataGridView dataGridView2, DataGridView dataGridView3)
         {
@@ -796,7 +805,6 @@ namespace ProjectConProfile.Forms
 
             return standardDeviationN;
         }
-
 
         private void SaveStatsToFile(string filePath, params object[] variables)
         {

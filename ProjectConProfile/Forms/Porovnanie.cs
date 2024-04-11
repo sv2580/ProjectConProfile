@@ -76,7 +76,7 @@ namespace ProjectConProfile.Forms
 
             for (int i = 0; i < _projekt._profily.Count; i++)
             {
-                if(_projekt._profily[i]._profil.Length > 0)
+                if (_projekt._profily[i]._profil != null &&_projekt._profily[i]._profil.Length > 0)
                     treeViewPorovnanie.Nodes.Add(Path.GetFileName(_projekt._profily[i]._nazovPriecinku));
             }
 

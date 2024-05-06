@@ -43,6 +43,7 @@ namespace ProjectConProfile
             this.buttonZvacsi = new System.Windows.Forms.Button();
             this.buttonZrus = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonExport = new System.Windows.Forms.Button();
             this.panel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -94,6 +95,7 @@ namespace ProjectConProfile
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel.Controls.Add(this.buttonExport);
             this.panel.Controls.Add(this.helpbttn);
             this.panel.Controls.Add(this.buttonNastavenia);
             this.panel.Controls.Add(this.panel1);
@@ -151,7 +153,7 @@ namespace ProjectConProfile
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1571, 96);
             this.panel1.TabIndex = 4;
@@ -164,7 +166,7 @@ namespace ProjectConProfile
             this.buttonMinimalizuj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMinimalizuj.Image = ((System.Drawing.Image)(resources.GetObject("buttonMinimalizuj.Image")));
             this.buttonMinimalizuj.Location = new System.Drawing.Point(1396, 18);
-            this.buttonMinimalizuj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonMinimalizuj.Margin = new System.Windows.Forms.Padding(4);
             this.buttonMinimalizuj.Name = "buttonMinimalizuj";
             this.buttonMinimalizuj.Size = new System.Drawing.Size(39, 28);
             this.buttonMinimalizuj.TabIndex = 8;
@@ -195,7 +197,7 @@ namespace ProjectConProfile
             this.buttonZvacsi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonZvacsi.Image = ((System.Drawing.Image)(resources.GetObject("buttonZvacsi.Image")));
             this.buttonZvacsi.Location = new System.Drawing.Point(1456, 18);
-            this.buttonZvacsi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonZvacsi.Margin = new System.Windows.Forms.Padding(4);
             this.buttonZvacsi.Name = "buttonZvacsi";
             this.buttonZvacsi.Size = new System.Drawing.Size(32, 28);
             this.buttonZvacsi.TabIndex = 7;
@@ -209,7 +211,7 @@ namespace ProjectConProfile
             this.buttonZrus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonZrus.Image = ((System.Drawing.Image)(resources.GetObject("buttonZrus.Image")));
             this.buttonZrus.Location = new System.Drawing.Point(1507, 18);
-            this.buttonZrus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonZrus.Margin = new System.Windows.Forms.Padding(4);
             this.buttonZrus.Name = "buttonZrus";
             this.buttonZrus.Size = new System.Drawing.Size(36, 28);
             this.buttonZrus.TabIndex = 6;
@@ -228,6 +230,27 @@ namespace ProjectConProfile
             this.label1.TabIndex = 5;
             this.label1.Text = "Tvorba Koncentračného Profilu";
             this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // buttonExport
+            // 
+            this.buttonExport.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonExport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.buttonExport.FlatAppearance.BorderSize = 2;
+            this.buttonExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExport.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonExport.ForeColor = System.Drawing.Color.Black;
+            this.buttonExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonExport.Location = new System.Drawing.Point(678, 614);
+            this.buttonExport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonExport.Name = "buttonExport";
+            this.buttonExport.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.buttonExport.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.buttonExport.Size = new System.Drawing.Size(201, 71);
+            this.buttonExport.TabIndex = 29;
+            this.buttonExport.Text = "Exportovať z dát";
+            this.buttonExport.UseMnemonic = false;
+            this.buttonExport.UseVisualStyleBackColor = true;
+            this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
             // 
             // Aplikacia
             // 
@@ -263,6 +286,7 @@ namespace ProjectConProfile
         private System.Windows.Forms.Button buttonZrus;
         private Button buttonNastavenia;
         private Button helpbttn;
+        private Button buttonExport;
     }
 }
 

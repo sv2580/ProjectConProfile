@@ -113,115 +113,113 @@ namespace ProjectConProfile
                     return null;
                 }
 
-                List<NacitaneData> zoznamNacitanychDat = new List<NacitaneData>();
-                List<double> excitacie = new List<double>();
-                bool excitacieNacitane = false;
-                foreach (string subor in vsetkySubory)
-                {
-                    try
-                    {
-                        using (StreamReader reader = new StreamReader(subor))
-                        {
-                            int index = 0;
-                            string line;
-                            bool startReading = false;
-                            int lastNumOfRows = 0;
-                            while ((line = reader.ReadLine()) != null)
-                            {
-                                if (startReading && !string.IsNullOrWhiteSpace(line))
-                                {
-                                    string[] words = line.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
-                                    if (double.TryParse(words[0].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double x))
-                                    {
-                                        if (!excitacieNacitane || (excitacieNacitane && lastNumOfRows < index && !excitacie.Contains(x)))
-                                            excitacie.Add(x);
-
-                                        if (index == 362)
-                                            ;
-
-
-
-                                        //TODO co ak chyba nejaka stredna hodnota?
-                                    }                                         
-                                    
-                                   
-                                }
-
-                                if (startReading == false && line == "#DATA") //zacnem nacitavat data po tomto slove
-                                    startReading = true;
-                                index++;
-                            }
-
-                            excitacieNacitane = true;
-                            lastNumOfRows = index;
-
-                        }
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Pri načítaní súboru došlo k chybe: {ex}");
-                    }
-                }
-                excitacie.Sort();
-                foreach (string subor in vsetkySubory)
-                {
-                    int spektrum = -1;
-
-                    string pattern = @"\d+(?=(\.sp|sp\.sp))";
-                    Match typeOfData = Regex.Match(Path.GetFileName(subor), pattern); //chcem extrahovat cislo suboru ako su 0,2 atd pred .sp
-                    if (int.TryParse(typeOfData.Value, NumberStyles.Float, CultureInfo.InvariantCulture, out int resultType))
-                    {
-                        spektrum = resultType;
-                    }
-
-                    try
-                    {
-
-                        using (StreamReader reader = new StreamReader(subor))
-                        {
-                            string line;
-                            bool startReading = false;
-                            double?[] nacitaneData = new double?[excitacie.Count];
-
-                            while ((line = reader.ReadLine()) != null)
-                            {
-                                if (startReading && !string.IsNullOrWhiteSpace(line))
-                                {
-                                    string[] words = line.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries); //rozdelenie slov v riadku
-                                    int index = -1;
-                                    if (double.TryParse(words[0].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double x))
-                                    {
-                                        index = excitacie.BinarySearch(x);
-
-                                    }
-                                    if (double.TryParse(words[1].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double result)) //skusam slovo dat na double
-                                    {
-                                        nacitaneData[index] = result;
-                                    }
-                                }
-
-                                if (startReading == false && line == "#DATA") //zacnem nacitavat data po tomto slove
-                                    startReading = true;
-
-                            }
-                            zoznamNacitanychDat.Add(new NacitaneData(spektrum, nacitaneData, Path.GetFileName(subor)));
-
-                        }
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Pri načítaní súboru došlo k chybe: {ex}");
-                    }
-                }
-
-                zoznamNacitanychDat = zoznamNacitanychDat.OrderBy(data => data._spektrum).ToList();
-                KoncentracnyProfil profil = new KoncentracnyProfil(zoznamNacitanychDat, excitacie, vybranyPriecinok);
+                KoncentracnyProfil profil = spracujPriecinok(vybranyPriecinok);
                 projekt._profily.Add(profil);
                 return profil;
             }
             return null;
+        }
+
+        private KoncentracnyProfil spracujPriecinok(string priecinokPath)
+        {
+            string[] vsetkySubory = Directory.GetFiles(priecinokPath, "*.sp");
+
+            List<NacitaneData> zoznamNacitanychDat = new List<NacitaneData>();
+            List<double> excitacie = new List<double>();
+            bool excitacieNacitane = false;
+            foreach (string subor in vsetkySubory)
+            {
+                try
+                {
+                    using (StreamReader reader = new StreamReader(subor))
+                    {
+                        int index = 0;
+                        string line;
+                        bool startReading = false;
+                        int lastNumOfRows = 0;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (startReading && !string.IsNullOrWhiteSpace(line))
+                            {
+                                string[] words = line.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                                if (double.TryParse(words[0].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double x))
+                                {
+                                    if (!excitacieNacitane || (excitacieNacitane && lastNumOfRows < index && !excitacie.Contains(x)))
+                                        excitacie.Add(x);
+                                }
+
+                            }
+
+                            if (startReading == false && line == "#DATA")
+                                startReading = true;
+                            index++;
+                        }
+
+                        excitacieNacitane = true;
+                        lastNumOfRows = index;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Pri načítaní súboru došlo k chybe: {ex}");
+                }
+            }
+            excitacie.Sort();
+            foreach (string subor in vsetkySubory)
+            {
+                int spektrum = -1;
+
+                string pattern = @"\d+(?=(\.sp|sp\.sp))";
+                Match typeOfData = Regex.Match(Path.GetFileName(subor), pattern); //chcem extrahovat cislo suboru ako su 0,2 atd pred .sp
+                if (int.TryParse(typeOfData.Value, NumberStyles.Float, CultureInfo.InvariantCulture, out int resultType))
+                {
+                    spektrum = resultType;
+                }
+
+                try
+                {
+
+                    using (StreamReader reader = new StreamReader(subor))
+                    {
+                        string line;
+                        bool startReading = false;
+                        double?[] nacitaneData = new double?[excitacie.Count];
+
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (startReading && !string.IsNullOrWhiteSpace(line))
+                            {
+                                string[] words = line.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries); //rozdelenie slov v riadku
+                                int index = -1;
+                                if (double.TryParse(words[0].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double x))
+                                {
+                                    index = excitacie.BinarySearch(x);
+
+                                }
+                                if (double.TryParse(words[1].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double result)) //skusam slovo dat na double
+                                {
+                                    nacitaneData[index] = result;
+                                }
+                            }
+
+                            if (startReading == false && line == "#DATA") //zacnem nacitavat data po tomto slove
+                                startReading = true;
+
+                        }
+                        zoznamNacitanychDat.Add(new NacitaneData(spektrum, nacitaneData, Path.GetFileName(subor)));
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Pri načítaní súboru došlo k chybe: {ex}");
+                }
+            }
+
+            zoznamNacitanychDat = zoznamNacitanychDat.OrderBy(data => data._spektrum).ToList();
+            KoncentracnyProfil profil = new KoncentracnyProfil(zoznamNacitanychDat, excitacie, priecinokPath);
+            return profil;
         }
 
         private void buttonNacitatProjekt_Click(object sender, EventArgs e)
@@ -444,6 +442,91 @@ namespace ProjectConProfile
         private void helpbttn_Click(object sender, EventArgs e)
         {
             Process.Start(priruckaPath);
+        }
+
+        private void buttonExport_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+
+            if (_nastavenia.cestaKDatam != null)
+                dialog.SelectedPath = _nastavenia.cestaKDatam;
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                Dictionary<int, double> spektraFaktory = new Dictionary<int, double>
+                {
+                    { 0, 1 },{ 2, 1.4 },{ 8, 2.2 },{ 32, 3.6 },{ 128, 5 },{ 512, 1 }
+                };
+                string vybranyPriecinok = dialog.SelectedPath;
+                string[] priecinky = Directory.GetDirectories(vybranyPriecinok);
+                List<string> nenacitanePriecinky = new List<string>();
+                List<KoncentracnyProfil> profily = new List<KoncentracnyProfil>();
+                foreach (string podpriecinok in priecinky)
+                {
+                    KoncentracnyProfil profil = spracujPriecinok(podpriecinok);
+                    if (profil != null)
+                    {
+                        for (int i = 0; i < profil._nacitaneData.Count; i++)
+                        {
+                            double faktor = 1;
+                            if (spektraFaktory.ContainsKey(profil._nacitaneData[i]._spektrum))
+                                faktor = spektraFaktory[profil._nacitaneData[i]._spektrum];
+                            NasobeneData data = new NasobeneData(faktor);
+                            profil._nasobeneData.Add(data);
+                            profil._nasobeneData[i].nasobData(profil._nacitaneData[i]);
+                            profil.vytvoritProfil();
+                        }
+                        profily.Add(profil);
+
+                    }
+                    else
+                    {
+                        nenacitanePriecinky.Add(podpriecinok);
+                    }
+                }
+
+                if (nenacitanePriecinky.Count > 0)
+                {
+                    string message = "Pri načítaní nasledujúcich priečinkov došlo k chybe: " + string.Join(" ", nenacitanePriecinky);
+
+                    MessageBox.Show(message);
+                }
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "CSV súbory (*.csv)|*.csv";
+                saveFileDialog.Title = "Vyberte umiestnenie pre exportovaný CSV súbor";
+                if (_nastavenia.cestaNaUkladanie != null)
+                    saveFileDialog.InitialDirectory = _nastavenia.cestaNaUkladanie;
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName))
+                    {
+                        writer.Write("Excitacie" + ";");
+                        foreach (KoncentracnyProfil profil in profily)
+                        {
+                            writer.Write(Path.GetFileName(profil._nazovPriecinku) + ";");
+                        }
+                        writer.WriteLine();
+
+
+                        int maxRowCount = profily[0]._excitacia.Count;
+
+                        for (int i = 0; i < maxRowCount; i++)
+                        {
+                            writer.Write(profily[0]._excitacia[i] + ";");
+                            foreach (KoncentracnyProfil profil in profily)
+                            {
+                                writer.Write(profil._profil[i] + ";");
+                            }
+                            writer.WriteLine();
+                        }
+                    }
+
+                    MessageBox.Show("Dáta boli úspešne exportované do súboru " + saveFileDialog.FileName + ".");
+                }
+
+            }
         }
     }
 
